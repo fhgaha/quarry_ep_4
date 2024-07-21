@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq2fbkdxkqiah"]
+
+[ext_resource type="Script" path="res://game/rooms/parking_1/room_parking_1.gd" id="1_kg1lh"]
+[ext_resource type="PackedScene" uid="uid://cfokoju42q611" path="res://game/rooms/parking_1/props/floor/prop_floor.tscn" id="2_07fn2"]
+[ext_resource type="PackedScene" uid="uid://dyugeniqua86t" path="res://game/rooms/parking_1/props/roof/prop_roof.tscn" id="3_cw81d"]
+[ext_resource type="PackedScene" uid="uid://caqp6vhbq6xby" path="res://game/rooms/parking_1/props/cars/prop_cars.tscn" id="4_djkoo"]
+
+[node name="RoomParking1" type="Node2D"]
+script = ExtResource("1_kg1lh")
+script_name = "Parking1"
+popochiu_placeholder = null
+metadata/_popochiu_aseprite_config_ = {
+"o_folder": "",
+"o_name": "",
+"only_visible_layers": false,
+"op_exp": true,
+"source": "res://aseprite/parking/parking1.aseprite",
+"tags": [{
+"direction": "forward",
+"from": 0,
+"import": true,
+"loops": true,
+"prop_clickable": false,
+"prop_visible": true,
+"tag_name": "floor",
+"to": 3.0
+}, {
+"direction": "forward",
+"from": 0,
+"import": true,
+"loops": true,
+"prop_clickable": true,
+"prop_visible": true,
+"tag_name": "cars",
+"to": 2.0
+}, {
+"direction": "forward",
+"from": 0,
+"import": true,
+"loops": true,
+"prop_clickable": false,
+"prop_visible": true,
+"tag_name": "roof",
+"to": 3.0
+}],
+"wipe_old_anims": true
+}
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Cars" parent="Props" instance=ExtResource("4_djkoo")]
+position = Vector2(160, 160)
+
+[node name="Floor" parent="Props" instance=ExtResource("2_07fn2")]
+position = Vector2(160, 160)
+
+[node name="Roof" parent="Props" instance=ExtResource("3_cw81d")]
+position = Vector2(160, 160)
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="Characters" type="Node2D" parent="."]

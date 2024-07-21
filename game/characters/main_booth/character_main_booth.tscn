@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds47lqrmn6fut"]
+
+[ext_resource type="Script" path="res://game/characters/main_booth/character_main_booth.gd" id="1_xdfrf"]
+
+[node name="CharacterMainBooth" type="Area2D"]
+script = ExtResource("1_xdfrf")
+text_color = Color(0.966461, 0.836475, 0.606947, 1)
+popochiu_placeholder = null
+script_name = "MainBooth"
+description = "Main Booth"
+cursor = 8
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="ScalingPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="DialogPos" type="Marker2D" parent="."]
+visible = false

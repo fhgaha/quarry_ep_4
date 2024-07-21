@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtejpc7uifbib"]
+
+[ext_resource type="Script" path="res://game/rooms/telephone_booth/room_telephone_booth.gd" id="1_8f4rb"]
+[ext_resource type="PackedScene" uid="uid://bkhywi1da1q7d" path="res://game/rooms/telephone_booth/props/bg/prop_bg.tscn" id="2_x8dwa"]
+[ext_resource type="PackedScene" uid="uid://dcwvlcus00guy" path="res://game/rooms/telephone_booth/props/inside_booth/prop_inside_booth.tscn" id="3_4dt2c"]
+[ext_resource type="PackedScene" uid="uid://bsmrim36p280w" path="res://game/rooms/telephone_booth/props/booth/prop_booth.tscn" id="4_b511e"]
+[ext_resource type="PackedScene" uid="uid://b6262qyybx3v3" path="res://game/rooms/telephone_booth/props/char/prop_char.tscn" id="5_fkkbv"]
+[ext_resource type="PackedScene" uid="uid://ds47lqrmn6fut" path="res://game/characters/main_booth/character_main_booth.tscn" id="6_wjb88"]
+
+[node name="RoomTelephoneBooth" type="Node2D"]
+position = Vector2(3, -5)
+script = ExtResource("1_8f4rb")
+script_name = "TelephoneBooth"
+popochiu_placeholder = null
+metadata/_popochiu_aseprite_config_ = {
+"o_folder": "",
+"o_name": "",
+"only_visible_layers": false,
+"op_exp": false,
+"source": "res://aseprite/TelephoneBooth/booth2.aseprite",
+"tags": [{
+"direction": "forward",
+"from": 0,
+"import": true,
+"loops": true,
+"prop_clickable": false,
+"prop_visible": true,
+"tag_name": "bg",
+"to": 2.0
+}, {
+"direction": "forward",
+"from": 0,
+"import": true,
+"loops": true,
+"prop_clickable": true,
+"prop_visible": true,
+"tag_name": "char",
+"to": 1.0
+}, {
+"direction": "forward",
+"from": 0,
+"import": true,
+"loops": true,
+"prop_clickable": false,
+"prop_visible": true,
+"tag_name": "inside_booth",
+"to": 2.0
+}, {
+"direction": "forward",
+"from": 0,
+"import": true,
+"loops": true,
+"prop_clickable": false,
+"prop_visible": true,
+"tag_name": "booth",
+"to": 2.0
+}],
+"wipe_old_anims": true
+}
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Bg" parent="Props" instance=ExtResource("2_x8dwa")]
+
+[node name="Char" parent="Props" instance=ExtResource("5_fkkbv")]
+position = Vector2(158, 95)
+
+[node name="InsideBooth" parent="Props" instance=ExtResource("3_4dt2c")]
+
+[node name="Booth" parent="Props" instance=ExtResource("4_b511e")]
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="CharacterMainBooth *" parent="Characters" instance=ExtResource("6_wjb88")]
+position = Vector2(115, 122)

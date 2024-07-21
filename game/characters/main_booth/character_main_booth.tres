@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c57hxs6vfxhtj"]
+
+[ext_resource type="Script" path="res://game/characters/main_booth/character_main_booth_state.gd" id="1_4pkcu"]
+
+[resource]
+resource_name = "MainBooth"
+script = ExtResource("1_4pkcu")
+script_name = "MainBooth"
+scene = "res://game/characters/main_booth/character_main_booth.tscn"

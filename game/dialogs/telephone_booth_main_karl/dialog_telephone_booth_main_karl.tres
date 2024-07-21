@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bkt2lxat2qg1e"]
+
+[ext_resource type="Script" path="res://game/dialogs/telephone_booth_main_karl/dialog_telephone_booth_main_karl.gd" id="1_15d6y"]
+
+[resource]
+resource_name = "TelephoneBoothMainKarl"
+script = ExtResource("1_15d6y")
+script_name = "TelephoneBoothMainKarl"
+options = Array[Resource("res://addons/popochiu/engine/objects/dialog/popochiu_dialog_option.gd")]([])

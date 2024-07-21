@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bh8k1ekkcs561"]
+
+[ext_resource type="Script" path="res://game/rooms/parking_1/room_parking_1_state.gd" id="1_lgaj2"]
+
+[resource]
+resource_name = "Parking1"
+script = ExtResource("1_lgaj2")
+script_name = "Parking1"
+scene = "res://game/rooms/parking_1/room_parking_1.tscn"
+visited = false
+visited_first_time = false
+visited_times = 0
