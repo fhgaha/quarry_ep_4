@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6t5u1u30w4fl"
-path="res://.godot/imported/bg.png-dbc95206461822422288cc5a44b35bde.ctex"
+uid="uid://c03fytb2oin44"
+path="res://.godot/imported/inside_booth.png-584e562f7e4d3993be1851381fd224c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/rooms/telephone_booth/props/bg/bg.png"
-dest_files=["res://.godot/imported/bg.png-dbc95206461822422288cc5a44b35bde.ctex"]
+source_file="res://game/game/rooms/telephone_booth/props/inside_booth/inside_booth.png"
+dest_files=["res://.godot/imported/inside_booth.png-584e562f7e4d3993be1851381fd224c4.ctex"]
 
 [params]
 

@@ -68,3 +68,54 @@ func evaluate(command, variable_names = [], variable_values = []) -> void:
 	
 	if expression.has_execute_failed():
 		push_error("Could'nt execute the expression: %s" % result)
+
+func show_frame(idx: int):
+	var prop := (R.current as PopochiuRoom).get_prop("Char")
+	(prop.find_child("AnimationPlayer") as AnimationPlayer).stop()
+	prints("before:", (prop.get_child(1) as Sprite2D).frame)
+	(prop.get_child(1) as Sprite2D).frame = idx
+	prints("after:", (prop.get_child(1) as Sprite2D).frame)
+
+func wait(seconds: float = 1.0):
+	await E.wait(seconds)
+
+
+func frame_test():
+	var prop = (R.current as PopochiuRoom).get_prop("Char")
+	#prop.frames = 2
+	#prop.v_frames = 2
+	#
+	#prints("frms:", prop.frames, prop.v_frames)
+	#await E.wait()
+	#prop.current_frame = 0
+	#await E.wait()
+	#print(prop.current_frame)
+	#prop.current_frame = 1
+	#await E.wait()
+	#print(prop.current_frame)
+	#prop.current_frame = 2
+	#await E.wait()
+	#print(prop.current_frame)
+	#prop.current_frame = 3
+	#await E.wait()
+	#print(prop.current_frame)
+	#prop.current_frame = 4
+	#await E.wait()
+	#print(prop.current_frame)
+	
+	await E.wait()
+	(prop.get_child(1) as Sprite2D).frame = 0
+	await E.wait()
+	print(prop.current_frame)
+	(prop.get_child(1) as Sprite2D).frame = 1
+	await E.wait()
+	print(prop.current_frame)
+	(prop.get_child(1) as Sprite2D).frame = 2
+	await E.wait()
+	print(prop.current_frame)
+	(prop.get_child(1) as Sprite2D).frame = 3
+	await E.wait()
+	print(prop.current_frame)
+	(prop.get_child(1) as Sprite2D).frame = 4
+	await E.wait()
+	print(prop.current_frame)

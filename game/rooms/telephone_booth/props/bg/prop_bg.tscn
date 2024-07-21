@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkhywi1da1q7d"]
+[gd_scene load_steps=5 format=3 uid="uid://dkwxyp0ovfu6u"]
 
 [ext_resource type="Script" path="res://game/rooms/telephone_booth/props/bg/prop_bg.gd" id="1_jg6fm"]
-[ext_resource type="Texture2D" uid="uid://52vm0gygnklo" path="res://game/rooms/telephone_booth/props/bg/bg.png" id="2_40qbp"]
+[ext_resource type="Texture2D" uid="uid://6t5u1u30w4fl" path="res://game/rooms/telephone_booth/props/bg/bg.png" id="2_40qbp"]
 
-[sub_resource type="Animation" id="Animation_c58s0"]
+[sub_resource type="Animation" id="Animation_wy06q"]
 length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
@@ -55,19 +55,19 @@ tracks/3/keys = {
 "values": [0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_mlsaa"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w0lgy"]
 _data = {
-"bg": SubResource("Animation_c58s0")
+"bg": SubResource("Animation_wy06q")
 }
 
 [node name="Bg" type="Area2D"]
 z_index = -1
-position = Vector2(157, 95)
+position = Vector2(160, 90)
 script = ExtResource("1_jg6fm")
 script_name = "Bg"
 description = "Bg"
 clickable = false
-baseline = -160
+baseline = -90
 cursor = 1
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 metadata/ANIM_NAME = "bg"
@@ -82,6 +82,6 @@ texture = ExtResource("2_40qbp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_mlsaa")
+"": SubResource("AnimationLibrary_w0lgy")
 }
 autoplay = "bg"

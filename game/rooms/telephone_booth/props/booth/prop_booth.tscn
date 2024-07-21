@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsmrim36p280w"]
+[gd_scene load_steps=5 format=3 uid="uid://b45rv57k72y31"]
 
 [ext_resource type="Script" path="res://game/rooms/telephone_booth/props/booth/prop_booth.gd" id="1_0oe6o"]
-[ext_resource type="Texture2D" uid="uid://biorn4quonvnh" path="res://game/rooms/telephone_booth/props/booth/booth.png" id="2_xlu0y"]
+[ext_resource type="Texture2D" uid="uid://cgmhbavanjt2c" path="res://game/rooms/telephone_booth/props/booth/booth.png" id="2_xlu0y"]
 
-[sub_resource type="Animation" id="Animation_s1nba"]
+[sub_resource type="Animation" id="Animation_ukwq2"]
 length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
@@ -55,13 +55,13 @@ tracks/3/keys = {
 "values": [0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qsilj"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_akppa"]
 _data = {
-"booth": SubResource("Animation_s1nba")
+"booth": SubResource("Animation_ukwq2")
 }
 
 [node name="Booth" type="Area2D"]
-position = Vector2(157, 95)
+position = Vector2(160, 90)
 script = ExtResource("1_0oe6o")
 script_name = "Booth"
 description = "Booth"
@@ -80,6 +80,6 @@ texture = ExtResource("2_xlu0y")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_qsilj")
+"": SubResource("AnimationLibrary_akppa")
 }
 autoplay = "booth"

@@ -48,6 +48,7 @@ func handle(option: String = "", data: ToPopochiuDialogue = null) -> ToPopochiuD
 	elif cur_node is CallNodeData:
 		cur_node = cur_node as CallNodeData
 		# execure text
+		# problem - all the call nodes execute before a dialg with options met
 		D.current_dialog.evaluate(cur_node.text)
 		handle("", data)
 	

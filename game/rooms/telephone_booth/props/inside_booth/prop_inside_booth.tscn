@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcwvlcus00guy"]
+[gd_scene load_steps=5 format=3 uid="uid://nt7h3bv3tuu7"]
 
 [ext_resource type="Script" path="res://game/rooms/telephone_booth/props/inside_booth/prop_inside_booth.gd" id="1_srohh"]
-[ext_resource type="Texture2D" uid="uid://5e8leqt0lkgg" path="res://game/rooms/telephone_booth/props/inside_booth/inside_booth.png" id="2_2v7b6"]
+[ext_resource type="Texture2D" uid="uid://c5jkpc0e24g2o" path="res://game/rooms/telephone_booth/props/inside_booth/inside_booth.png" id="2_2v7b6"]
 
-[sub_resource type="Animation" id="Animation_gpyg2"]
+[sub_resource type="Animation" id="Animation_rgom2"]
 length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
@@ -55,13 +55,13 @@ tracks/3/keys = {
 "values": [0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_loafq"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kfuwc"]
 _data = {
-"inside_booth": SubResource("Animation_gpyg2")
+"inside_booth": SubResource("Animation_rgom2")
 }
 
 [node name="InsideBooth" type="Area2D"]
-position = Vector2(157, 95)
+position = Vector2(160, 90)
 script = ExtResource("1_srohh")
 script_name = "InsideBooth"
 description = "Inside Booth"
@@ -80,6 +80,6 @@ texture = ExtResource("2_2v7b6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_loafq")
+"": SubResource("AnimationLibrary_kfuwc")
 }
 autoplay = "inside_booth"

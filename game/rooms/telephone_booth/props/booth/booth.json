@@ -18,9 +18,9 @@
   "scale": "1",
   "frameTags": [
    { "name": "bg", "from": 1, "to": 1, "direction": "forward", "color": "#000000ff" },
-   { "name": "char", "from": 2, "to": 2, "direction": "forward", "color": "#000000ff" },
-   { "name": "inside_booth", "from": 3, "to": 3, "direction": "forward", "color": "#000000ff" },
-   { "name": "booth", "from": 4, "to": 4, "direction": "forward", "color": "#000000ff" }
+   { "name": "char", "from": 2, "to": 5, "direction": "forward", "color": "#000000ff" },
+   { "name": "inside_booth", "from": 6, "to": 6, "direction": "forward", "color": "#000000ff" },
+   { "name": "booth", "from": 7, "to": 7, "direction": "forward", "color": "#000000ff" }
   ]
  }
 }
