@@ -14,6 +14,7 @@ var cur_node: NodeData
 func handle(option: String = "", data: ToPopochiuDialogue = null) -> ToPopochiuDialogue:
 	if !data: data = ToPopochiuDialogue.new()
 	if !cur_node: cur_node = get_start_node()
+	
 	var from_node_conections: Array = connections.filter(
 		func(cn): return cn["from_node"] == cur_node.name)
 	if from_node_conections.size() == 0:
@@ -47,9 +48,10 @@ func handle(option: String = "", data: ToPopochiuDialogue = null) -> ToPopochiuD
 		handle("", data)
 	elif cur_node is CallNodeData:
 		cur_node = cur_node as CallNodeData
-		# execure text
-		# problem - all the call nodes execute before a dialg with options met
-		D.current_dialog.evaluate(cur_node.text)
+		#this varible is required otherwise cur_node will be not desired 
+		#during evaluation
+		var txt = cur_node.text
+		data.callables.append(func(): D.current_dialog.evaluate(txt))
 		handle("", data)
 	
 	return data

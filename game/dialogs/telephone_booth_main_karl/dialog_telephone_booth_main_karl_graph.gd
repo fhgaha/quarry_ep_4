@@ -25,7 +25,8 @@ func _option_selected(opt: PopochiuDialogOption) -> void:
 	for cb: Callable in data.callables:
 		await cb.call()
 	var opts: Array[PopochiuDialogOption] = []
-	for op: String in data.options.filter(func(opt: String): return !opt.is_empty()):
+	for op: String in data.options.filter(
+		func(opt_: String): return !opt_.is_empty()):
 		var popo_opt:PopochiuDialogOption = create_opt(op, op)
 		opts.append(popo_opt)
 	update_options(opts)
@@ -71,10 +72,7 @@ func evaluate(command, variable_names = [], variable_values = []) -> void:
 
 func show_frame(idx: int):
 	var prop := (R.current as PopochiuRoom).get_prop("Char")
-	(prop.find_child("AnimationPlayer") as AnimationPlayer).stop()
-	prints("before:", (prop.get_child(1) as Sprite2D).frame)
 	(prop.get_child(1) as Sprite2D).frame = idx
-	prints("after:", (prop.get_child(1) as Sprite2D).frame)
 
 func wait(seconds: float = 1.0):
 	await E.wait(seconds)
