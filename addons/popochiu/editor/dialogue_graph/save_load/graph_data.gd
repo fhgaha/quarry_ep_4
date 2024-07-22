@@ -48,7 +48,7 @@ func handle(option: String = "", data: ToPopochiuDialogue = null) -> ToPopochiuD
 		handle("", data)
 	elif cur_node is CallNodeData:
 		cur_node = cur_node as CallNodeData
-		#this varible is required otherwise cur_node will be not desired 
+		#this varible is required otherwise cur_node will be not desired object
 		#during evaluation
 		var txt = cur_node.text
 		data.callables.append(func(): D.current_dialog.evaluate(txt))
@@ -102,63 +102,66 @@ func next(node: NodeData, option: String = "") -> NodeData:
 			)[0]
 			return next_node
 		2:
-			assert(cur_node is ConditionNodeData, 
-			"Two connections from node but the node is not ConditionNodeData")
+			if cur_node is ConditionNodeData:
+				cur_node = cur_node as ConditionNodeData
+				
+				#variables:
+				#{ "var1": { "type": 4, "value": "adasd" }, "var2": { "type": 2, "value": 11 }, "var3": { "type": 3, "value": 11.11 }, "var4": { "type": 1, "value": true } }
+				
+				#evaluate condition
+				var value1: Variant = variables[cur_node.value1]["value"]
+				var value2: Variant
+				
+				match variables[cur_node.value1]["type"]:
+					TYPE_STRING:
+						value1 = (value1 as String).to_lower()
+						value2 = (cur_node.value2 as String).to_lower()
+					TYPE_INT:
+						value2 = cur_node.value2.to_int()
+					TYPE_FLOAT:
+						value2 = cur_node.value2.to_float()
+					TYPE_BOOL:
+						value2 = true if cur_node.value2.to_lower() == "true" else false
+					_:
+						pass
+				prints(type_string(typeof(value1)), type_string(typeof(value2)))
+				var condition_result: bool
+				match cur_node.operator:
+					"==": condition_result = value1 == value2
+					"!=": condition_result = value1 != value2
+					">" : condition_result = value1 > value2
+					"<" : condition_result = value1 < value2
+					">=": condition_result = value1 >= value2
+					"<=": condition_result = value1 <= value2
+					_: pass
 			
-			cur_node = cur_node as ConditionNodeData
-			
-			#variables:
-			#{ "var1": { "type": 4, "value": "adasd" }, "var2": { "type": 2, "value": 11 }, "var3": { "type": 3, "value": 11.11 }, "var4": { "type": 1, "value": true } }
-			
-			#evaluate condition
-			var value1: Variant = variables[cur_node.value1]["value"]
-			var value2: Variant
-			
-			match variables[cur_node.value1]["type"]:
-				TYPE_STRING:
-					value1 = (value1 as String).to_lower()
-					value2 = (cur_node.value2 as String).to_lower()
-				TYPE_INT:
-					value2 = cur_node.value2.to_int()
-				TYPE_FLOAT:
-					value2 = cur_node.value2.to_float()
-				TYPE_BOOL:
-					value2 = true if cur_node.value2.to_lower() == "true" else false
-				_:
-					pass
-			prints(type_string(typeof(value1)), type_string(typeof(value2)))
-			var condition_result: bool
-			match cur_node.operator:
-				"==": condition_result = value1 == value2
-				"!=": condition_result = value1 != value2
-				">" : condition_result = value1 > value2
-				"<" : condition_result = value1 < value2
-				">=": condition_result = value1 >= value2
-				"<=": condition_result = value1 <= value2
-				_: pass
-			
-			var con_idx : int = 0 if condition_result else 1
-			var next_node_name: String = from_node_cons.filter(func(c: Dictionary):
-				return c["from_port"] == con_idx)[0]["to_node"]
-			var next_node: NodeData = nodes.filter(
-				func(n): return n.name == next_node_name
-			)[0]
-			return next_node
+				var con_idx : int = 0 if condition_result else 1
+				var next_node_name: String = from_node_cons.filter(func(c: Dictionary):
+					return c["from_port"] == con_idx)[0]["to_node"]
+				var next_node: NodeData = nodes.filter(
+					func(n): return n.name == next_node_name
+				)[0]
+				return next_node
+			else:
+				return get_next_node_data_from_dialogue_node(from_node_cons, option)
 		_:
 			assert(!option.is_empty(), "Option should not be emtpy at this point")
-			
-			var idx: int = cur_node.options.find(option)
-			if idx == -1:
-				push_error("node %s has no option %s" % cur_node, option)
-			
-			var con: Dictionary = from_node_cons.filter(
-				func(cn: Dictionary):
-					return cn["from_port"] == idx
-			)[0]
-			var next_node = nodes.filter(
-				func(n: NodeData):
-					return n.name == str(con["to_node"])
-			)[0]
-			return next_node
+			return get_next_node_data_from_dialogue_node(from_node_cons, option)
 	
 	pass
+
+func get_next_node_data_from_dialogue_node(
+	from_node_cons: Array, option: String = "") -> NodeData:
+	var idx: int = cur_node.options.find(option)
+	if idx == -1:
+		push_error("node %s has no option %s" % cur_node, option)
+	
+	var con: Dictionary = from_node_cons.filter(
+		func(cn: Dictionary):
+			return cn["from_port"] == idx
+	)[0]
+	var next_node = nodes.filter(
+		func(n: NodeData):
+			return n.name == str(con["to_node"])
+	)[0]
+	return next_node

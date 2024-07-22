@@ -14,6 +14,9 @@ func play(wait_to_end := false, position_2d := Vector2.ZERO) -> void:
 	else:
 		E.am.play_sound_cue(resource_name, position_2d)
 
+func play_interrupt(position_2d := Vector2.ZERO):
+	E.am.stop(resource_name)
+	E.am.play_sound_cue(resource_name, position_2d)
 
 ## Plays this audio cue. If [param wait_to_end] is set to [code]true[/code], the function will pause
 ## until the audio clip finishes. You can play the file from a specific [param position_2d] in the

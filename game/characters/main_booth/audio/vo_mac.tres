@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AudioCueSound" load_steps=3 format=3 uid="uid://c3afeqxdycrk6"]
+
+[ext_resource type="AudioStream" uid="uid://dfraq8ul3ss32" path="res://game/characters/main_booth/audio/vo_mac.wav" id="1_qpdr8"]
+[ext_resource type="Script" path="res://addons/popochiu/engine/audio_manager/audio_cue_sound.gd" id="2_ubmq2"]
+
+[resource]
+resource_name = "vo_mac"
+script = ExtResource("2_ubmq2")
+audio = ExtResource("1_qpdr8")
+loop = false
+is_2d = true
+can_play_simultaneous = true
+pitch = 0.0
+volume = 10.0
+rnd_pitch = Vector2(0, 0)
+rnd_volume = Vector2(0, 0)
+max_distance = 2000
+bus = "Master"

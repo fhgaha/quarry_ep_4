@@ -430,6 +430,12 @@ func say(dialog: String, emo := "") -> void:
 	if not vo_name.is_empty() and A.get(vo_name):
 		A[vo_name].play(false, global_position)
 	
+	#var vo_name := _get_vo_cue(emotion)
+	#if not vo_name.is_empty() and A.get(vo_name):
+		#for i in dialog.length():
+			#A[vo_name].play(false, global_position)
+			#await get_tree().create_timer(E.settings.text_speed).timeout
+	
 	C.character_spoke.emit(self, dialog)
 	
 	await G.dialog_line_finished

@@ -65,7 +65,7 @@ func evaluate(command, variable_names = [], variable_values = []) -> void:
 		push_error(expression.get_error_text())
 		return
 	
-	var result = await expression.execute(variable_values, self)
+	var result = expression.execute(variable_values, self)
 	
 	if expression.has_execute_failed():
 		push_error("Could'nt execute the expression: %s" % result)

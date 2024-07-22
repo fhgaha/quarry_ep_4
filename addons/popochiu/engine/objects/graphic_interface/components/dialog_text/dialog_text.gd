@@ -179,7 +179,7 @@ func play_text(props: Dictionary) -> void:
 			]
 	
 	if _secs_per_character > 0.0:
-		# The text will appear with an animation
+		#The text will appear with an animation
 		if is_instance_valid(_tween) and _tween.is_running():
 			_tween.kill()
 		
@@ -189,6 +189,14 @@ func play_text(props: Dictionary) -> void:
 			1,
 			_secs_per_character * get_total_character_count()
 		).from(0.0)
+		
+		if !props.vo_name.is_empty():
+			_tween.set_parallel()
+			_tween.tween_method(
+				A[props.vo_name].play, 
+				0, 1, _secs_per_character * get_total_character_count()
+			)
+		
 		_tween.finished.connect(_wait_input)
 	else:
 		_wait_input()
@@ -255,6 +263,7 @@ func _show_dialogue(chr: PopochiuCharacter, msg := "") -> void:
 		position = PopochiuUtils.get_screen_coords_for(chr.dialog_pos).floor() / (
 			E.scale if E.settings.scale_gui else Vector2.ONE
 		),
+		vo_name = chr._get_vo_cue(chr.emotion)
 	})
 	
 	G.dialog_line_started.emit()
