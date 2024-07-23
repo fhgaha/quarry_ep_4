@@ -77,6 +77,11 @@ func show_frame(idx: int):
 func wait(seconds: float = 1.0):
 	await E.wait(seconds)
 
+func play_coin_sound():
+	A.sfx_coin.play()
+
+func play_hang_phone_sound():
+	A.sfx_phone_slam_down.play()
 
 func frame_test():
 	var prop = (R.current as PopochiuRoom).get_prop("Char")

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AudioCueSound" load_steps=3 format=3 uid="uid://ctws8egnnolly"]
+
+[ext_resource type="AudioStream" uid="uid://ewgi2svl7apo" path="res://game/rooms/telephone_booth/props/booth/sfx_phone_slam_down.ogg" id="1_ltxhj"]
+[ext_resource type="Script" path="res://addons/popochiu/engine/audio_manager/audio_cue_sound.gd" id="2_k7s4p"]
+
+[resource]
+resource_name = "sfx_phone_slam_down"
+script = ExtResource("2_k7s4p")
+audio = ExtResource("1_ltxhj")
+loop = false
+is_2d = false
+can_play_simultaneous = true
+pitch = 0.0
+volume = 0.0
+rnd_pitch = Vector2(0, 0)
+rnd_volume = Vector2(0, 0)
+max_distance = 2000
+bus = "Master"

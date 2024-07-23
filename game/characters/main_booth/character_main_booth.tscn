@@ -32,11 +32,11 @@ can_move = false
 popochiu_placeholder = null
 script_name = "MainBooth"
 description = "Main Booth"
+clickable = false
 cursor = 8
 interaction_polygon = PackedVector2Array()
 
 [node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
-visible = false
 polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
 [node name="ScalingPolygon" type="CollisionPolygon2D" parent="."]
@@ -48,4 +48,3 @@ polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
 texture_filter = 1
 
 [node name="DialogPos" type="Marker2D" parent="."]
-visible = false

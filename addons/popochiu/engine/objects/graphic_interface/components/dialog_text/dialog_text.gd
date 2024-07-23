@@ -183,7 +183,8 @@ func play_text(props: Dictionary) -> void:
 		if is_instance_valid(_tween) and _tween.is_running():
 			_tween.kill()
 		
-		const VO_MAC = preload("res://game/characters/main_booth/audio/vo_mac.ogg")
+		var tres_path := (A[props.vo_name] as AudioCueSound).resource_path.replace('.tres', '.ogg')
+		var VO_MAC = load(tres_path)
 		var pl := AudioStreamPlayer2D.new()
 		pl.stream = VO_MAC
 		add_child(pl)
