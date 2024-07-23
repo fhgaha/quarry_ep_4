@@ -1,13 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://dk1epik5klynj"]
 
 [ext_resource type="Script" path="res://game/characters/main_parking_1/character_main_parking_1.gd" id="1_ge7vy"]
-[ext_resource type="Texture2D" uid="uid://ohdgx65mfwvr" path="res://aseprite/parking/stacked_test.png" id="2_t4un7"]
+[ext_resource type="Texture2D" uid="uid://ohdgx65mfwvr" path="res://assets/aseprite/parking/stacked_test.png" id="2_t4un7"]
 
 [node name="CharacterMainParking1" type="Area2D"]
 script = ExtResource("1_ge7vy")
+walk_speed = 50.0
 popochiu_placeholder = null
 script_name = "MainParking1"
 description = "Main Parking 1"
+clickable = false
 cursor = 8
 interaction_polygon = PackedVector2Array()
 
@@ -22,9 +24,10 @@ polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -12)
 scale = Vector2(1.44, 1.44)
 texture = ExtResource("2_t4un7")
-hframes = 16
+hframes = 17
 
 [node name="DialogPos" type="Marker2D" parent="."]
 visible = false

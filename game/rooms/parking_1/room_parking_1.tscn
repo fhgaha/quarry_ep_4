@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://cq2fbkdxkqiah"]
+[gd_scene load_steps=8 format=3 uid="uid://cq2fbkdxkqiah"]
 
 [ext_resource type="Script" path="res://game/rooms/parking_1/room_parking_1.gd" id="1_kg1lh"]
+[ext_resource type="PackedScene" uid="uid://d30p670dok3wg" path="res://game/rooms/parking_1/walkable_areas/area_1/walkable_area_area_1.tscn" id="2_2sixt"]
 [ext_resource type="PackedScene" uid="uid://cfokoju42q611" path="res://game/rooms/parking_1/props/floor/prop_floor.tscn" id="2_07fn2"]
 [ext_resource type="PackedScene" uid="uid://dyugeniqua86t" path="res://game/rooms/parking_1/props/roof/prop_roof.tscn" id="3_cw81d"]
 [ext_resource type="PackedScene" uid="uid://caqp6vhbq6xby" path="res://game/rooms/parking_1/props/cars/prop_cars.tscn" id="4_djkoo"]
 [ext_resource type="PackedScene" uid="uid://dk1epik5klynj" path="res://game/characters/main_parking_1/character_main_parking_1.tscn" id="5_hjkfk"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xwofp"]
+vertices = PackedVector2Array(146, 86, -3, 195, -157, 89, -8, -2)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-157, 89, -8, -2, 146, 86, -3, 195)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
 
 [node name="RoomParking1" type="Node2D"]
 script = ExtResource("1_kg1lh")
@@ -48,6 +56,13 @@ metadata/_popochiu_aseprite_config_ = {
 }
 
 [node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="Area1" parent="WalkableAreas" instance=ExtResource("2_2sixt")]
+position = Vector2(160, 90)
+
+[node name="Perimeter" type="NavigationRegion2D" parent="WalkableAreas/Area1"]
+modulate = Color(0, 1, 0, 1)
+navigation_polygon = SubResource("NavigationPolygon_xwofp")
 
 [node name="Props" type="Node2D" parent="."]
 

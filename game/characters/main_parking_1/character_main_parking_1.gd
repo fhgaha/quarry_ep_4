@@ -8,20 +8,19 @@ const Data := preload('character_main_parking_1_state.gd')
 
 var state: Data = load("res://game/characters/main_parking_1/character_main_parking_1.tres")
 
+var stacked_sprites: StackedSprites
 
 #region Virtual ####################################################################################
 # When the room in which this node is located finishes being added to the tree
 func _on_room_set() -> void:
-	if !is_node_ready(): await ready
-	
-	const StackedSprites = preload("res://game/characters/main_parking_1/stacked_sprites/stacked_sprites.gd")
-	var chldrn = get_children()
-	prints("chdrn", chldrn)
-	$Sprite2D.set_script(StackedSprites)
-	($Sprite2D as StackedSprites).render_sprites()
-	prints("visi", $Sprite2D.visible)
-	prints("spr chl", $Sprite2D.get_children())
-	pass
+	set_up_stacked_sprites()
+
+
+func set_up_stacked_sprites():
+	const StackedSpritesScript = preload("res://game/characters/main_parking_1/stacked_sprites/stacked_sprites.gd")
+	$Sprite2D.set_script(StackedSpritesScript)
+	stacked_sprites = $Sprite2D
+	stacked_sprites.render_sprites()
 
 
 # When the node is clicked
@@ -30,7 +29,7 @@ func _on_click() -> void:
 	E.command_fallback()
 	# For example, you can make the player character walk to this character, gaze at it, and then
 	# say something:
-#	await C.player.walk_to_clicked()
+	#await C.player.walk_to_clicked()
 #	await C.player.face_clicked()
 #	await C.player.say("Hi!")
 
@@ -74,6 +73,12 @@ func _play_idle() -> void:
 # Use it to play the walk animation for the character
 # target_pos can be used to know the movement direction
 func _play_walk(target_pos: Vector2) -> void:
+	var angle_rad : float = (
+		(global_position - target_pos).angle() 
+		+ deg_to_rad(90)
+	)
+	stacked_sprites.set_sprites_rotation(angle_rad)
+	
 	super(target_pos)
 
 

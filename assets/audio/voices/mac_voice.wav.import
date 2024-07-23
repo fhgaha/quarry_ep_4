@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://5nc2pi8eofir"
-path="res://.godot/imported/mac_voice.wav-d4b7a20403b0afc89a4d4afdf6355d49.sample"
+path="res://.godot/imported/mac_voice.wav-d9887cde9417826209d0f519c6146b95.sample"
 
 [deps]
 
-source_file="res://audio/voices/mac_voice.wav"
-dest_files=["res://.godot/imported/mac_voice.wav-d4b7a20403b0afc89a4d4afdf6355d49.sample"]
+source_file="res://assets/audio/voices/mac_voice.wav"
+dest_files=["res://.godot/imported/mac_voice.wav-d9887cde9417826209d0f519c6146b95.sample"]
 
 [params]
 
