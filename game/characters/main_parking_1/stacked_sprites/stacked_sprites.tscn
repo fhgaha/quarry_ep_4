@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt0i57dj2hume"]
+
+[ext_resource type="Script" path="res://game/characters/main_parking_1/stacked_sprites/stacked_sprites.gd" id="1_52i5o"]
+[ext_resource type="Texture2D" uid="uid://ohdgx65mfwvr" path="res://aseprite/parking/stacked_test.png" id="1_aicia"]
+
+[node name="StackedSprites" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_aicia")
+hframes = 16
+script = ExtResource("1_52i5o")
