@@ -1,17 +1,17 @@
-[gd_resource type="Resource" script_class="AudioCueSound" load_steps=3 format=3 uid="uid://c3afeqxdycrk6"]
+[gd_resource type="Resource" script_class="AudioCueSound" load_steps=3 format=3 uid="uid://clfxtmhefke0m"]
 
-[ext_resource type="AudioStream" uid="uid://dfraq8ul3ss32" path="res://game/characters/main_booth/audio/vo_mac.wav" id="1_qpdr8"]
-[ext_resource type="Script" path="res://addons/popochiu/engine/audio_manager/audio_cue_sound.gd" id="2_ubmq2"]
+[ext_resource type="AudioStream" uid="uid://dwfedoukn78tp" path="res://game/characters/main_booth/audio/vo_mac.ogg" id="1_pywey"]
+[ext_resource type="Script" path="res://addons/popochiu/engine/audio_manager/audio_cue_sound.gd" id="2_6wvbl"]
 
 [resource]
 resource_name = "vo_mac"
-script = ExtResource("2_ubmq2")
-audio = ExtResource("1_qpdr8")
+script = ExtResource("2_6wvbl")
+audio = ExtResource("1_pywey")
 loop = false
-is_2d = true
+is_2d = false
 can_play_simultaneous = true
 pitch = 0.0
-volume = 10.0
+volume = 0.0
 rnd_pitch = Vector2(0, 0)
 rnd_volume = Vector2(0, 0)
 max_distance = 2000

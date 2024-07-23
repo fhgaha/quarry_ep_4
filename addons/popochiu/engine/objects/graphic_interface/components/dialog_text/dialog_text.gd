@@ -183,6 +183,11 @@ func play_text(props: Dictionary) -> void:
 		if is_instance_valid(_tween) and _tween.is_running():
 			_tween.kill()
 		
+		const VO_MAC = preload("res://game/characters/main_booth/audio/vo_mac.ogg")
+		var pl := AudioStreamPlayer2D.new()
+		pl.stream = VO_MAC
+		add_child(pl)
+		
 		_tween = create_tween()
 		_tween.tween_property(
 			self, "visible_ratio",
@@ -193,11 +198,13 @@ func play_text(props: Dictionary) -> void:
 		if !props.vo_name.is_empty():
 			_tween.set_parallel()
 			_tween.tween_method(
-				A[props.vo_name].play, 
+				pl.play,
+				#A[props.vo_name].play_interrupt, 
 				0, 1, _secs_per_character * get_total_character_count()
 			)
 		
 		_tween.finished.connect(_wait_input)
+		_tween.finished.connect(func(): pl.queue_free())
 	else:
 		_wait_input()
 	
