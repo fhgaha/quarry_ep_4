@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk1epik5klynj"]
+[gd_scene load_steps=5 format=3 uid="uid://dk1epik5klynj"]
 
 [ext_resource type="Script" path="res://game/characters/main_parking_1/character_main_parking_1.gd" id="1_ge7vy"]
-[ext_resource type="Texture2D" uid="uid://ohdgx65mfwvr" path="res://assets/aseprite/parking/stacked_test.png" id="2_t4un7"]
+[ext_resource type="Texture2D" uid="uid://ohdgx65mfwvr" path="res://assets/img/main0.png" id="2_t4un7"]
+[ext_resource type="Texture2D" uid="uid://d1h3ak1h8thqn" path="res://assets/img/main1.png" id="3_3p685"]
+[ext_resource type="Texture2D" uid="uid://cbtxqu51jvsc1" path="res://assets/img/main2.png" id="4_h48b1"]
 
 [node name="CharacterMainParking1" type="Area2D"]
 script = ExtResource("1_ge7vy")
+idle_spritesheet = ExtResource("2_t4un7")
+walk1_spritesheet = ExtResource("3_3p685")
+walk2_spritesheet = ExtResource("4_h48b1")
 walk_speed = 50.0
-popochiu_placeholder = null
 script_name = "MainParking1"
 description = "Main Parking 1"
 clickable = false
@@ -25,7 +29,7 @@ polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -12)
-scale = Vector2(1.44, 1.44)
+scale = Vector2(2.625, 2.625)
 texture = ExtResource("2_t4un7")
 hframes = 17
 

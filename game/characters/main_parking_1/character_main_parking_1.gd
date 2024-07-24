@@ -4,23 +4,50 @@ extends PopochiuCharacter
 # Use await E.queue([]) if you want to pause the excecution of
 # the function until the sequence of events finishes.
 
+@export var idle_spritesheet  : Texture
+@export var walk1_spritesheet : Texture
+@export var walk2_spritesheet : Texture
+
 const Data := preload('character_main_parking_1_state.gd')
 
 var state: Data = load("res://game/characters/main_parking_1/character_main_parking_1.tres")
 
-var stacked_sprites: StackedSprites
+var sprites: StackedSprites
+
+var timer: Timer
+var last_pos: Vector2
+var is_walking: bool = false
+var trg_pos : Vector2
+var angle_rad : float
 
 #region Virtual ####################################################################################
 # When the room in which this node is located finishes being added to the tree
 func _on_room_set() -> void:
 	set_up_stacked_sprites()
+	last_pos = position
+	
+	#stacked_sprites.use_spritesheet = 0
+	timer = Timer.new()
+	timer.wait_time = 0.5
+	timer.timeout.connect(on_timeout)
+	add_child(timer)
+	timer.start()
 
 
 func set_up_stacked_sprites():
 	const StackedSpritesScript = preload("res://game/characters/main_parking_1/stacked_sprites/stacked_sprites.gd")
 	$Sprite2D.set_script(StackedSpritesScript)
-	stacked_sprites = $Sprite2D
-	stacked_sprites.render_sprites()
+	sprites = $Sprite2D as StackedSprites
+	sprites.idle_spritesheet  = idle_spritesheet
+	sprites.walk1_spritesheet = walk1_spritesheet
+	sprites.walk2_spritesheet = walk2_spritesheet
+	
+	sprites.sheets = [
+		sprites.idle_spritesheet
+		,sprites.walk1_spritesheet
+		,sprites.walk2_spritesheet
+	]
+	sprites.render_sprites()
 
 
 # When the node is clicked
@@ -73,12 +100,8 @@ func _play_idle() -> void:
 # Use it to play the walk animation for the character
 # target_pos can be used to know the movement direction
 func _play_walk(target_pos: Vector2) -> void:
-	var angle_rad : float = (
-		(global_position - target_pos).angle() 
-		+ deg_to_rad(90)
-	)
-	stacked_sprites.set_sprites_rotation(angle_rad)
-	
+	trg_pos = target_pos
+	update_angle()
 	super(target_pos)
 
 
@@ -100,5 +123,24 @@ func _play_grab() -> void:
 #func on_look_at() -> void:
 	#pass
 
+func on_timeout():
+	if position == last_pos:
+		sprites.use_spritesheet = 0
+	else:
+		if sprites.use_spritesheet == 0 || sprites.use_spritesheet == 1:
+			sprites.use_spritesheet = 2
+		elif sprites.use_spritesheet == 2:
+			sprites.use_spritesheet = 1
+	
+	sprites.render_sprites()
+	sprites.set_sprites_rotation(angle_rad)
+	last_pos = position
+
+func update_angle():
+	angle_rad = (
+		(global_position - trg_pos).angle() 
+		+ deg_to_rad(90)
+	)
+	sprites.set_sprites_rotation(angle_rad)
 
 #endregion

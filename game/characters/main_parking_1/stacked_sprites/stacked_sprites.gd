@@ -8,8 +8,19 @@ class_name StackedSprites extends Sprite2D
 
 @export var rotate_sprites := false
 
-func _ready() -> void:
-	render_sprites()
+@export var use_spritesheet: int = 0:
+	set(val):
+		use_spritesheet = val
+		val = clampi(val, 0, 3)
+		texture = sheets[val]
+		hframes = 17
+
+@export var idle_spritesheet : Texture
+@export var walk1_spritesheet: Texture
+@export var walk2_spritesheet: Texture
+
+var sheets: Array[Texture]
+
 
 func _process(delta: float) -> void:
 	if rotate_sprites:
@@ -25,13 +36,13 @@ func render_sprites() -> void:
 		s.frame = i
 		s.position.y = -i
 		add_child(s)
-	
-	get_child(get_child_count() - 1).hide()
 
 func clear_sprites():
 	for c in get_children():
 		c.queue_free()
 
 func set_sprites_rotation(angle_rad: float):
+	if use_spritesheet != 0:
+		angle_rad += deg_to_rad(90)
 	for sprite: Sprite2D in get_children():
 		sprite.rotation = angle_rad
