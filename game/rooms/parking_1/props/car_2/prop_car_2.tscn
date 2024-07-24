@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://w6t8vsbdvinc"]
+
+[ext_resource type="Script" path="res://game/rooms/parking_1/props/car_2/prop_car_2.gd" id="1_dis2w"]
+
+[node name="Car2" type="Area2D"]
+script = ExtResource("1_dis2w")
+script_name = "Car2"
+description = "Car 2"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

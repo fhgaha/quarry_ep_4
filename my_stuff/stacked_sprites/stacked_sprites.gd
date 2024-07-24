@@ -4,15 +4,22 @@ class_name StackedSprites extends Sprite2D
 @export var show_sprites := true:
 	set(val):
 		show_sprites = val
+		texture = sheets[use_spritesheet]
+		hframes = h_frames
 		render_sprites() if show_sprites else clear_sprites()
+		set_sprites_rotation(deg_to_rad(rot_deg))
 
-@export var rotate_sprites := false
+@export var rot_deg :float = 0:
+	set(val):
+		rot_deg = val
+		set_sprites_rotation(deg_to_rad(rot_deg))
 
-@export var use_spritesheet: int = 0:
+@export var rotate_sprites  :bool = false
+@export var h_frames        :int = 16
+@export var use_spritesheet :int = 0:
 	set(val):
 		use_spritesheet = val
-		texture = sheets[val]
-		hframes = int(texture.get_size().x / 16)
+		texture = sheets[use_spritesheet]
 
 @export var sheets: Array[Texture] = []
 

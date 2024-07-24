@@ -38,7 +38,6 @@ signal linked_item_discarded(item: PopochiuInventoryItem)
 
 @onready var _sprite: Sprite2D = $Sprite2D
 
-
 #region Godot ######################################################################################
 func _ready() -> void:
 	super()
@@ -102,6 +101,8 @@ func change_frame(new_frame: int) -> void:
 
 #region SetGet #####################################################################################
 func set_texture(value: Texture2D) -> void:
+	if !is_node_ready(): await ready
+	
 	texture = value
 	$Sprite2D.texture = value
 

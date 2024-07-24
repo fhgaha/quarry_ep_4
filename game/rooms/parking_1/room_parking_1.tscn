@@ -1,22 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://cq2fbkdxkqiah"]
+[gd_scene load_steps=9 format=3 uid="uid://cq2fbkdxkqiah"]
 
 [ext_resource type="Script" path="res://game/rooms/parking_1/room_parking_1.gd" id="1_kg1lh"]
 [ext_resource type="PackedScene" uid="uid://d30p670dok3wg" path="res://game/rooms/parking_1/walkable_areas/area_1/walkable_area_area_1.tscn" id="2_2sixt"]
 [ext_resource type="PackedScene" uid="uid://cfokoju42q611" path="res://game/rooms/parking_1/props/floor/prop_floor.tscn" id="2_07fn2"]
-[ext_resource type="PackedScene" uid="uid://dyugeniqua86t" path="res://game/rooms/parking_1/props/roof/prop_roof.tscn" id="3_cw81d"]
-[ext_resource type="PackedScene" uid="uid://caqp6vhbq6xby" path="res://game/rooms/parking_1/props/cars/prop_cars.tscn" id="4_djkoo"]
+[ext_resource type="PackedScene" uid="uid://cijon0dk6goip" path="res://game/rooms/parking_1/props/car_1/prop_car_1.tscn" id="4_45ffy"]
 [ext_resource type="PackedScene" uid="uid://dk1epik5klynj" path="res://game/characters/main_parking_1/character_main_parking_1.tscn" id="5_hjkfk"]
+[ext_resource type="PackedScene" uid="uid://w6t8vsbdvinc" path="res://game/rooms/parking_1/props/car_2/prop_car_2.tscn" id="5_yv32o"]
+[ext_resource type="Texture2D" uid="uid://do14hfxw8nt5d" path="res://assets/img/props/cars/car1.png" id="6_jkot1"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xwofp"]
-vertices = PackedVector2Array(146, 86, -3, 195, -157, 89, -8, -2)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-157, 89, -8, -2, 146, 86, -3, 195)])
+vertices = PackedVector2Array(-2, -74, 144, 21, 29, -9, 4, -21, -4, 121, -9, 25, -149, 4, -21, 14, -30, 0)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 1, 4, 5), PackedInt32Array(5, 4, 6, 7), PackedInt32Array(8, 7, 6), PackedInt32Array(8, 6, 0, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-149, 4, -2, -74, 144, 21, -4, 121), PackedVector2Array(-30, 0, -21, 14, -9, 25, 29, -9, 4, -21)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomParking1" type="Node2D"]
 script = ExtResource("1_kg1lh")
 script_name = "Parking1"
+limit_right = 380.0
+limit_bottom = 380.0
 popochiu_placeholder = null
 metadata/_popochiu_aseprite_config_ = {
 "o_folder": "",
@@ -66,17 +69,22 @@ navigation_polygon = SubResource("NavigationPolygon_xwofp")
 
 [node name="Props" type="Node2D" parent="."]
 
-[node name="Cars" parent="Props" instance=ExtResource("4_djkoo")]
-position = Vector2(160, 160)
-baseline = -152
-
 [node name="Floor" parent="Props" instance=ExtResource("2_07fn2")]
-position = Vector2(160, 160)
-baseline = -130
+z_index = -1
+position = Vector2(160, 90)
+baseline = -171
 
-[node name="Roof" parent="Props" instance=ExtResource("3_cw81d")]
-position = Vector2(160, 160)
-baseline = -144
+[node name="Car1" parent="Props" instance=ExtResource("4_45ffy")]
+position = Vector2(160, 90)
+baseline = -9
+walk_to_point = Vector2(-22.5, 13.25)
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Car2" parent="Props" instance=ExtResource("5_yv32o")]
+visible = false
+position = Vector2(153, 139)
+texture = ExtResource("6_jkot1")
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Hotspots" type="Node2D" parent="."]
 
@@ -87,5 +95,4 @@ baseline = -144
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="CharacterMainParking1 *" parent="Characters" instance=ExtResource("5_hjkfk")]
-position = Vector2(153, 100)
-popochiu_placeholder = null
+position = Vector2(159, 59)

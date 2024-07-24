@@ -4,25 +4,20 @@ extends PopochiuCharacter
 # Use await E.queue([]) if you want to pause the excecution of
 # the function until the sequence of events finishes.
 
-@export var idle_spritesheet  : Texture
-@export var walk1_spritesheet : Texture
-@export var walk2_spritesheet : Texture
-
 const Data := preload('character_main_parking_1_state.gd')
 
 var state: Data = load("res://game/characters/main_parking_1/character_main_parking_1.tres")
-
-var sprites: StackedSprites
 
 var timer: Timer
 var last_pos: Vector2
 var is_walking: bool = false
 var angle_rad : float
+var trg_pos: Vector2
 
 #region Virtual ####################################################################################
 # When the room in which this node is located finishes being added to the tree
 func _on_room_set() -> void:
-	set_up_stacked_sprites()
+	$Sprite2D.render_sprites()
 	last_pos = position
 	
 	#stacked_sprites.use_spritesheet = 0
@@ -34,15 +29,8 @@ func _on_room_set() -> void:
 
 
 func set_up_stacked_sprites():
-	const StackedSpritesScript = preload("res://game/characters/main_parking_1/stacked_sprites/stacked_sprites.gd")
-	$Sprite2D.set_script(StackedSpritesScript)
-	sprites = $Sprite2D as StackedSprites
-	sprites.sheets = [
-		idle_spritesheet
-		,walk1_spritesheet
-		,walk2_spritesheet
-	]
-	sprites.render_sprites()
+	$Sprite2D.render_sprites()
+
 
 # When the node is clicked
 func _on_click() -> void:
@@ -94,6 +82,7 @@ func _play_idle() -> void:
 # Use it to play the walk animation for the character
 # target_pos can be used to know the movement direction
 func _play_walk(target_pos: Vector2) -> void:
+	trg_pos = target_pos
 	update_angle(target_pos)
 	super(target_pos)
 
@@ -117,6 +106,7 @@ func _play_grab() -> void:
 	#pass
 
 func on_timeout():
+	var sprites = $Sprite2D as StackedSprites
 	if position == last_pos:
 		sprites.use_spritesheet = 0
 	else:
@@ -130,13 +120,10 @@ func on_timeout():
 	last_pos = position
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		walk(get_viewport().get_mouse_position())
+		walk(get_global_mouse_position())
 
 func update_angle(trg_pos: Vector2):
-	angle_rad = (
-		(global_position - trg_pos).angle() 
-		+ deg_to_rad(90)
-	)
-	sprites.set_sprites_rotation(angle_rad)
+	angle_rad = (global_position - trg_pos).angle() + deg_to_rad(90)
+	$Sprite2D.set_sprites_rotation(angle_rad)
 
 #endregion

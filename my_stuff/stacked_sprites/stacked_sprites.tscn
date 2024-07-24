@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt0i57dj2hume"]
+
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="1_52i5o"]
+[ext_resource type="Texture2D" uid="uid://do14hfxw8nt5d" path="res://assets/img/props/cars/car1.png" id="1_ambee"]
+
+[node name="StackedSprites" type="Sprite2D"]
+texture_filter = 1
+rotation = -6.28319
+texture = ExtResource("1_ambee")
+hframes = 16
+script = ExtResource("1_52i5o")
+rotate_sprites = true
+sheets = Array[Texture]([ExtResource("1_ambee")])
