@@ -17,7 +17,6 @@ var sprites: StackedSprites
 var timer: Timer
 var last_pos: Vector2
 var is_walking: bool = false
-var trg_pos : Vector2
 var angle_rad : float
 
 #region Virtual ####################################################################################
@@ -28,7 +27,7 @@ func _on_room_set() -> void:
 	
 	#stacked_sprites.use_spritesheet = 0
 	timer = Timer.new()
-	timer.wait_time = 0.5
+	timer.wait_time = 0.2
 	timer.timeout.connect(on_timeout)
 	add_child(timer)
 	timer.start()
@@ -38,17 +37,12 @@ func set_up_stacked_sprites():
 	const StackedSpritesScript = preload("res://game/characters/main_parking_1/stacked_sprites/stacked_sprites.gd")
 	$Sprite2D.set_script(StackedSpritesScript)
 	sprites = $Sprite2D as StackedSprites
-	sprites.idle_spritesheet  = idle_spritesheet
-	sprites.walk1_spritesheet = walk1_spritesheet
-	sprites.walk2_spritesheet = walk2_spritesheet
-	
 	sprites.sheets = [
-		sprites.idle_spritesheet
-		,sprites.walk1_spritesheet
-		,sprites.walk2_spritesheet
+		idle_spritesheet
+		,walk1_spritesheet
+		,walk2_spritesheet
 	]
 	sprites.render_sprites()
-
 
 # When the node is clicked
 func _on_click() -> void:
@@ -100,8 +94,7 @@ func _play_idle() -> void:
 # Use it to play the walk animation for the character
 # target_pos can be used to know the movement direction
 func _play_walk(target_pos: Vector2) -> void:
-	trg_pos = target_pos
-	update_angle()
+	update_angle(target_pos)
 	super(target_pos)
 
 
@@ -135,8 +128,11 @@ func on_timeout():
 	sprites.render_sprites()
 	sprites.set_sprites_rotation(angle_rad)
 	last_pos = position
+	
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		walk(get_viewport().get_mouse_position())
 
-func update_angle():
+func update_angle(trg_pos: Vector2):
 	angle_rad = (
 		(global_position - trg_pos).angle() 
 		+ deg_to_rad(90)

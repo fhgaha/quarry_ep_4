@@ -88,3 +88,4 @@ baseline = -144
 
 [node name="CharacterMainParking1 *" parent="Characters" instance=ExtResource("5_hjkfk")]
 position = Vector2(153, 100)
+popochiu_placeholder = null

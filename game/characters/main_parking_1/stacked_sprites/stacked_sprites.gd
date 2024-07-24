@@ -11,16 +11,10 @@ class_name StackedSprites extends Sprite2D
 @export var use_spritesheet: int = 0:
 	set(val):
 		use_spritesheet = val
-		val = clampi(val, 0, 3)
 		texture = sheets[val]
-		hframes = 17
+		hframes = int(texture.get_size().x / 16)
 
-@export var idle_spritesheet : Texture
-@export var walk1_spritesheet: Texture
-@export var walk2_spritesheet: Texture
-
-var sheets: Array[Texture]
-
+@export var sheets: Array[Texture] = []
 
 func _process(delta: float) -> void:
 	if rotate_sprites:

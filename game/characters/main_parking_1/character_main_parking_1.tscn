@@ -11,6 +11,7 @@ idle_spritesheet = ExtResource("2_t4un7")
 walk1_spritesheet = ExtResource("3_3p685")
 walk2_spritesheet = ExtResource("4_h48b1")
 walk_speed = 50.0
+popochiu_placeholder = null
 script_name = "MainParking1"
 description = "Main Parking 1"
 clickable = false
