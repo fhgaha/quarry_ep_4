@@ -69,5 +69,4 @@ func _on_linked_item_discarded() -> void:
 	#pass
 
 
-
 #endregion

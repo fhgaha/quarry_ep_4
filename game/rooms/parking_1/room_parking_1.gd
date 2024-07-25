@@ -10,6 +10,7 @@ var state: Data = load("res://game/rooms/parking_1/room_parking_1.tres")
 # What happens when Popochiu loads the room. At this point the room is in the
 # tree but it is not visible
 func _on_room_entered() -> void:
+	E.camera_zoom(1.5*Vector2.ONE, 0.1)
 	pass
 
 

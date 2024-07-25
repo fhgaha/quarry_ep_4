@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4v5nf3hvj3uf"]
+
+[ext_resource type="Script" path="res://game/rooms/parking_1/props/motel_house/prop_motel_house.gd" id="1_mv13t"]
+[ext_resource type="Texture2D" uid="uid://bquatnqmmrhlm" path="res://assets/img/props/motel_house.png" id="2_iwagl"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_s3d1j"]
+
+[node name="MotelHouse" type="Area2D"]
+script = ExtResource("1_mv13t")
+script_name = "MotelHouse"
+description = "Motel House"
+clickable = false
+baseline = -9
+walk_to_point = Vector2(21.1636, 3.93305)
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("2_iwagl")
+hframes = 38
+script = ExtResource("3_s3d1j")
+rot_deg = 141.0
+h_frames = 38
+sheets = Array[Texture]([ExtResource("2_iwagl")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

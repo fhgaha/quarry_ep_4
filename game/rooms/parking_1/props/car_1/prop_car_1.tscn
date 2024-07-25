@@ -10,6 +10,7 @@ texture = ExtResource("2_4y1b3")
 script_name = "Car1"
 description = "Car 1"
 clickable = false
+baseline = -4
 cursor = 1
 interaction_polygon = PackedVector2Array()
 
@@ -19,11 +20,11 @@ polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(1.4, 1.4)
+scale = Vector2(1.7, 1.7)
 texture = ExtResource("2_4y1b3")
 hframes = 16
 script = ExtResource("3_1dv5s")
-rot_deg = -30.0
+rot_deg = -110.0
 sheets = Array[Texture]([ExtResource("2_4y1b3")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

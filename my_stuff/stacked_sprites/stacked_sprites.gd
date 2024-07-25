@@ -4,10 +4,7 @@ class_name StackedSprites extends Sprite2D
 @export var show_sprites := true:
 	set(val):
 		show_sprites = val
-		texture = sheets[use_spritesheet]
-		hframes = h_frames
-		render_sprites() if show_sprites else clear_sprites()
-		set_sprites_rotation(deg_to_rad(rot_deg))
+		render_sprites()
 
 @export var rot_deg :float = 0:
 	set(val):
@@ -15,13 +12,28 @@ class_name StackedSprites extends Sprite2D
 		set_sprites_rotation(deg_to_rad(rot_deg))
 
 @export var rotate_sprites  :bool = false
-@export var h_frames        :int = 16
+@export var h_frames        :int = 16:
+	set(val):
+		h_frames = val
+		hframes = h_frames
+		if show_sprites: render_sprites()
+		set_sprites_rotation(deg_to_rad(rot_deg))
+
 @export var use_spritesheet :int = 0:
 	set(val):
 		use_spritesheet = val
 		texture = sheets[use_spritesheet]
+		if show_sprites: render_sprites()
+		set_sprites_rotation(deg_to_rad(rot_deg))
 
-@export var sheets: Array[Texture] = []
+@export var sheets: Array[Texture] = []:
+	set(val):
+		sheets = val
+		if show_sprites: render_sprites()
+
+func _ready() -> void:
+	render_sprites()
+	set_sprites_rotation(deg_to_rad(rot_deg))
 
 func _process(delta: float) -> void:
 	if rotate_sprites:
@@ -30,6 +42,7 @@ func _process(delta: float) -> void:
 
 func render_sprites() -> void:
 	clear_sprites()
+	
 	for i in range(hframes):
 		var s := Sprite2D.new()
 		s.texture = texture
