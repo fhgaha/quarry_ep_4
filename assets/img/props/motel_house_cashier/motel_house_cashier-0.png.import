@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcm3lft38dbo2"
-path="res://.godot/imported/motel_house_cashier.png-6f56affcf7fef48799c6b0a02c2a523d.ctex"
+uid="uid://cp6j7225pul07"
+path="res://.godot/imported/motel_house_cashier-0.png-8ad3d6b3e5c0ea5732802d23018a70fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/props/motel_house_cashier.png"
-dest_files=["res://.godot/imported/motel_house_cashier.png-6f56affcf7fef48799c6b0a02c2a523d.ctex"]
+source_file="res://assets/img/props/motel_house_cashier/motel_house_cashier-0.png"
+dest_files=["res://.godot/imported/motel_house_cashier-0.png-8ad3d6b3e5c0ea5732802d23018a70fe.ctex"]
 
 [params]
 

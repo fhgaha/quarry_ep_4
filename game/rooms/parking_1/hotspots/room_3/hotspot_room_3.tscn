@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhxb3atpk3u24"]
+
+[ext_resource type="Script" path="res://game/rooms/parking_1/hotspots/room_3/hotspot_room_3.gd" id="1_u7qjh"]
+
+[node name="Room3" type="Area2D"]
+script = ExtResource("1_u7qjh")
+script_name = "Room3"
+description = "Room 3"
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+modulate = Color(0, 0, 1, 1)
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)

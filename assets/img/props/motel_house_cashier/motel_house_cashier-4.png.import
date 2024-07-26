@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxtrcbd8simam"
-path="res://.godot/imported/roof.png-600db1f42c82ab01fdc2aee5b3096efd.ctex"
+uid="uid://boent0oxj3xys"
+path="res://.godot/imported/motel_house_cashier-4.png-cb48db28fc0e9ac1b4e3599a1fdf716f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/rooms/parking_1/props/roof/roof.png"
-dest_files=["res://.godot/imported/roof.png-600db1f42c82ab01fdc2aee5b3096efd.ctex"]
+source_file="res://assets/img/props/motel_house_cashier/motel_house_cashier-4.png"
+dest_files=["res://.godot/imported/motel_house_cashier-4.png-cb48db28fc0e9ac1b4e3599a1fdf716f.ctex"]
 
 [params]
 

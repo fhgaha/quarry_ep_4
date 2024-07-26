@@ -20,7 +20,7 @@ interaction_polygon = PackedVector2Array()
 visible = false
 position = Vector2(0, -14)
 scale = Vector2(0.75, 1)
-polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+polygon = PackedVector2Array(-9.33333, -5, 10.6667, -5, 10.6667, 14, -9.33333, 14)
 
 [node name="ScalingPolygon" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, -10)
@@ -34,9 +34,8 @@ position = Vector2(0, -3)
 texture = ExtResource("2_t4un7")
 hframes = 17
 script = ExtResource("5_jshdw")
-h_frames = 17
 sheets = Array[Texture]([ExtResource("2_t4un7"), ExtResource("3_3p685"), ExtResource("4_h48b1")])
 
 [node name="DialogPos" type="Marker2D" parent="."]
 visible = false
-position = Vector2(0, -29)
+position = Vector2(0, -25)
