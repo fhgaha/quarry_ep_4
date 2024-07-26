@@ -25,7 +25,6 @@ texture = ExtResource("2_iwagl")
 hframes = 38
 script = ExtResource("3_s3d1j")
 rot_deg = 141.0
-h_frames = 38
 sheets = Array[Texture]([ExtResource("2_iwagl")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

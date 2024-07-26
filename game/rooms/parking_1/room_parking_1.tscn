@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cq2fbkdxkqiah"]
+[gd_scene load_steps=13 format=3 uid="uid://cq2fbkdxkqiah"]
 
 [ext_resource type="Script" path="res://game/rooms/parking_1/room_parking_1.gd" id="1_kg1lh"]
 [ext_resource type="PackedScene" uid="uid://d30p670dok3wg" path="res://game/rooms/parking_1/walkable_areas/area_1/walkable_area_area_1.tscn" id="2_2sixt"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://do14hfxw8nt5d" path="res://assets/img/props/cars/car1.png" id="6_jkot1"]
 [ext_resource type="PackedScene" uid="uid://c4v5nf3hvj3uf" path="res://game/rooms/parking_1/props/motel_house/prop_motel_house.tscn" id="8_wbeml"]
 [ext_resource type="PackedScene" uid="uid://7fftxhrhlmc8" path="res://game/rooms/parking_1/props/motel_house_b/prop_motel_house_b.tscn" id="9_w86en"]
+[ext_resource type="PackedScene" uid="uid://cs88b85l3mpd3" path="res://game/rooms/parking_1/props/model_house_cashier/prop_model_house_cashier.tscn" id="10_lvo86"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xwofp"]
 vertices = PackedVector2Array(253, 248, -160, 257, -160, -90, 238, -94)
@@ -90,7 +91,7 @@ texture = ExtResource("6_jkot1")
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="MotelHouse" parent="Props" instance=ExtResource("8_wbeml")]
-position = Vector2(30, 164)
+position = Vector2(31, 164)
 baseline = -10
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
@@ -99,12 +100,16 @@ position = Vector2(83, 121)
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="MotelHouse3" parent="Props" instance=ExtResource("8_wbeml")]
-position = Vector2(135, 79)
+position = Vector2(135, 78)
 baseline = -12
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="MotelHouseB" parent="Props" instance=ExtResource("9_w86en")]
 position = Vector2(232, 19)
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="ModelHouseCashier" parent="Props" instance=ExtResource("10_lvo86")]
+position = Vector2(304, 56)
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Hotspots" type="Node2D" parent="."]

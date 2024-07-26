@@ -6,16 +6,19 @@ class_name StackedSprites extends Sprite2D
 		show_sprites = val
 		render_sprites()
 
+@export var from_goxel: bool = true #otherwise exported from magicavoxel
+
 @export var rot_deg :float = 0:
 	set(val):
 		rot_deg = val
 		set_sprites_rotation(deg_to_rad(rot_deg))
 
 @export var rotate_sprites  :bool = false
-@export var h_frames        :int = 16:
+@export var frames        :int = 16:
 	set(val):
-		h_frames = val
-		hframes = h_frames
+		frames = val
+		if from_goxel: hframes = frames
+		else: vframes = frames
 		if show_sprites: render_sprites()
 		set_sprites_rotation(deg_to_rad(rot_deg))
 
@@ -43,13 +46,23 @@ func _process(delta: float) -> void:
 func render_sprites() -> void:
 	clear_sprites()
 	
-	for i in range(hframes):
-		var s := Sprite2D.new()
-		s.texture = texture
-		s.hframes = hframes
-		s.frame = i
-		s.position.y = -i
-		add_child(s)
+	if from_goxel:
+		for i in range(hframes):
+			var s := Sprite2D.new()
+			s.texture = texture
+			s.hframes = hframes
+			s.frame = i
+			s.position.y = -i
+			add_child(s)
+	else:
+		for i in range(vframes - 1, -1, -1):
+			var s := Sprite2D.new()
+			s.texture = texture
+			s.vframes = vframes
+			s.frame = i
+			s.position.y = i
+			add_child(s)
+
 
 func clear_sprites():
 	for c in get_children():
