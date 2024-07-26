@@ -83,6 +83,11 @@ func play_coin_sound():
 func play_hang_phone_sound():
 	A.sfx_phone_slam_down.play()
 
+func transition_to_next_room():
+	E.wait(1.6)
+	E.goto_room("Parking1", true)
+
+#------------
 func frame_test():
 	var prop = (R.current as PopochiuRoom).get_prop("Char")
 	#prop.frames = 2
