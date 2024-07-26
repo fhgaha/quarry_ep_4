@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cby2y0mc1twbc"]
+
+[ext_resource type="Script" path="res://game/rooms/parking_1/props/pool_fence_door/prop_pool_fence_door.gd" id="1_d55n3"]
+[ext_resource type="Texture2D" uid="uid://cfxn177dv6luv" path="res://assets/img/props/poo_fence/pool_fence-door.png" id="2_a5eno"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_x4ana"]
+
+[node name="PoolFenceDoor" type="Area2D"]
+script = ExtResource("1_d55n3")
+script_name = "PoolFenceDoor"
+description = "Pool Fence Door"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_a5eno")
+vframes = 13
+script = ExtResource("3_x4ana")
+from_goxel = false
+rot_deg = -30.0
+frames = 13
+sheets = Array[Texture]([ExtResource("2_a5eno")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

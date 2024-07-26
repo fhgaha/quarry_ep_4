@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cq2fbkdxkqiah"]
+[gd_scene load_steps=21 format=3 uid="uid://cq2fbkdxkqiah"]
 
 [ext_resource type="Script" path="res://game/rooms/parking_1/room_parking_1.gd" id="1_kg1lh"]
 [ext_resource type="PackedScene" uid="uid://d30p670dok3wg" path="res://game/rooms/parking_1/walkable_areas/area_1/walkable_area_area_1.tscn" id="2_2sixt"]
@@ -15,7 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://c2djvtv0jnvg6" path="res://game/rooms/parking_1/props/roof/prop_roof.tscn" id="11_gyku2"]
 [ext_resource type="PackedScene" uid="uid://ceqnjk1tom0h1" path="res://game/rooms/parking_1/props/pillar_1/prop_pillar_1.tscn" id="12_4uj36"]
 [ext_resource type="PackedScene" uid="uid://c0ybey00yjjo" path="res://game/rooms/parking_1/hotspots/room_4/hotspot_room_4.tscn" id="12_7eeg3"]
+[ext_resource type="PackedScene" uid="uid://gtf17verqhj4" path="res://game/rooms/parking_1/props/pool_fence/prop_pool_fence.tscn" id="13_hp5ul"]
 [ext_resource type="PackedScene" uid="uid://b17jaqovdbovk" path="res://game/rooms/parking_1/hotspots/room_5/hotspot_room_5.tscn" id="13_n5h7u"]
+[ext_resource type="PackedScene" uid="uid://cby2y0mc1twbc" path="res://game/rooms/parking_1/props/pool_fence_door/prop_pool_fence_door.tscn" id="14_yfn6b"]
+[ext_resource type="PackedScene" uid="uid://daq5a6armvb6t" path="res://game/rooms/parking_1/props/pool_fence_2/prop_pool_fence_2.tscn" id="15_1avoy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xwofp"]
 vertices = PackedVector2Array(-160, 93, -170, 81, -169, -48, -160, -49, 238, -94, 129, -6, 122, -6, 91, -9, 84, -11, 162, 1, 155, 5, 130, -1, 169, 6, 253, 248, -160, 257, -147, 110, 163, 12, 119, 0, 88, -2, 126, 4, -34, -64, -160, -90, 13, -25, 80, -5)
@@ -25,7 +28,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomParking1" type="Node2D"]
-rotation = 0.000984373
+rotation = -0.000841253
 script = ExtResource("1_kg1lh")
 script_name = "Parking1"
 limit_right = 600.0
@@ -115,6 +118,7 @@ interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="ModelHouseCashier" parent="Props" instance=ExtResource("10_lvo86")]
 position = Vector2(304, 56)
+description = "Reception"
 clickable = true
 baseline = -13
 interaction_polygon = PackedVector2Array(-32, -71, 57, -60, 58, -10, 48, 15, 17, 2, -79, -9)
@@ -142,6 +146,26 @@ position = Vector2(323, 61)
 baseline = 36
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
+[node name="PoolFence" parent="Props" instance=ExtResource("13_hp5ul")]
+position = Vector2(296.688, 250.37)
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="PoolFence3" parent="Props" instance=ExtResource("13_hp5ul")]
+position = Vector2(379.226, 242.647)
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="PoolFenceDoor" parent="Props" instance=ExtResource("14_yfn6b")]
+position = Vector2(246.153, 267.86)
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="PoolFence2" parent="Props" instance=ExtResource("15_1avoy")]
+position = Vector2(240.879, 259.112)
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="PoolFence4" parent="Props" instance=ExtResource("15_1avoy")]
+position = Vector2(184.579, 288.27)
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
 [node name="Hotspots" type="Node2D" parent="."]
 
 [node name="Room3" parent="Hotspots" instance=ExtResource("11_dv30b")]
@@ -166,4 +190,4 @@ interaction_polygon = PackedVector2Array(-5, -6, 6, -15, 6, 6, -5, 15)
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="CharacterMainParking1 *" parent="Characters" instance=ExtResource("5_hjkfk")]
-position = Vector2(218, 80)
+position = Vector2(194.266, 230.776)
