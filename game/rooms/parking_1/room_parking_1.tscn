@@ -21,18 +21,18 @@
 [ext_resource type="PackedScene" uid="uid://daq5a6armvb6t" path="res://game/rooms/parking_1/props/pool_fence_2/prop_pool_fence_2.tscn" id="15_1avoy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xwofp"]
-vertices = PackedVector2Array(-160, 93, -170, 81, -169, -48, -160, -49, 238, -94, 129, -6, 122, -6, 91, -9, 84, -11, 162, 1, 155, 5, 130, -1, 169, 6, 253, 248, -160, 257, -147, 110, 163, 12, 119, 0, 88, -2, 126, 4, -34, -64, -160, -90, 13, -25, 80, -5)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(9, 10, 11, 5, 4), PackedInt32Array(12, 4, 13), PackedInt32Array(14, 0, 15), PackedInt32Array(16, 12, 13), PackedInt32Array(7, 6, 17, 18), PackedInt32Array(10, 16, 13, 14, 15, 19), PackedInt32Array(20, 3, 21), PackedInt32Array(20, 21, 4), PackedInt32Array(22, 20, 4, 8), PackedInt32Array(4, 12, 9), PackedInt32Array(19, 11, 10), PackedInt32Array(17, 19, 15, 18), PackedInt32Array(18, 15, 22, 23), PackedInt32Array(8, 23, 22)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-160, -90, 238, -94, 253, 248, -160, 257), PackedVector2Array(-147, 110, 13, -25, -34, -64, -169, -48, -170, 81), PackedVector2Array(84, -11, 80, -5, 88, -2, 91, -9), PackedVector2Array(122, -6, 119, 0, 126, 4, 130, -1, 129, -6), PackedVector2Array(162, 1, 155, 5, 163, 12, 169, 6)])
+vertices = PackedVector2Array(169, 6, 195, -12, 313, -27, 313, 288, 169, 63, 153, 32, 163, 12, 96, -54, 129, -6, 122, -6, 91, -9, 84, -11, 37, -61, 162, 1, 155, 5, 130, -1, -159, 136, -160, 95, -148, 112, 264, 284, 247, 266, 217, 270, 149, 111, 88, 69, 100, 90, 69, 102, -10, 362, -19, 362, -13, 279, -7, 343, 19, 327, -8, -50, -8, -91, 37, -92, 15, -26, 80, -5, 136, 81, 79, 134, 203, 287, 178, 288, 163, 276, 133, 280, 53, 309, 44, 333, 209, -44, 126, 4, 119, 0, 88, -2, 118, 297, 103, 304, 75, 298)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6), PackedInt32Array(7, 1, 8, 9, 10, 11, 12), PackedInt32Array(13, 14, 15, 8), PackedInt32Array(16, 17, 18), PackedInt32Array(4, 3, 19, 20), PackedInt32Array(4, 20, 21, 22), PackedInt32Array(23, 24, 25), PackedInt32Array(26, 27, 28, 29), PackedInt32Array(30, 29, 28), PackedInt32Array(31, 32, 33, 12, 34), PackedInt32Array(34, 12, 11, 35), PackedInt32Array(22, 36, 4), PackedInt32Array(37, 22, 21, 38, 39, 40), PackedInt32Array(37, 40, 41), PackedInt32Array(37, 42, 43, 30, 28, 25), PackedInt32Array(1, 44, 2), PackedInt32Array(45, 15, 14, 6, 5, 23), PackedInt32Array(46, 45, 23, 47, 10), PackedInt32Array(1, 0, 13), PackedInt32Array(28, 16, 18, 34, 35, 47, 25), PackedInt32Array(37, 41, 48, 49, 50), PackedInt32Array(37, 50, 42), PackedInt32Array(23, 25, 47), PackedInt32Array(9, 46, 10), PackedInt32Array(8, 1, 13)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8.00021, -91.031, 36.9973, -92.2517, 37.0435, -61.2975, 96.0595, -54.4259, 195.095, -12.4338, 209.074, -43.5855, 313.091, -26.6729, 313.283, 287.646, 264.378, 283.571, 246.764, 266.27, 216.615, 270.403, 202.539, 287.443, 178.477, 288.468, 163.41, 275.523, 133.436, 280.448, 118.491, 297.366, 102.724, 304.184, 74.8097, 298.115, 52.8928, 309.057, 44.0066, 332.997, 19.0881, 326.962, -6.84583, 342.945, -10.0024, 362.001, -19.0994, 362.031, -13.1726, 279.069, -159.165, 136.001, -159.712, 94.9998, -147.677, 111.981, 15.0451, -26.1234, -7.95229, -50.1818), PackedVector2Array(84, -11, 80, -5, 88, -2, 91, -9), PackedVector2Array(122, -6, 119, 0, 126, 4, 130, -1, 129, -6), PackedVector2Array(162, 1, 155, 5, 163, 12, 169, 6), PackedVector2Array(88.0072, 68.9887, 99.9503, 90.0717, 69.2628, 101.686, 79.2454, 133.738, 149.172, 110.735, 135.802, 81.3419, 168.754, 62.531, 152.908, 32.2365)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomParking1" type="Node2D"]
-rotation = -0.000841253
+rotation = 0.000816818
 script = ExtResource("1_kg1lh")
 script_name = "Parking1"
-limit_right = 600.0
-limit_bottom = 600.0
+limit_right = 500.0
+limit_bottom = 450.0
 popochiu_placeholder = null
 metadata/_popochiu_aseprite_config_ = {
 "o_folder": "",
@@ -77,6 +77,7 @@ metadata/_popochiu_aseprite_config_ = {
 position = Vector2(160, 90)
 
 [node name="Perimeter" type="NavigationRegion2D" parent="WalkableAreas/Area1"]
+visible = false
 modulate = Color(0, 1, 0, 1)
 navigation_polygon = SubResource("NavigationPolygon_xwofp")
 
@@ -147,23 +148,23 @@ baseline = 36
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="PoolFence" parent="Props" instance=ExtResource("13_hp5ul")]
-position = Vector2(296.688, 250.37)
+position = Vector2(320.247, 368.587)
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="PoolFence3" parent="Props" instance=ExtResource("13_hp5ul")]
-position = Vector2(379.226, 242.647)
+position = Vector2(402.785, 360.864)
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="PoolFenceDoor" parent="Props" instance=ExtResource("14_yfn6b")]
-position = Vector2(246.153, 267.86)
+position = Vector2(269.712, 386.077)
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="PoolFence2" parent="Props" instance=ExtResource("15_1avoy")]
-position = Vector2(240.879, 259.112)
+position = Vector2(264.438, 377.329)
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="PoolFence4" parent="Props" instance=ExtResource("15_1avoy")]
-position = Vector2(184.579, 288.27)
+position = Vector2(208.138, 406.487)
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Hotspots" type="Node2D" parent="."]

@@ -9,6 +9,7 @@ script = ExtResource("1_ga4ie")
 script_name = "PoolFence2"
 description = "Pool Fence 2"
 clickable = false
+baseline = 26
 cursor = 1
 interaction_polygon = PackedVector2Array()
 

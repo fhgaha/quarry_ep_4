@@ -14,7 +14,6 @@ var rot_lim  := 0.1
 # What happens when Popochiu loads the room. At this point the room is in the
 # tree but it is not visible
 func _on_room_entered() -> void:
-	#PopochiuResources.set_data_value("setup", "pc")
 	C.player = C.MainParking1
 	E.camera_zoom(1.5 * Vector2.ONE, 0.1)
 

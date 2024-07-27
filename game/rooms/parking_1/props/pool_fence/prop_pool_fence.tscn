@@ -9,6 +9,7 @@ script = ExtResource("1_shunl")
 script_name = "PoolFence"
 description = "Pool Fence"
 clickable = false
+baseline = 17
 cursor = 1
 interaction_polygon = PackedVector2Array()
 
