@@ -16,6 +16,8 @@ var rot_lim  := 0.1
 func _on_room_entered() -> void:
 	C.player = C.MainParking1
 	E.camera_zoom(1.5 * Vector2.ONE, 0.1)
+	#E.camera_zoom(0.5 * Vector2.ONE, 0.1)
+	RenderingServer.set_default_clear_color(Color.BLACK)
 
 
 # What happens when the room changing transition finishes. At this point the room

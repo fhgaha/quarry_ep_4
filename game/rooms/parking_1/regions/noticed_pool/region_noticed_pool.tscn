@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://mh72jaceidgx"]
+
+[ext_resource type="Script" path="res://game/rooms/parking_1/regions/noticed_pool/region_noticed_pool.gd" id="1_11a6p"]
+
+[node name="NoticedPool" type="Area2D"]
+monitorable = false
+script = ExtResource("1_11a6p")
+script_name = "NoticedPool"
+description = "Noticed Pool"

@@ -119,6 +119,9 @@ func on_timeout():
 	sprites.set_sprites_rotation(angle_rad)
 	last_pos = position
 	
+	walk_on_button_hold()
+
+func walk_on_button_hold():
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		walk(get_global_mouse_position())
 
