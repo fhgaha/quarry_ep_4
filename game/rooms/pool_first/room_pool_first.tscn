@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://c8wgplwxmagnq"]
+
+[ext_resource type="Script" path="res://game/rooms/pool_first/room_pool_first.gd" id="1_ie57w"]
+[ext_resource type="PackedScene" uid="uid://cglg0k63dulwj" path="res://game/rooms/pool_first/walkable_areas/area_first/walkable_area_area_first.tscn" id="2_uyq5k"]
+[ext_resource type="PackedScene" uid="uid://d4mdm7eesk0t1" path="res://game/rooms/pool_first/props/floor/prop_floor.tscn" id="2_w6vcp"]
+[ext_resource type="Texture2D" uid="uid://cmvn443w8ev4a" path="res://assets/img/props/pool_room/pool_room.png" id="3_3psk0"]
+[ext_resource type="PackedScene" uid="uid://bf4svft3ko24h" path="res://game/rooms/pool_first/props/fence_first/prop_fence_first.tscn" id="4_2lab0"]
+[ext_resource type="PackedScene" uid="uid://dk1epik5klynj" path="res://game/characters/main_parking_1/character_main_parking_1.tscn" id="4_na186"]
+[ext_resource type="PackedScene" uid="uid://c22uvdi4ufato" path="res://game/rooms/pool_first/props/door/prop_door.tscn" id="5_jnofi"]
+[ext_resource type="PackedScene" uid="uid://nsgn6pgrs4ft" path="res://game/rooms/pool_first/props/fence_second/prop_fence_second.tscn" id="6_igyd8"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_hvu8b"]
+vertices = PackedVector2Array(211, -31, 163, 104, -162, 122, -159, -71, -5, -114)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-159, -71, -5, -114, 211, -31, 163, 104, -162, 122)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
+
+[node name="RoomPoolFirst" type="Node2D"]
+script = ExtResource("1_ie57w")
+script_name = "PoolFirst"
+popochiu_placeholder = null
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="AreaFirst" parent="WalkableAreas" instance=ExtResource("2_uyq5k")]
+position = Vector2(160, 90)
+
+[node name="Perimeter" type="NavigationRegion2D" parent="WalkableAreas/AreaFirst"]
+visible = false
+modulate = Color(0, 1, 0, 1)
+navigation_polygon = SubResource("NavigationPolygon_hvu8b")
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Floor" parent="Props" instance=ExtResource("2_w6vcp")]
+position = Vector2(193, 193)
+texture = ExtResource("3_3psk0")
+baseline = -203
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="FenceFirst" parent="Props" instance=ExtResource("4_2lab0")]
+position = Vector2(115, 12)
+baseline = -16
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="FenceSecond" parent="Props" instance=ExtResource("6_igyd8")]
+position = Vector2(65, 29)
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Door" parent="Props" instance=ExtResource("5_jnofi")]
+position = Vector2(60, 46)
+baseline = 14
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="CharacterMainParking1 *" parent="Characters" instance=ExtResource("4_na186")]
+position = Vector2(77, 53)
