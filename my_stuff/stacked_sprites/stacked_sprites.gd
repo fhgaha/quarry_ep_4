@@ -14,7 +14,8 @@ class_name StackedSprites extends Sprite2D
 		set_sprites_rotation(deg_to_rad(rot_deg))
 
 @export var rotate_sprites  :bool = false
-@export var frames        :int = 16:
+
+@export var frames :int = 16:
 	set(val):
 		frames = val
 		if from_goxel: hframes = frames

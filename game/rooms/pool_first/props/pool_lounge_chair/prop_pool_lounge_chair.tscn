@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0dk0tbowxjb2"]
+
+[ext_resource type="Script" path="res://game/rooms/pool_first/props/pool_lounge_chair/prop_pool_lounge_chair.gd" id="1_iwg57"]
+[ext_resource type="Texture2D" uid="uid://dhael0bi5jwir" path="res://assets/img/props/pool_lounge_chair.png" id="2_jr6q4"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_wbbv0"]
+
+[node name="PoolLoungeChair" type="Area2D"]
+script = ExtResource("1_iwg57")
+script_name = "PoolLoungeChair"
+description = "Pool Lounge Chair"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_jr6q4")
+vframes = 13
+script = ExtResource("3_wbbv0")
+from_goxel = false
+rot_deg = -64.0
+frames = 13
+sheets = Array[Texture]([ExtResource("2_jr6q4")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
