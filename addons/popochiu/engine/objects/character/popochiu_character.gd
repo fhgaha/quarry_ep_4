@@ -100,6 +100,8 @@ var default_scale := Vector2.ONE
 
 var _looking_dir: int = Looking.DOWN
 
+var is_talking: bool = false
+
 ## A to the [b]$DialogPos[/b] child. Used by the GUI to calculate where to render the dialogue lines
 ## said by the character when it speaks.
 @onready var dialog_pos: Marker2D = $DialogPos
@@ -416,6 +418,8 @@ func queue_say(dialog: String, emo := "") -> Callable:
 ## [AudioCue] is defined for the emotion, it is played. Once the talk animation finishes, the
 ## characters return to its idle state.
 func say(dialog: String, emo := "") -> void:
+	is_talking = true
+	
 	if E.cutscene_skipped:
 		await get_tree().process_frame
 		return
@@ -430,12 +434,6 @@ func say(dialog: String, emo := "") -> void:
 	if not vo_name.is_empty() and A.get(vo_name):
 		A[vo_name].play(false, global_position)
 	
-	#var vo_name := _get_vo_cue(emotion)
-	#if not vo_name.is_empty() and A.get(vo_name):
-		#for i in dialog.length():
-			#A[vo_name].play(false, global_position)
-			#await get_tree().create_timer(E.settings.text_speed).timeout
-	
 	C.character_spoke.emit(self, dialog)
 	
 	await G.dialog_line_finished
@@ -447,6 +445,8 @@ func say(dialog: String, emo := "") -> void:
 	
 	emotion = ''
 	idle()
+	
+	is_talking = false
 
 
 ## Calls [method _play_grab] and waits until the [signal grab_done] is emitted, then goes back to

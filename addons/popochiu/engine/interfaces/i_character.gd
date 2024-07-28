@@ -166,4 +166,6 @@ func set_player(value: PopochiuCharacter) -> void:
 	camera_owner = value
 
 
+func change_pc(value: PopochiuCharacter) -> void:
+	set_player(value)
 #endregion

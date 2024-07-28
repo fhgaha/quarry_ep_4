@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cglg0k63dulwj"]
+
+[ext_resource type="Script" path="res://game/rooms/pool_first/walkable_areas/area_first/walkable_area_area_first.gd" id="1_roktv"]
+
+[node name="AreaFirst" type="Node2D"]
+script = ExtResource("1_roktv")
+script_name = "AreaFirst"
+description = "Area First"

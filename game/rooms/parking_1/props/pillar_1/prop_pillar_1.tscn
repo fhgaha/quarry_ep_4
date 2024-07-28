@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceqnjk1tom0h1"]
+
+[ext_resource type="Script" path="res://game/rooms/parking_1/props/pillar_1/prop_pillar_1.gd" id="1_ynsjo"]
+[ext_resource type="Texture2D" uid="uid://cp6j7225pul07" path="res://assets/img/props/motel_house_cashier/motel_house_cashier-0.png" id="2_wv47y"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_0cema"]
+
+[node name="Pillar1" type="Area2D"]
+script = ExtResource("1_ynsjo")
+script_name = "Pillar1"
+description = "Pillar 1"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_wv47y")
+vframes = 37
+script = ExtResource("3_0cema")
+from_goxel = false
+rot_deg = 45.0
+frames = 37
+sheets = Array[Texture]([ExtResource("2_wv47y")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

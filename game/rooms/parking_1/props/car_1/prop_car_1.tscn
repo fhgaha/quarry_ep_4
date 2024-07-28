@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cijon0dk6goip"]
+
+[ext_resource type="Script" path="res://game/rooms/parking_1/props/car_1/prop_car_1.gd" id="1_rbp02"]
+[ext_resource type="Texture2D" uid="uid://do14hfxw8nt5d" path="res://assets/img/props/cars/car1.png" id="2_4y1b3"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_1dv5s"]
+
+[node name="Car1" type="Area2D"]
+script = ExtResource("1_rbp02")
+texture = ExtResource("2_4y1b3")
+script_name = "Car1"
+description = "Car 1"
+clickable = false
+baseline = -4
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("2_4y1b3")
+hframes = 16
+script = ExtResource("3_1dv5s")
+rot_deg = -110.0
+sheets = Array[Texture]([ExtResource("2_4y1b3")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

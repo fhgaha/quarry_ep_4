@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb2r5o76o2irb"]
+
+[ext_resource type="Script" path="res://game/rooms/pool_first/hotspots/pool/hotspot_pool.gd" id="1_rur0b"]
+
+[node name="Pool" type="Area2D"]
+script = ExtResource("1_rur0b")
+script_name = "Pool"
+description = "Pool"
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+modulate = Color(0, 0, 1, 1)
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)

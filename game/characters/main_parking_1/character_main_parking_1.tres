@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b08s6c5ep0pwo"]
+
+[ext_resource type="Script" path="res://game/characters/main_parking_1/character_main_parking_1_state.gd" id="1_474eq"]
+
+[resource]
+resource_name = "MainParking1"
+script = ExtResource("1_474eq")
+script_name = "MainParking1"
+scene = "res://game/characters/main_parking_1/character_main_parking_1.tscn"

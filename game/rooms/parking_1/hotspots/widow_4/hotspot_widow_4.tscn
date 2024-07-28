@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://baymnn4o6it7u"]
+
+[ext_resource type="Script" path="res://game/rooms/parking_1/hotspots/widow_4/hotspot_widow_4.gd" id="1_01qya"]
+
+[node name="Widow4" type="Area2D"]
+script = ExtResource("1_01qya")
+script_name = "Widow4"
+description = "Widow 4"
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+modulate = Color(0, 0, 1, 1)
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)

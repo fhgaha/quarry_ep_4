@@ -34,7 +34,6 @@ func _process(delta: float) -> void:
 			else C.camera_owner.position
 		)
 
-
 #endregion
 
 #region Public #####################################################################################

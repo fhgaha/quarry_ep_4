@@ -183,29 +183,29 @@ func play_text(props: Dictionary) -> void:
 		if is_instance_valid(_tween) and _tween.is_running():
 			_tween.kill()
 		
-		var tres_path := (A[props.vo_name] as AudioCueSound).resource_path.replace('.tres', '.ogg')
-		var VO_MAC = load(tres_path)
-		var pl := AudioStreamPlayer2D.new()
-		pl.stream = VO_MAC
-		add_child(pl)
-		
 		_tween = create_tween()
 		_tween.tween_property(
 			self, "visible_ratio",
 			1,
 			_secs_per_character * get_total_character_count()
 		).from(0.0)
+		_tween.finished.connect(_wait_input)
 		
-		if !props.vo_name.is_empty():
+		#Play voice if set
+		if !props.vo_name.is_empty(): 
+			var tres_path := (A[props.vo_name] as AudioCueSound).resource_path.replace('.tres', '.ogg')
+			var voice :AudioStream = load(tres_path)
+			var pl := AudioStreamPlayer2D.new()
+			pl.stream = voice
+			add_child(pl)
+			
 			_tween.set_parallel()
 			_tween.tween_method(
 				pl.play,
-				#A[props.vo_name].play_interrupt, 
 				0, 1, _secs_per_character * get_total_character_count()
 			)
-		
-		_tween.finished.connect(_wait_input)
-		_tween.finished.connect(func(): pl.queue_free())
+			
+			_tween.finished.connect(func(): pl.queue_free())
 	else:
 		_wait_input()
 	
