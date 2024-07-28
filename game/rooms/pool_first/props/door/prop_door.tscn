@@ -14,6 +14,8 @@ interaction_polygon = PackedVector2Array()
 
 [node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
 visible = false
+position = Vector2(0, 5.18182)
+scale = Vector2(0.677083, 0.738636)
 polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

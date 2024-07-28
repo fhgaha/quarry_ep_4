@@ -16,6 +16,10 @@ func _on_click() -> void:
 #	await C.player.face_clicked()
 #	await C.player.say("Not picking that up!")
 
+	await C.MainParking1.walk_to_clicked()
+	await C.MainParking1.face_clicked()
+	E.goto_room("PoolFirst")
+
 
 func _on_double_click() -> void:
 	# Replace the call to E.command_fallback() with your code.
