@@ -12,9 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://bb2r5o76o2irb" path="res://game/rooms/pool_first/hotspots/pool/hotspot_pool.tscn" id="8_w117k"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hvu8b"]
-vertices = PackedVector2Array(-17, -50, -5, -114, 211, -31, 163, 104, -33, -59, -159, -71, -46, -55, -22, -36, -162, 122, -40, -42)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 0, 4), PackedInt32Array(5, 1, 4, 6), PackedInt32Array(7, 0, 3), PackedInt32Array(7, 3, 8, 5, 9), PackedInt32Array(5, 6, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-159, -71, -5, -114, 211, -31, 163, 104, -162, 122), PackedVector2Array(-46, -55, -40, -42, -22, -36, -17, -50, -33, -59)])
+vertices = PackedVector2Array(5, -57, -3, -36, -17, -50, -5, -114, -22, -36, 211, -31, 163, 104, 20, -49, 20, -56, 15, -32, -162, 122, 8, -30, 1, -31, -159, -71, -40, -42, -46, -55, -33, -59, 9, -59)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 2, 1), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 7, 6), PackedInt32Array(9, 6, 10, 11), PackedInt32Array(12, 11, 10), PackedInt32Array(1, 12, 10, 4), PackedInt32Array(4, 10, 13, 14), PackedInt32Array(15, 14, 13), PackedInt32Array(15, 13, 3, 16), PackedInt32Array(2, 16, 3), PackedInt32Array(17, 0, 3), PackedInt32Array(17, 3, 5, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-159, -71, -5, -114, 211, -31, 163, 104, -162, 122), PackedVector2Array(-46, -55, -40, -42, -22, -36, -17, -50, -33, -59), PackedVector2Array(5, -57, -3, -36, 1, -31, 8, -30, 15, -32, 20, -49, 20, -56, 9, -59)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
@@ -35,6 +35,7 @@ navigation_polygon = SubResource("NavigationPolygon_hvu8b")
 [node name="Props" type="Node2D" parent="."]
 
 [node name="Floor" parent="Props" instance=ExtResource("2_w6vcp")]
+z_index = -1
 position = Vector2(192, 192)
 texture = ExtResource("3_3psk0")
 baseline = -203
@@ -56,7 +57,16 @@ interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="PoolLoungeChair" parent="Props" instance=ExtResource("8_cla5p")]
 position = Vector2(126, 29)
+angle_deg = -64.0
 baseline = 10
+walk_to_point = Vector2(-5.66324, 16.9897)
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="PoolLoungeChair2" parent="Props" instance=ExtResource("8_cla5p")]
+position = Vector2(170, 32)
+angle_deg = 19.0
+baseline = 7
+walk_to_point = Vector2(-12.9783, 17.9336)
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Hotspots" type="Node2D" parent="."]
