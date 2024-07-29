@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cwdt8w5xds3si"]
+
+[ext_resource type="Script" path="res://game/characters/harlow/character_harlow_state.gd" id="1_h1svi"]
+
+[resource]
+resource_name = "Harlow"
+script = ExtResource("1_h1svi")
+script_name = "Harlow"
+scene = "res://game/characters/harlow/character_harlow.tscn"
