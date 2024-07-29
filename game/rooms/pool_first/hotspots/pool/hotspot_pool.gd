@@ -4,32 +4,73 @@ extends PopochiuHotspot
 # Use await E.queue([]) if you want to pause the excecution of
 # the function until the sequence of events finishes.
 
+var first_time := true
 
 #region Virtual ####################################################################################
 # When the node is clicked
 func _on_click() -> void:
-	# Replace the call to E.command_fallback() with your code.
-	#E.command_fallback()
-	# For example, you can make the player character walk to this hotspot, gaze at it, and then say
-	# something:
-#	await C.player.walk_to_clicked()
-#	await C.player.face_clicked()
-#	await C.player.say("What a nice view")
-
+	if !first_time: return
+	
+	first_time = false
+	clickable = false
 	var character := C.MainParking1 as PopochiuCharacter
+	character.cutscene_running = true
 	await character.stop_walking()
 	await character.face_clicked()
-	await character.say("...")
+	#await character.say("...")
 	await character.walk_to(R.get_prop("PoolLoungeChair").position + Vector2(-10, 10))
-	# await character.walk_to_marker("PoolLoungeChair")
-	# await character.walk_to_marker(R.get_prop("PoolLoungeChair").name)
 	character.undress()
 	await E.play_transition(PopochiuTransitionLayer.FADE_IN, 1.0)
 	C.player = C.MainNaked
-	C.MainNaked.position = character.position
+	var naked = C.MainNaked as PopochiuCharacter
+	naked.position = character.position
 	character.position = Vector2(-100, 0)
 	character.can_move = false
 	await E.play_transition(PopochiuTransitionLayer.FADE_OUT, 1.0)
+	await naked.walk_to_hotspot("Pool")
+	naked.timer.stop()
+	naked.sprites.use_spritesheet = naked.SpshEnum.IDLE
+	naked.sprites.rot_deg = -35
+	await E.wait(1)
+
+	#dive
+	naked.position += Vector2(10, 5)
+	naked.sprites.use_spritesheet = naked.SpshEnum.DIVE_1
+	naked.sprites.rot_deg = -60
+	await E.wait(0.2)
+	naked.position += Vector2(10, 5)
+	naked.sprites.use_spritesheet = naked.SpshEnum.DIVE_2
+	await E.wait(0.2)
+	naked.visible = false
+	await E.wait(1.2)
+
+	#rowing forth
+	naked.sprites.use_spritesheet = naked.SpshEnum.ROW_1
+	naked.position += 3 * Vector2(10, 3)
+	await E.wait(0.2)
+	naked.visible = true
+	await E.wait(0.5)
+	naked.sprites.use_spritesheet = naked.SpshEnum.ROW_2
+	naked.position += 2 * Vector2(10, 3)
+	await E.wait(0.5)
+	naked.sprites.use_spritesheet = naked.SpshEnum.ROW_1
+	naked.position += 2 * Vector2(10, 3)
+	await E.wait(0.5)
+	naked.sprites.use_spritesheet = naked.SpshEnum.ROW_2
+	naked.position += 2 * Vector2(10, 3)
+
+	#rowing back
+	await E.wait(1)
+	naked.sprites.rot_deg = 126
+	naked.sprites.use_spritesheet = naked.SpshEnum.ROW_1
+	naked.position -= Vector2(10, 3)
+	await E.wait(0.5)
+	naked.sprites.use_spritesheet = naked.SpshEnum.ROW_2
+	naked.position -= 2 * Vector2(10, 3)
+	
+	naked.sprites.use_spritesheet = naked.SpshEnum.IDLE_IN_WATER
+	naked.sprites.rot_deg = 224
+
 
 
 func _on_double_click() -> void:

@@ -5,17 +5,9 @@ extends PopochiuCharacter
 # the function until the sequence of events finishes.
 
 const Data := preload('character_main_parking_1_state.gd')
-
 var state: Data = load("res://game/characters/main_parking_1/character_main_parking_1.tres")
-
-var timer: Timer
-var last_pos: Vector2
-var is_walking: bool = false
-var angle_rad : float
-var trg_pos: Vector2
-var undressing:bool = false
-
-@onready var sprites = $Sprite2D as StackedSprites
+#======
+var cutscene_running := false
 
 #region Virtual ####################################################################################
 # When the room in which this node is located finishes being added to the tree
@@ -23,7 +15,6 @@ func _on_room_set() -> void:
 	sprites.render_sprites()
 	last_pos = position
 	
-	#stacked_sprites.use_spritesheet = 0
 	timer = Timer.new()
 	timer.wait_time = 0.3
 	timer.timeout.connect(on_timeout)
@@ -128,7 +119,7 @@ func on_timeout():
 	walk_on_button_hold()
 	
 func walk_on_button_hold():
-	if !can_move || is_talking || is_walking: return
+	if !can_move || cutscene_running || is_talking || is_walking: return
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		walk(get_global_mouse_position())

@@ -106,6 +106,14 @@ var is_talking: bool = false
 ## said by the character when it speaks.
 @onready var dialog_pos: Marker2D = $DialogPos
 
+#==+Stacked sprites related
+@onready var sprites = $Sprite2D as StackedSprites
+var last_pos: Vector2
+var is_walking: bool = false
+var angle_rad : float
+var trg_pos: Vector2
+var undressing:bool = false
+var timer: Timer
 
 #region Godot ######################################################################################
 func _ready():
