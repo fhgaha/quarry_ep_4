@@ -23,7 +23,12 @@ func _on_click() -> void:
 	await character.walk_to(R.get_prop("PoolLoungeChair").position + Vector2(-10, 10))
 	# await character.walk_to_marker("PoolLoungeChair")
 	# await character.walk_to_marker(R.get_prop("PoolLoungeChair").name)
+	character.undress()
 	await E.play_transition(PopochiuTransitionLayer.FADE_IN, 1.0)
+	C.player = C.MainNaked
+	C.MainNaked.position = character.position
+	character.position = Vector2(-100, 0)
+	character.can_move = false
 	await E.play_transition(PopochiuTransitionLayer.FADE_OUT, 1.0)
 
 

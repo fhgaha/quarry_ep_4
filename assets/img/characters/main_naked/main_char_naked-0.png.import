@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7efg10vrgg7r"
-path="res://.godot/imported/main_char-0.png-b4e473df193ccebf823539b80d6d4fd2.ctex"
+uid="uid://bf5v2l1g4y4s8"
+path="res://.godot/imported/main_char_naked-0.png-34b1edbdb0f4030409eeaee030d50550.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/characters/main1/added_naked/main_char-0.png"
-dest_files=["res://.godot/imported/main_char-0.png-b4e473df193ccebf823539b80d6d4fd2.ctex"]
+source_file="res://assets/img/characters/main_naked/main_char_naked-0.png"
+dest_files=["res://.godot/imported/main_char_naked-0.png-34b1edbdb0f4030409eeaee030d50550.ctex"]
 
 [params]
 

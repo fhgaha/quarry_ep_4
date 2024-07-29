@@ -1,0 +1,49 @@
+[gd_scene load_steps=12 format=3 uid="uid://w68msgjbnyg5"]
+
+[ext_resource type="Script" path="res://game/characters/main_naked/character_main_naked.gd" id="1_25oac"]
+[ext_resource type="Resource" uid="uid://clfxtmhefke0m" path="res://game/characters/main_booth/audio/vo_mac.tres" id="2_kn5t5"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="2_w3drv"]
+[ext_resource type="Texture2D" uid="uid://bf5v2l1g4y4s8" path="res://assets/img/characters/main_naked/main_char_naked-0.png" id="3_ii5wd"]
+[ext_resource type="Texture2D" uid="uid://do2syeswyrkge" path="res://assets/img/characters/main_naked/main_char_naked-1.png" id="4_nkiah"]
+[ext_resource type="Texture2D" uid="uid://btte6c38bxo8u" path="res://assets/img/characters/main_naked/main_char_naked-2.png" id="5_gsfqe"]
+[ext_resource type="Texture2D" uid="uid://brppct0sy0it1" path="res://assets/img/characters/main_naked/main_char_naked-3.png" id="6_20o61"]
+[ext_resource type="Texture2D" uid="uid://clk3h62q5oqp5" path="res://assets/img/characters/main_naked/main_char_naked-4.png" id="7_j70ee"]
+[ext_resource type="Texture2D" uid="uid://cgje83qruaqkg" path="res://assets/img/characters/main_naked/main_char_naked-5.png" id="8_0jwv6"]
+[ext_resource type="Texture2D" uid="uid://dbqjhr1bqc7io" path="res://assets/img/characters/main_naked/main_char_naked-6.png" id="9_078cd"]
+[ext_resource type="Texture2D" uid="uid://bsisgp4766be1" path="res://assets/img/characters/main_naked/main_char_naked-7.png" id="10_y35h8"]
+
+[node name="CharacterMainNaked" type="Area2D"]
+script = ExtResource("1_25oac")
+text_color = Color(0.909804, 0.788235, 0.572549, 1)
+voices = [{
+"emotion": "",
+"variations": Array[Resource("res://addons/popochiu/engine/audio_manager/audio_cue_sound.gd")]([ExtResource("2_kn5t5")])
+}]
+walk_speed = 30.0
+popochiu_placeholder = null
+script_name = "MainNaked"
+description = "Main Naked"
+clickable = false
+cursor = 8
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="ScalingPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -15)
+texture = ExtResource("8_0jwv6")
+vframes = 17
+script = ExtResource("2_w3drv")
+from_goxel = false
+frames = 17
+sheets = Array[Texture]([ExtResource("3_ii5wd"), ExtResource("4_nkiah"), ExtResource("5_gsfqe"), ExtResource("6_20o61"), ExtResource("7_j70ee"), ExtResource("8_0jwv6"), ExtResource("9_078cd"), ExtResource("10_y35h8")])
+use_spritesheet = 5
+
+[node name="DialogPos" type="Marker2D" parent="."]

@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://game/characters/main_parking_1/character_main_parking_1.gd" id="1_ge7vy"]
 [ext_resource type="Resource" uid="uid://clfxtmhefke0m" path="res://game/characters/main_booth/audio/vo_mac.tres" id="2_pnqrc"]
-[ext_resource type="Texture2D" uid="uid://b6lgcupdne015" path="res://assets/img/characters/main1/added_naked/main_char-3.png" id="5_378fe"]
+[ext_resource type="Texture2D" uid="uid://b6lgcupdne015" path="res://assets/img/characters/main1/default/main_char-3.png" id="3_ns5jk"]
+[ext_resource type="Texture2D" uid="uid://crr1eujgo38u5" path="res://assets/img/characters/main1/default/main_char-2.png" id="5_hnpyv"]
 [ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="5_jshdw"]
-[ext_resource type="Texture2D" uid="uid://c7efg10vrgg7r" path="res://assets/img/characters/main1/added_naked/main_char-0.png" id="5_s2uue"]
-[ext_resource type="Texture2D" uid="uid://crr1eujgo38u5" path="res://assets/img/characters/main1/added_naked/main_char-2.png" id="6_wad1i"]
-[ext_resource type="Texture2D" uid="uid://dd0ebdyp3vnwp" path="res://assets/img/characters/main1/added_naked/main_char-4.png" id="7_okerp"]
+[ext_resource type="Texture2D" uid="uid://dd0ebdyp3vnwp" path="res://assets/img/characters/main1/default/main_char-4.png" id="6_8jnbc"]
+[ext_resource type="Texture2D" uid="uid://c7efg10vrgg7r" path="res://assets/img/characters/main1/default/main_char-0.png" id="7_snkvp"]
 
 [node name="CharacterMainParking1" type="Area2D"]
 script = ExtResource("1_ge7vy")
@@ -38,13 +38,14 @@ polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -15)
-texture = ExtResource("5_378fe")
+texture = ExtResource("3_ns5jk")
 hframes = 17
 vframes = 17
 script = ExtResource("5_jshdw")
 from_goxel = false
+rot_deg = 90.0
 frames = 17
-sheets = Array[Texture]([ExtResource("5_378fe"), ExtResource("6_wad1i"), ExtResource("7_okerp"), ExtResource("5_s2uue")])
+sheets = Array[Texture]([ExtResource("3_ns5jk"), ExtResource("5_hnpyv"), ExtResource("6_8jnbc"), ExtResource("7_snkvp")])
 
 [node name="DialogPos" type="Marker2D" parent="."]
 visible = false

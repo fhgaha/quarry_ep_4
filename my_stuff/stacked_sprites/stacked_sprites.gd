@@ -23,17 +23,17 @@ class_name StackedSprites extends Sprite2D
 		if show_sprites: render_sprites()
 		set_sprites_rotation(deg_to_rad(rot_deg))
 
+@export var sheets: Array[Texture] = []:
+	set(val):
+		sheets = val
+		if show_sprites: render_sprites()
+
 @export var use_spritesheet :int = 0:
 	set(val):
 		use_spritesheet = val
 		texture = sheets[use_spritesheet]
 		if show_sprites: render_sprites()
 		set_sprites_rotation(deg_to_rad(rot_deg))
-
-@export var sheets: Array[Texture] = []:
-	set(val):
-		sheets = val
-		if show_sprites: render_sprites()
 
 func _ready() -> void:
 	render_sprites()
