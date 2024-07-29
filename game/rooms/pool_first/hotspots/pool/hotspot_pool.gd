@@ -15,9 +15,16 @@ func _on_click() -> void:
 #	await C.player.walk_to_clicked()
 #	await C.player.face_clicked()
 #	await C.player.say("What a nice view")
-	await (C.MainParking1 as PopochiuCharacter).stop_walking()
-	await C.MainParking1.face_clicked()
-	await C.MainParking1.say("...")
+
+	var character := C.MainParking1 as PopochiuCharacter
+	await character.stop_walking()
+	await character.face_clicked()
+	await character.say("...")
+	await character.walk_to(R.get_prop("PoolLoungeChair").position + Vector2(-10, 10))
+	# await character.walk_to_marker("PoolLoungeChair")
+	# await character.walk_to_marker(R.get_prop("PoolLoungeChair").name)
+	await E.play_transition(PopochiuTransitionLayer.FADE_IN, 1.0)
+	await E.play_transition(PopochiuTransitionLayer.FADE_OUT, 1.0)
 
 
 func _on_double_click() -> void:

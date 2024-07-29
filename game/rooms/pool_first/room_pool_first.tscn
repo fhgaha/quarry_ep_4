@@ -29,6 +29,7 @@ popochiu_placeholder = null
 position = Vector2(160, 90)
 
 [node name="Perimeter" type="NavigationRegion2D" parent="WalkableAreas/AreaFirst"]
+visible = false
 modulate = Color(0, 1, 0, 1)
 navigation_polygon = SubResource("NavigationPolygon_hvu8b")
 
@@ -52,6 +53,7 @@ interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Door" parent="Props" instance=ExtResource("5_jnofi")]
 position = Vector2(60, 46)
+angle_deg = 122.06
 baseline = 14
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
@@ -59,7 +61,7 @@ interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 position = Vector2(126, 29)
 angle_deg = -64.0
 baseline = 10
-walk_to_point = Vector2(-5.66324, 16.9897)
+walk_to_point = Vector2(-4.48341, 19.5854)
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="PoolLoungeChair2" parent="Props" instance=ExtResource("8_cla5p")]

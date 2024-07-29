@@ -62,6 +62,7 @@ func render_sprites() -> void:
 			s.vframes = vframes
 			s.frame = i
 			s.position.y = i
+			s.rotation = deg_to_rad(rot_deg)
 			add_child(s)
 
 

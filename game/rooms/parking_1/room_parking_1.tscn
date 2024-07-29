@@ -32,6 +32,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomParking1" type="Node2D"]
+rotation = -0.00118509
 script = ExtResource("1_kg1lh")
 script_name = "Parking1"
 limit_right = 500.0
@@ -90,46 +91,38 @@ navigation_polygon = SubResource("NavigationPolygon_xwofp")
 z_index = -1
 position = Vector2(175, 251)
 texture = ExtResource("4_duheo")
-angle_deg = null
 baseline = -273
 
 [node name="Car1" parent="Props" instance=ExtResource("4_45ffy")]
 position = Vector2(268, 202)
-angle_deg = null
 walk_to_point = Vector2(-22.5, 13.25)
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Car2" parent="Props" instance=ExtResource("5_yv32o")]
 position = Vector2(288, 160)
 texture = ExtResource("6_jkot1")
-angle_deg = null
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="MotelHouse" parent="Props" instance=ExtResource("8_wbeml")]
 position = Vector2(31, 164)
-angle_deg = null
 baseline = -10
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="MotelHouse2" parent="Props" instance=ExtResource("8_wbeml")]
 position = Vector2(83, 121)
-angle_deg = null
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="MotelHouse3" parent="Props" instance=ExtResource("8_wbeml")]
 position = Vector2(135, 78)
-angle_deg = null
 baseline = -12
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="MotelHouseB" parent="Props" instance=ExtResource("9_w86en")]
 position = Vector2(232, 19)
-angle_deg = null
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="ModelHouseCashier" parent="Props" instance=ExtResource("10_lvo86")]
 position = Vector2(304, 56)
-angle_deg = null
 description = "Reception"
 clickable = true
 baseline = -13
@@ -140,53 +133,44 @@ z_index = 1
 position = Vector2(253, 30)
 rotation = -0.720569
 scale = Vector2(0.735736, -0.367122)
-angle_deg = null
 baseline = 18
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Pillar1" parent="Props" instance=ExtResource("12_4uj36")]
 position = Vector2(246, 47)
-angle_deg = null
 baseline = 36
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Pillar2" parent="Props" instance=ExtResource("12_4uj36")]
 position = Vector2(285, 53)
-angle_deg = null
 baseline = 36
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Pillar3" parent="Props" instance=ExtResource("12_4uj36")]
 position = Vector2(323, 61)
-angle_deg = null
 baseline = 36
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="PoolFence" parent="Props" instance=ExtResource("13_hp5ul")]
 position = Vector2(320.247, 368.587)
-angle_deg = null
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="PoolFence3" parent="Props" instance=ExtResource("13_hp5ul")]
 position = Vector2(402.785, 360.864)
-angle_deg = null
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="PoolFenceDoor" parent="Props" instance=ExtResource("14_yfn6b")]
 position = Vector2(269.712, 386.077)
-angle_deg = null
 description = "Pool Area Entry"
 clickable = true
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="PoolFence2" parent="Props" instance=ExtResource("15_1avoy")]
 position = Vector2(264.438, 377.329)
-angle_deg = null
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="PoolFence4" parent="Props" instance=ExtResource("15_1avoy")]
 position = Vector2(208.138, 406.487)
-angle_deg = null
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Hotspots" type="Node2D" parent="."]
@@ -235,4 +219,4 @@ polygon = PackedVector2Array(-80.1327, -30.9104, -109.048, -91.9598, -164.086, -
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="CharacterMainParking1 *" parent="Characters" instance=ExtResource("5_hjkfk")]
-position = Vector2(266.633, 325.301)
+position = Vector2(192.167, 130.754)
