@@ -12,7 +12,8 @@ var state: Data = load("res://game/characters/harlow/character_harlow.tres")
 #region Virtual ####################################################################################
 # When the room in which this node is located finishes being added to the tree
 func _on_room_set() -> void:
-	pass
+	await E.wait(1)
+	say("This is test cue aaaaaaaaa bbbbbbbbbbbb ffffffffffffff gggggggggggggg")
 
 
 # When the node is clicked

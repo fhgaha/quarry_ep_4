@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8wgplwxmagnq"]
+[gd_scene load_steps=14 format=3 uid="uid://c8wgplwxmagnq"]
 
 [ext_resource type="Script" path="res://game/rooms/pool_first/room_pool_first.gd" id="1_ie57w"]
 [ext_resource type="PackedScene" uid="uid://cglg0k63dulwj" path="res://game/rooms/pool_first/walkable_areas/area_first/walkable_area_area_first.tscn" id="2_uyq5k"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b0dk0tbowxjb2" path="res://game/rooms/pool_first/props/pool_lounge_chair/prop_pool_lounge_chair.tscn" id="8_cla5p"]
 [ext_resource type="PackedScene" uid="uid://bb2r5o76o2irb" path="res://game/rooms/pool_first/hotspots/pool/hotspot_pool.tscn" id="8_w117k"]
 [ext_resource type="PackedScene" uid="uid://w68msgjbnyg5" path="res://game/characters/main_naked/character_main_naked.tscn" id="11_35fmm"]
+[ext_resource type="PackedScene" uid="uid://dsock4fe36lfs" path="res://game/characters/harlow/character_harlow.tscn" id="12_p2imh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hvu8b"]
 vertices = PackedVector2Array(5, -57, -3, -36, -17, -50, -5, -114, -22, -36, 211, -31, 163, 104, 20, -49, 20, -56, 15, -32, -162, 122, 8, -30, 1, -31, -159, -71, -40, -42, -46, -55, -33, -59, 9, -59)
@@ -91,3 +92,6 @@ position = Vector2(77, 53)
 
 [node name="CharacterMainNaked *" parent="Characters" instance=ExtResource("11_35fmm")]
 position = Vector2(-124, 0)
+
+[node name="CharacterHarlow *" parent="Characters" instance=ExtResource("12_p2imh")]
+position = Vector2(34, 68)
