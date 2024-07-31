@@ -25,8 +25,7 @@ func _option_selected(opt: PopochiuDialogOption) -> void:
 	for cb: Callable in data.callables:
 		await cb.call()
 	var opts: Array[PopochiuDialogOption] = []
-	for op: String in data.options.filter(
-		func(opt_: String): return !opt_.is_empty()):
+	for op: String in data.options.filter(func(opt: String): return !opt.is_empty()):
 		var popo_opt:PopochiuDialogOption = create_opt(op, op)
 		opts.append(popo_opt)
 	update_options(opts)
@@ -65,65 +64,23 @@ func evaluate(command, variable_names = [], variable_values = []) -> void:
 		push_error(expression.get_error_text())
 		return
 	
-	var result = expression.execute(variable_values, self)
+	var result = await expression.execute(variable_values, self)
 	
 	if expression.has_execute_failed():
 		push_error("Could'nt execute the expression: %s" % result)
 
-func show_frame(idx: int):
-	var prop := (R.current as PopochiuRoom).get_prop("Char")
-	(prop.get_child(1) as Sprite2D).frame = idx
-
-func wait(seconds: float = 1.0):
-	await E.wait(seconds)
-
-func play_coin_sound():
-	A.sfx_coin.play()
-
-func play_hang_phone_sound():
-	A.sfx_phone_slam_down.play()
-
-func transition_to_next_room():
-	E.wait(1.6)
-	E.goto_room("Parking1", true)
-
-#------------
-func frame_test():
-	var prop = (R.current as PopochiuRoom).get_prop("Char")
-	#prop.frames = 2
-	#prop.v_frames = 2
-	#
-	#prints("frms:", prop.frames, prop.v_frames)
-	#await E.wait()
-	#prop.current_frame = 0
-	#await E.wait()
-	#print(prop.current_frame)
-	#prop.current_frame = 1
-	#await E.wait()
-	#print(prop.current_frame)
-	#prop.current_frame = 2
-	#await E.wait()
-	#print(prop.current_frame)
-	#prop.current_frame = 3
-	#await E.wait()
-	#print(prop.current_frame)
-	#prop.current_frame = 4
-	#await E.wait()
-	#print(prop.current_frame)
+func harlow_look_for_sign():
+	var harlow = C.Harlow as PopochiuCharacter
+	harlow.timer.start()
+	var original_pos = harlow.position
+	await harlow.walk_to(R.get_marker_position("LookForSignFirst"))
+	await E.wait(1.5)
+	await harlow.walk_to(R.get_marker_position("LookForSignSecond"))
+	await E.wait(1.5)
+	await harlow.walk_to(R.get_marker_position("LookForSignThird"))
+	await E.wait(1.5)
+	await harlow.walk_to(original_pos)
+	harlow.timer.stop()
+	harlow.sprites.use_spritesheet = harlow.SpshEnum.IDLE
+	harlow.sprites.rot_deg = -20
 	
-	await E.wait()
-	(prop.get_child(1) as Sprite2D).frame = 0
-	await E.wait()
-	print(prop.current_frame)
-	(prop.get_child(1) as Sprite2D).frame = 1
-	await E.wait()
-	print(prop.current_frame)
-	(prop.get_child(1) as Sprite2D).frame = 2
-	await E.wait()
-	print(prop.current_frame)
-	(prop.get_child(1) as Sprite2D).frame = 3
-	await E.wait()
-	print(prop.current_frame)
-	(prop.get_child(1) as Sprite2D).frame = 4
-	await E.wait()
-	print(prop.current_frame)

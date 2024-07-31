@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8wgplwxmagnq"]
+[gd_scene load_steps=17 format=3 uid="uid://c8wgplwxmagnq"]
 
 [ext_resource type="Script" path="res://game/rooms/pool_first/room_pool_first.gd" id="1_ie57w"]
 [ext_resource type="PackedScene" uid="uid://cglg0k63dulwj" path="res://game/rooms/pool_first/walkable_areas/area_first/walkable_area_area_first.tscn" id="2_uyq5k"]
@@ -10,13 +10,16 @@
 [ext_resource type="PackedScene" uid="uid://nsgn6pgrs4ft" path="res://game/rooms/pool_first/props/fence_second/prop_fence_second.tscn" id="6_igyd8"]
 [ext_resource type="PackedScene" uid="uid://b0dk0tbowxjb2" path="res://game/rooms/pool_first/props/pool_lounge_chair/prop_pool_lounge_chair.tscn" id="8_cla5p"]
 [ext_resource type="PackedScene" uid="uid://bb2r5o76o2irb" path="res://game/rooms/pool_first/hotspots/pool/hotspot_pool.tscn" id="8_w117k"]
+[ext_resource type="PackedScene" uid="uid://co6tbvsye7kib" path="res://game/rooms/pool_first/markers/look_for_sign_first/marker_look_for_sign_first.tscn" id="10_6gw0g"]
 [ext_resource type="PackedScene" uid="uid://w68msgjbnyg5" path="res://game/characters/main_naked/character_main_naked.tscn" id="11_35fmm"]
+[ext_resource type="PackedScene" uid="uid://cob04elwy6s2" path="res://game/rooms/pool_first/markers/look_for_sign_second/marker_look_for_sign_second.tscn" id="11_mpgiu"]
+[ext_resource type="PackedScene" uid="uid://4vcpxoo0iucq" path="res://game/rooms/pool_first/markers/look_for_sign_third/marker_look_for_sign_third.tscn" id="12_eunun"]
 [ext_resource type="PackedScene" uid="uid://dsock4fe36lfs" path="res://game/characters/harlow/character_harlow.tscn" id="12_p2imh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hvu8b"]
-vertices = PackedVector2Array(5, -57, -3, -36, -17, -50, -5, -114, -22, -36, 211, -31, 163, 104, 20, -49, 20, -56, 15, -32, -162, 122, 8, -30, 1, -31, -159, -71, -40, -42, -46, -55, -33, -59, 9, -59)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 2, 1), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 7, 6), PackedInt32Array(9, 6, 10, 11), PackedInt32Array(12, 11, 10), PackedInt32Array(1, 12, 10, 4), PackedInt32Array(4, 10, 13, 14), PackedInt32Array(15, 14, 13), PackedInt32Array(15, 13, 3, 16), PackedInt32Array(2, 16, 3), PackedInt32Array(17, 0, 3), PackedInt32Array(17, 3, 5, 8)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-159, -71, -5, -114, 211, -31, 163, 104, -162, 122), PackedVector2Array(-46, -55, -40, -42, -22, -36, -17, -50, -33, -59), PackedVector2Array(5, -57, -3, -36, 1, -31, 8, -30, 15, -32, 20, -49, 20, -56, 9, -59)])
+vertices = PackedVector2Array(5, -57, -3, -36, -17, -50, -24, -60, -22, -36, 1, -31, 8, -30, 15, -32, 42, -35, 123, 37, 47, 71, -39, 104, 20, -49, -153, -20, -104, -24, -93, -41, -86, -44, -83, -38, -147, -39, -124, -48, -76, -42, 20, -56, 6, -70, 9, -59, -33, -59, -48, -73, -46, -55, -68, -65, -40, -42)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 2, 1, 5), PackedInt32Array(6, 7, 8, 9, 10, 11), PackedInt32Array(7, 12, 8), PackedInt32Array(5, 6, 11, 13, 14), PackedInt32Array(15, 16, 17, 14), PackedInt32Array(18, 19, 14, 13), PackedInt32Array(5, 14, 17, 20, 4), PackedInt32Array(8, 12, 21), PackedInt32Array(22, 8, 21), PackedInt32Array(22, 21, 23), PackedInt32Array(3, 22, 23, 0), PackedInt32Array(3, 2, 24, 25), PackedInt32Array(25, 24, 26, 27), PackedInt32Array(20, 27, 26, 28), PackedInt32Array(20, 28, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-147, -39, -124, -48, -104, -24, -93, -41, -86, -44, -83, -38, -76, -42, -68, -65, -48, -73, -24, -60, 6, -70, 42, -35, 123, 37, 47, 71, -39, 104, -153, -20), PackedVector2Array(-46, -55, -40, -42, -22, -36, -17, -50, -33, -59), PackedVector2Array(5, -57, -3, -36, 1, -31, 8, -30, 15, -32, 20, -49, 20, -56, 9, -59)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
@@ -31,7 +34,6 @@ popochiu_placeholder = null
 position = Vector2(160, 90)
 
 [node name="Perimeter" type="NavigationRegion2D" parent="WalkableAreas/AreaFirst"]
-visible = false
 modulate = Color(0, 1, 0, 1)
 navigation_polygon = SubResource("NavigationPolygon_hvu8b")
 
@@ -84,6 +86,15 @@ interaction_polygon = PackedVector2Array(-36, -43, 77, -10, 90, 13, 64, 32, 15, 
 [node name="Regions" type="Node2D" parent="."]
 
 [node name="Markers" type="Node2D" parent="."]
+
+[node name="LookForSignFirst" parent="Markers" instance=ExtResource("10_6gw0g")]
+position = Vector2(77, 62)
+
+[node name="LookForSignSecond" parent="Markers" instance=ExtResource("11_mpgiu")]
+position = Vector2(32, 55)
+
+[node name="LookForSignThird" parent="Markers" instance=ExtResource("12_eunun")]
+position = Vector2(101, 34)
 
 [node name="Characters" type="Node2D" parent="."]
 

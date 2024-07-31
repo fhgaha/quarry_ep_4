@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b7w1qf7fijbxb"]
+
+[ext_resource type="Script" path="res://game/dialogs/pool_mac_harlow_first/dialog_pool_mac_harlow_first.gd" id="1_fplai"]
+
+[resource]
+resource_name = "PoolMacHarlowFirst"
+script = ExtResource("1_fplai")
+script_name = "PoolMacHarlowFirst"
+options = Array[Resource("res://addons/popochiu/engine/objects/dialog/popochiu_dialog_option.gd")]([])

@@ -50,11 +50,18 @@ func handle(option: String = "", data: ToPopochiuDialogue = null) -> ToPopochiuD
 		cur_node = cur_node as CallNodeData
 		#this varible is required otherwise cur_node will be not desired object
 		#during evaluation
-		var txt = cur_node.text
-		data.callables.append(func(): D.current_dialog.evaluate(txt))
+		var txt :String = cur_node.text
+		data.callables.append(await create_callable(txt))
 		handle("", data)
 	
 	return data
+
+func create_callable(txt: String) -> Callable:
+	if txt.contains("await"):
+		txt = txt.replace("await", "")
+		return func(): await D.current_dialog.evaluate(txt)
+	else:
+		return func(): D.current_dialog.evaluate(txt)
 
 func get_start_node() -> NodeData:
 	assert(

@@ -7,7 +7,7 @@ var graph: GraphData
 func _on_start() -> void:
 	var graph_path: String = resource_path.get_slice('.', 0) + "_graph.res"
 	graph = load(graph_path)
-	var data: GraphData.ToPopochiuDialogue = graph.handle()
+	var data: GraphData.ToPopochiuDialogue = await graph.handle()
 	for cb: Callable in data.callables:
 		await cb.call()
 	if data.options.size() == 0:
@@ -21,7 +21,7 @@ func _on_start() -> void:
 
 
 func _option_selected(opt: PopochiuDialogOption) -> void:
-	var data: GraphData.ToPopochiuDialogue = graph.handle(opt.text)
+	var data: GraphData.ToPopochiuDialogue = await graph.handle(opt.text)
 	for cb: Callable in data.callables:
 		await cb.call()
 	var opts: Array[PopochiuDialogOption] = []
