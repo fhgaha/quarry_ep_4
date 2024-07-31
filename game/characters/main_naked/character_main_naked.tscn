@@ -39,13 +39,12 @@ polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -15)
-texture = ExtResource("8_0jwv6")
+texture = ExtResource("3_ii5wd")
 vframes = 17
 script = ExtResource("2_w3drv")
 from_goxel = false
 frames = 17
 sheets = Array[Texture]([ExtResource("3_ii5wd"), ExtResource("4_nkiah"), ExtResource("5_gsfqe"), ExtResource("6_20o61"), ExtResource("7_j70ee"), ExtResource("8_0jwv6"), ExtResource("9_078cd"), ExtResource("10_y35h8")])
-use_spritesheet = 5
 
 [node name="DialogPos" type="Marker2D" parent="."]
 visible = false

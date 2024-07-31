@@ -27,8 +27,6 @@ var _y_limit := 0.0
 @onready var _continue_icon: TextureProgressBar = $ContinueIcon
 @onready var _continue_icon_tween: Tween = null
 
-var pl : AudioStreamPlayer2D
-
 #region Godot ######################################################################################
 func _ready() -> void:
 	set_meta(DFLT_SIZE, size)
@@ -185,7 +183,8 @@ func play_text(props: Dictionary) -> void:
 			_tween.kill()
 		
 		_tween = create_tween()
-
+		
+		var pl : AudioStreamPlayer2D
 		if !props.vo_name.is_empty(): 
 			var tres_path := (A[props.vo_name] as AudioCueSound).resource_path.replace('.tres', '.ogg')
 			var voice :AudioStream = load(tres_path)

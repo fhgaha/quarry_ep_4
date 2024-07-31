@@ -64,12 +64,28 @@ func _on_click() -> void:
 	naked.sprites.rot_deg = 126
 	naked.sprites.use_spritesheet = naked.SpshEnum.ROW_1
 	naked.position -= Vector2(10, 3)
+	
+	var harlow = C.Harlow as PopochiuCharacter
+	harlow.sprites.rot_deg = -20
+	harlow.show()
+	
 	await E.wait(0.5)
 	naked.sprites.use_spritesheet = naked.SpshEnum.ROW_2
 	naked.position -= 2 * Vector2(10, 3)
 	
 	naked.sprites.use_spritesheet = naked.SpshEnum.IDLE_IN_WATER
 	naked.sprites.rot_deg = 224
+	
+	await harlow.say("Dear God")
+	harlow.timer.start()
+	await harlow.walk_to(harlow.position + Vector2(25, 10))
+	harlow.timer.stop()
+	harlow.sprites.use_spritesheet = harlow.SpshEnum.IDLE
+	harlow.sprites.rot_deg = -20
+	
+	
+
+
 
 
 

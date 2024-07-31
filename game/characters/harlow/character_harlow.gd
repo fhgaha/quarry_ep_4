@@ -5,15 +5,19 @@ extends PopochiuCharacter
 # the function until the sequence of events finishes.
 
 const Data := preload('character_harlow_state.gd')
-
 var state: Data = load("res://game/characters/harlow/character_harlow.tres")
 
+enum SpshEnum {IDLE, WALK_1, WALK_2}
 
 #region Virtual ####################################################################################
 # When the room in which this node is located finishes being added to the tree
 func _on_room_set() -> void:
-	await E.wait(1)
-	say("This is test cue aaaaaaaaa bbbbbbbbbbbb ffffffffffffff gggggggggggggg")
+	sprites.render_sprites()
+	
+	timer = Timer.new()
+	timer.wait_time = 0.3
+	timer.timeout.connect(on_timeout)
+	add_child(timer)
 
 
 # When the node is clicked
@@ -66,6 +70,9 @@ func _play_idle() -> void:
 # Use it to play the walk animation for the character
 # target_pos can be used to know the movement direction
 func _play_walk(target_pos: Vector2) -> void:
+	trg_pos = target_pos
+	angle_rad = (global_position - target_pos).angle() + deg_to_rad(90)
+	sprites.set_sprites_rotation(angle_rad)
 	super(target_pos)
 
 
@@ -89,3 +96,17 @@ func _play_grab() -> void:
 
 
 #endregion
+
+func on_timeout():
+	if position == last_pos:
+		sprites.use_spritesheet = SpshEnum.IDLE
+	else:
+		if (sprites.use_spritesheet == SpshEnum.WALK_1 
+		 || sprites.use_spritesheet == SpshEnum.IDLE):
+			sprites.use_spritesheet = SpshEnum.WALK_2
+		elif sprites.use_spritesheet == SpshEnum.WALK_2:
+			sprites.use_spritesheet = SpshEnum.WALK_1
+	
+	sprites.rot_deg = rad_to_deg(angle_rad) + 90
+	sprites.render_sprites()
+	last_pos = position
