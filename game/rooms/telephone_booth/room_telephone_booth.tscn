@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtejpc7uifbib"]
+[gd_scene load_steps=8 format=3 uid="uid://dtejpc7uifbib"]
 
 [ext_resource type="Script" path="res://game/rooms/telephone_booth/room_telephone_booth.gd" id="1_8f4rb"]
 [ext_resource type="PackedScene" uid="uid://dkwxyp0ovfu6u" path="res://game/rooms/telephone_booth/props/bg/prop_bg.tscn" id="2_x8dwa"]
@@ -6,9 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://b45rv57k72y31" path="res://game/rooms/telephone_booth/props/booth/prop_booth.tscn" id="4_b511e"]
 [ext_resource type="PackedScene" uid="uid://beq4wxh7es4eu" path="res://game/rooms/telephone_booth/props/char/prop_char.tscn" id="5_fkkbv"]
 [ext_resource type="PackedScene" uid="uid://ds47lqrmn6fut" path="res://game/characters/main_booth/character_main_booth.tscn" id="6_wjb88"]
+[ext_resource type="PackedScene" uid="uid://dk1epik5klynj" path="res://game/characters/main_parking_1/character_main_parking_1.tscn" id="7_ycj0o"]
 
 [node name="RoomTelephoneBooth" type="Node2D"]
-rotation = 0.000764458
+rotation = 0.00153765
 script = ExtResource("1_8f4rb")
 script_name = "TelephoneBooth"
 popochiu_placeholder = null
@@ -80,3 +81,6 @@ metadata/_popochiu_aseprite_config_ = {
 
 [node name="CharacterMainBooth *" parent="Characters" instance=ExtResource("6_wjb88")]
 position = Vector2(115, 122)
+
+[node name="CharacterMainParking1 *" parent="Characters" instance=ExtResource("7_ycj0o")]
+position = Vector2(-40.021, -18.9557)

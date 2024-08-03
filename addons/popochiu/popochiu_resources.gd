@@ -451,6 +451,7 @@ static func store_properties(
 	# ---- Store basic type properties -------------------------------------------------------------
 	# prop = {class_name, hint, hint_string, name, type, usage}
 	for prop in source.get_script().get_script_property_list():
+		#fixes rotated sprites issue when rotation is zero in non current rooms on load
 		if prop.name == "angle_deg": continue
 		
 		var type_as_str := type_string(prop.type)

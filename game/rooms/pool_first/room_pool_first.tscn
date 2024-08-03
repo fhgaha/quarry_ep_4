@@ -27,7 +27,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomPoolFirst" type="Node2D"]
-rotation = 0.00104197
+rotation = 0.00114145
 script = ExtResource("1_ie57w")
 script_name = "PoolFirst"
 popochiu_placeholder = null
