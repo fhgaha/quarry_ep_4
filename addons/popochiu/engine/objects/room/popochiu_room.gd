@@ -539,7 +539,6 @@ func _follow_player(
 
 func _process(delta: float) -> void:
 	wiggle_pixels()
-	pass
 
 
 func wiggle_pixels() -> void:

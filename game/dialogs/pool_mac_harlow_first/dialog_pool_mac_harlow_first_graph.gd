@@ -11,6 +11,7 @@ func _on_start() -> void:
 
 func _option_selected(opt: PopochiuDialogOption) -> void:
 	_update_graph_options(opt)
+	G.block()
 
 func _update_graph_options(opt: PopochiuDialogOption = null):
 	var data: GraphData.ToPopochiuDialogue =\
