@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b58frhsbin23m"
-path="res://.godot/imported/main_char-2.png-acd5b9f714ef31fc63d2892dc50bd8c8.ctex"
+uid="uid://42o5jrdgef0k"
+path="res://.godot/imported/harlow-1.png-0a5d16037db24e82e7718a05482491b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/characters/main1/added_naked/main_char-2.png"
-dest_files=["res://.godot/imported/main_char-2.png-acd5b9f714ef31fc63d2892dc50bd8c8.ctex"]
+source_file="res://assets/img/characters/harlow/harlow-1.png"
+dest_files=["res://.godot/imported/harlow-1.png-0a5d16037db24e82e7718a05482491b1.ctex"]
 
 [params]
 

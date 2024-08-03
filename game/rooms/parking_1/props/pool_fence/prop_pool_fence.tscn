@@ -24,7 +24,6 @@ texture = ExtResource("2_0m7xq")
 vframes = 13
 script = ExtResource("2_y0qqs")
 from_goxel = false
-rot_deg = -7.0
 frames = 13
 sheets = Array[Texture]([ExtResource("2_0m7xq")])
 

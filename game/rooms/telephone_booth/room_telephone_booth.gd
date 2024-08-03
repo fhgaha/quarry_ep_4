@@ -10,7 +10,7 @@ var state: Data = load("res://game/rooms/telephone_booth/room_telephone_booth.tr
 # What happens when Popochiu loads the room. At this point the room is in the
 # tree but it is not visible
 func _on_room_entered() -> void:
-	C.player = C.MainBooth
+	C.player = C.MainParking1
 	D.TelephoneBoothMainKarl.start()
 
 
@@ -25,7 +25,7 @@ func _on_room_transition_finished() -> void:
 # At this point, the screen is black, processing is disabled and all characters
 # have been removed from the $Characters node.
 func _on_room_exited() -> void:
-	pass
+	C.player = C.MainParking1
 
 
 #endregion

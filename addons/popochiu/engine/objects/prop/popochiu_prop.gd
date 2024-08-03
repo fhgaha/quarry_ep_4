@@ -38,6 +38,20 @@ signal linked_item_discarded(item: PopochiuInventoryItem)
 
 @onready var _sprite: Sprite2D = $Sprite2D
 
+@export var angle_deg: float:
+	#get: 
+		#var sprt = find_child("Sprite2D") as StackedSprites
+		#if sprt:
+			#angle_deg = sprt.rot_deg
+			#return sprt.rot_deg
+		#angle_deg = 0
+		#return 0
+	set(val): 
+		var sprt = find_child("Sprite2D") as StackedSprites
+		if sprt:
+			sprt.rot_deg = val
+			angle_deg = val
+
 #region Godot ######################################################################################
 func _ready() -> void:
 	super()
@@ -64,7 +78,12 @@ func _ready() -> void:
 		
 		if I.is_item_in_inventory(link_to_item):
 			disable()
-
+	
+	#await get_tree().create_timer(1).timeout
+	#var sprts = find_child("Sprite2D").get_children()
+	#if sprts.size() > 0:
+		#var first_sprite = sprts[0] as Sprite2D
+		#prints(name, first_sprite.rotation_degrees, angle_deg)
 
 #endregion
 

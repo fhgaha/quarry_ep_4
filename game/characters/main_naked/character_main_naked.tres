@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://66horigveeeu"]
+
+[ext_resource type="Script" path="res://game/characters/main_naked/character_main_naked_state.gd" id="1_miob8"]
+
+[resource]
+resource_name = "MainNaked"
+script = ExtResource("1_miob8")
+script_name = "MainNaked"
+scene = "res://game/characters/main_naked/character_main_naked.tscn"

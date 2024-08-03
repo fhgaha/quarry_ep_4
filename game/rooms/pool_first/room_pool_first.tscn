@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8wgplwxmagnq"]
+[gd_scene load_steps=20 format=3 uid="uid://c8wgplwxmagnq"]
 
 [ext_resource type="Script" path="res://game/rooms/pool_first/room_pool_first.gd" id="1_ie57w"]
 [ext_resource type="PackedScene" uid="uid://cglg0k63dulwj" path="res://game/rooms/pool_first/walkable_areas/area_first/walkable_area_area_first.tscn" id="2_uyq5k"]
@@ -10,15 +10,24 @@
 [ext_resource type="PackedScene" uid="uid://nsgn6pgrs4ft" path="res://game/rooms/pool_first/props/fence_second/prop_fence_second.tscn" id="6_igyd8"]
 [ext_resource type="PackedScene" uid="uid://b0dk0tbowxjb2" path="res://game/rooms/pool_first/props/pool_lounge_chair/prop_pool_lounge_chair.tscn" id="8_cla5p"]
 [ext_resource type="PackedScene" uid="uid://bb2r5o76o2irb" path="res://game/rooms/pool_first/hotspots/pool/hotspot_pool.tscn" id="8_w117k"]
+[ext_resource type="PackedScene" uid="uid://co6tbvsye7kib" path="res://game/rooms/pool_first/markers/look_for_sign_first/marker_look_for_sign_first.tscn" id="10_6gw0g"]
+[ext_resource type="PackedScene" uid="uid://bq41ny1mnusnu" path="res://game/rooms/pool_first/hotspots/room_exit/hotspot_room_exit.tscn" id="10_rmayd"]
+[ext_resource type="PackedScene" uid="uid://w68msgjbnyg5" path="res://game/characters/main_naked/character_main_naked.tscn" id="11_35fmm"]
+[ext_resource type="PackedScene" uid="uid://cob04elwy6s2" path="res://game/rooms/pool_first/markers/look_for_sign_second/marker_look_for_sign_second.tscn" id="11_mpgiu"]
+[ext_resource type="PackedScene" uid="uid://4vcpxoo0iucq" path="res://game/rooms/pool_first/markers/look_for_sign_third/marker_look_for_sign_third.tscn" id="12_eunun"]
+[ext_resource type="PackedScene" uid="uid://dsock4fe36lfs" path="res://game/characters/harlow/character_harlow.tscn" id="12_p2imh"]
+[ext_resource type="PackedScene" uid="uid://dy0k7s2e8uhbf" path="res://game/rooms/pool_first/markers/naked_out_of_pool/marker_naked_out_of_pool.tscn" id="13_5dst2"]
+[ext_resource type="PackedScene" uid="uid://cxmek04snkdlv" path="res://game/rooms/pool_first/markers/room_exit/marker_room_exit.tscn" id="14_e57ii"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hvu8b"]
-vertices = PackedVector2Array(-17, -50, -5, -114, 211, -31, 163, 104, -33, -59, -159, -71, -46, -55, -22, -36, -162, 122, -40, -42)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(1, 0, 4), PackedInt32Array(5, 1, 4, 6), PackedInt32Array(7, 0, 3), PackedInt32Array(7, 3, 8, 5, 9), PackedInt32Array(5, 6, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-159, -71, -5, -114, 211, -31, 163, 104, -162, 122), PackedVector2Array(-46, -55, -40, -42, -22, -36, -17, -50, -33, -59)])
+vertices = PackedVector2Array(5, -57, -3, -36, -17, -50, -24, -60, -22, -36, 1, -31, 8, -30, 15, -32, 42, -35, 123, 37, 47, 71, -39, 104, 20, -49, -153, -20, -104, -24, -93, -41, -86, -44, -83, -38, -147, -39, -124, -48, -76, -42, 20, -56, 6, -70, 9, -59, -33, -59, -48, -73, -46, -55, -68, -65, -40, -42)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 2, 1, 5), PackedInt32Array(6, 7, 8, 9, 10, 11), PackedInt32Array(7, 12, 8), PackedInt32Array(5, 6, 11, 13, 14), PackedInt32Array(15, 16, 17, 14), PackedInt32Array(18, 19, 14, 13), PackedInt32Array(5, 14, 17, 20, 4), PackedInt32Array(8, 12, 21), PackedInt32Array(22, 8, 21), PackedInt32Array(22, 21, 23), PackedInt32Array(3, 22, 23, 0), PackedInt32Array(3, 2, 24, 25), PackedInt32Array(25, 24, 26, 27), PackedInt32Array(20, 27, 26, 28), PackedInt32Array(20, 28, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-147, -39, -124, -48, -104, -24, -93, -41, -86, -44, -83, -38, -76, -42, -68, -65, -48, -73, -24, -60, 6, -70, 42, -35, 123, 37, 47, 71, -39, 104, -153, -20), PackedVector2Array(-46, -55, -40, -42, -22, -36, -17, -50, -33, -59), PackedVector2Array(5, -57, -3, -36, 1, -31, 8, -30, 15, -32, 20, -49, 20, -56, 9, -59)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomPoolFirst" type="Node2D"]
+rotation = -4.53741e-05
 script = ExtResource("1_ie57w")
 script_name = "PoolFirst"
 popochiu_placeholder = null
@@ -29,12 +38,14 @@ popochiu_placeholder = null
 position = Vector2(160, 90)
 
 [node name="Perimeter" type="NavigationRegion2D" parent="WalkableAreas/AreaFirst"]
+visible = false
 modulate = Color(0, 1, 0, 1)
 navigation_polygon = SubResource("NavigationPolygon_hvu8b")
 
 [node name="Props" type="Node2D" parent="."]
 
 [node name="Floor" parent="Props" instance=ExtResource("2_w6vcp")]
+z_index = -1
 position = Vector2(192, 192)
 texture = ExtResource("3_3psk0")
 baseline = -203
@@ -42,21 +53,34 @@ interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="FenceFirst" parent="Props" instance=ExtResource("4_2lab0")]
 position = Vector2(115, 12)
+angle_deg = -20.0
 baseline = -16
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="FenceSecond" parent="Props" instance=ExtResource("6_igyd8")]
 position = Vector2(65, 29)
+angle_deg = -20.0
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Door" parent="Props" instance=ExtResource("5_jnofi")]
 position = Vector2(60, 46)
+angle_deg = 122.0
+clickable = false
 baseline = 14
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="PoolLoungeChair" parent="Props" instance=ExtResource("8_cla5p")]
 position = Vector2(126, 29)
+angle_deg = -64.0
 baseline = 10
+walk_to_point = Vector2(-4.48341, 19.5854)
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="PoolLoungeChair2" parent="Props" instance=ExtResource("8_cla5p")]
+position = Vector2(170, 32)
+angle_deg = 19.0
+baseline = 7
+walk_to_point = Vector2(-12.9783, 17.9336)
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Hotspots" type="Node2D" parent="."]
@@ -64,14 +88,41 @@ interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 [node name="Pool" parent="Hotspots" instance=ExtResource("8_w117k")]
 position = Vector2(166, 110)
 baseline = -128
-walk_to_point = Vector2(-55.6218, -35.2271)
+walk_to_point = Vector2(-64.1263, -31.1323)
 interaction_polygon = PackedVector2Array(-36, -43, 77, -10, 90, 13, 64, 32, 15, 46, -99, 11)
+
+[node name="RoomExit" parent="Hotspots" instance=ExtResource("10_rmayd")]
+position = Vector2(65.938, 45.0908)
+description = "Door"
+interaction_polygon = PackedVector2Array(-0.957733, -15.0481, 10.0397, -20.0229, 9.01428, -1.00958, -1.00632, 5.99613)
 
 [node name="Regions" type="Node2D" parent="."]
 
 [node name="Markers" type="Node2D" parent="."]
 
+[node name="LookForSignFirst" parent="Markers" instance=ExtResource("10_6gw0g")]
+position = Vector2(77, 62)
+
+[node name="LookForSignSecond" parent="Markers" instance=ExtResource("11_mpgiu")]
+position = Vector2(32, 55)
+
+[node name="LookForSignThird" parent="Markers" instance=ExtResource("12_eunun")]
+position = Vector2(101, 34)
+
+[node name="NakedOutOfPool" parent="Markers" instance=ExtResource("13_5dst2")]
+position = Vector2(203, 79)
+
+[node name="RoomExit" parent="Markers" instance=ExtResource("14_e57ii")]
+position = Vector2(70, 45)
+
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="CharacterMainParking1 *" parent="Characters" instance=ExtResource("4_na186")]
 position = Vector2(77, 53)
+
+[node name="CharacterMainNaked *" parent="Characters" instance=ExtResource("11_35fmm")]
+position = Vector2(-124, 0)
+
+[node name="CharacterHarlow *" parent="Characters" instance=ExtResource("12_p2imh")]
+visible = false
+position = Vector2(69, 46)

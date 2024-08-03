@@ -60,6 +60,9 @@ var _moving_characters := {}
 # add them to the corresponding PopochiuCharacter instance when the room is loaded in runtime.
 var _characters_childs := {}
 
+var rotate_clockwise := true
+var rot_step := 0.0001
+var rot_lim  := 0.1
 
 #region Godot ######################################################################################
 func _enter_tree() -> void:
@@ -533,3 +536,12 @@ func _follow_player(
 
 
 #endregion
+
+func _process(delta: float) -> void:
+	wiggle_pixels()
+
+
+func wiggle_pixels() -> void:
+	rotation_degrees += rot_step if rotate_clockwise else -rot_step
+	if rotation_degrees >= rot_lim || rotation_degrees <= -rot_lim:
+		rotate_clockwise = !rotate_clockwise

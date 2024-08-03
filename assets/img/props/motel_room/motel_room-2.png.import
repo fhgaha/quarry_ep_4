@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://camweyayii8ag"
-path="res://.godot/imported/main_char-1.png-a99eb1b908641dd78438e762884c14eb.ctex"
+uid="uid://dttu3cv5rghvx"
+path="res://.godot/imported/motel_room-2.png-e28c900522cc79e3d0550396592ec7bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/characters/main1/added_naked/main_char-1.png"
-dest_files=["res://.godot/imported/main_char-1.png-a99eb1b908641dd78438e762884c14eb.ctex"]
+source_file="res://assets/img/props/motel_room/motel_room-2.png"
+dest_files=["res://.godot/imported/motel_room-2.png-e28c900522cc79e3d0550396592ec7bc.ctex"]
 
 [params]
 

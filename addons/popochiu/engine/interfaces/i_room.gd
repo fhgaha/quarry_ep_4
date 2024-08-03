@@ -97,26 +97,26 @@ func get_markers() -> Array:
 ## in that script as a variable for code autocompletion) in runtime.
 func get_runtime_room(script_name: String) -> PopochiuRoom:
 	var room: PopochiuRoom = null
-	
+
 	if _room_instances.has(script_name):
 		room = _room_instances[script_name]
 	else:
 		room = get_instance(script_name)
-	
+
 		if room:
 			_room_instances[room.script_name] = room
-	
+
 	return room
 
 
 ## Gets the instance of the [PopochiuRoom] identified with [param script_name].
 func get_instance(script_name: String) -> PopochiuRoom:
 	var tres_path: String = PopochiuResources.get_data_value("rooms", script_name, "")
-	
+
 	if not tres_path:
 		PopochiuUtils.print_error("Room [b]%s[/b] doesn't exist in the project" % script_name)
 		return null
-	
+
 	return load(load(tres_path).scene).instantiate()
 
 
@@ -124,7 +124,7 @@ func get_instance(script_name: String) -> PopochiuRoom:
 func clear_instances() -> void:
 	for r in _room_instances:
 		(_room_instances[r] as PopochiuRoom).free()
-	
+
 	_room_instances.clear()
 
 
@@ -140,49 +140,49 @@ func goto_room(
 	ignore_change := false
 ) -> void:
 	if not E.in_room: return
-	
+
 	E.in_room = false
 	G.block()
-	
+
 	_use_transition_on_room_change = use_transition
 	if use_transition:
 		E.tl.play_transition(E.tl.FADE_IN)
 		await E.tl.transition_finished
-	
+
 	# Prevent the GUI from showing info coming from the previous room
 	G.show_hover_text()
 	Cursor.show_cursor()
-	
+
 	if is_instance_valid(C.player) and Engine.get_process_frames() > 0:
 		C.player.last_room = current.script_name
-	
+
 	# Store the room state
 	if store_state:
 		rooms_states[current.script_name] = current.state
 		current.state.save_children_states()
-	
+
 	# Remove PopochiuCharacter nodes from the room so they are not deleted
 	if Engine.get_process_frames() > 0:
 		current.exit_room()
-	
+
 	# Reset camera config
 	E.camera.restore_default_limits()
-	
+
 	if ignore_change:
 		return
-	
+
 	var rp: String = PopochiuResources.get_data_value("rooms", script_name, null)
 	if rp.is_empty():
 		PopochiuUtils.print_error(
 			"Can't go to room [b]%s[/b] because it doesn't exist" % script_name
 		)
 		return
-	
+
 	if Engine.get_process_frames() == 0:
 		await get_tree().process_frame
-	
+
 	clear_instances()
-	
+
 	E.clear_hovered()
 	E.get_tree().change_scene_to_file(load(rp).scene)
 
@@ -191,20 +191,20 @@ func goto_room(
 func room_readied(room: PopochiuRoom) -> void:
 	if not is_instance_valid(current):
 		current = room
-	
+
 	# When running from the Editor the first time, use goto_room
 	if Engine.get_process_frames() == 0:
 		await get_tree().process_frame
 		E.in_room = true
-		
+
 		# Calling this will make the camera be set to its default values and will store the state of
 		# the main room (the last parameter will prevent Popochiu from changing the scene to the
 		# same that is already loaded)
 		goto_room(room.script_name, false, true, true)
-	
+
 	# Make the camera be ready for the room
 	current.setup_camera()
-	
+
 	# Update the core state
 	if E.loaded_game:
 		C.player = C.get_character(E.loaded_game.player.id)
@@ -212,30 +212,30 @@ func room_readied(room: PopochiuRoom) -> void:
 		current.state.visited = true
 		current.state.visited_times += 1
 		current.state.visited_first_time = current.state.visited_times == 1
-	
+
 	# Add the PopochiuCharacter instances to the room
 	if (rooms_states[room.script_name]["characters"] as Dictionary).is_empty():
 		# Store the initial state of the characters in the room
 		current.state.save_characters()
-	
+
 	current.clean_characters()
-	
+
 	# Load the state of characters in the room
 	for chr_script_name: String in rooms_states[room.script_name]["characters"]:
 		var chr_dic: Dictionary = rooms_states[room.script_name]["characters"][chr_script_name]
 		var chr: PopochiuCharacter = C.get_character(chr_script_name)
-		
+
 		if not chr: continue
-		
+
 		chr.position = Vector2(chr_dic.x, chr_dic.y)
 		chr._looking_dir = chr_dic.facing
 		chr.visible = chr_dic.visible
 		chr.modulate = Color.from_string(chr_dic.modulate, Color.WHITE)
 		chr.self_modulate = Color.from_string(chr_dic.self_modulate, Color.WHITE)
 		chr.light_mask = chr_dic.light_mask
-		
+
 		current.add_character(chr)
-	
+
 	# If the room must have the player character but it is not part of its $Characters node, then
 	# add the PopochiuCharacter to the room
 	if (
@@ -247,7 +247,7 @@ func room_readied(room: PopochiuRoom) -> void:
 		# Place the PC in the middle of the room
 		C.player.position = Vector2(E.width, E.height) / 2.0
 		await C.player.idle()
-	
+
 	# Load the state of Props, Hotspots, Regions and WalkableAreas
 	for type in PopochiuResources.ROOM_CHILDREN:
 		for script_name in rooms_states[room.script_name][type]:
@@ -257,49 +257,49 @@ func room_readied(room: PopochiuRoom) -> void:
 			)
 			var node_dic: Dictionary =\
 			rooms_states[room.script_name][type][script_name]
-			
+
 			for property in node_dic:
 				if not PopochiuResources.has_property(node, property): continue
-				
+
 				node[property] = node_dic[property]
-	
+
 	for c in get_tree().get_nodes_in_group("PopochiuClickable"):
 		c.room = current
-	
+
 	await current._on_room_entered()
-	
+
 	if E.loaded_game:
 		C.player.global_position = Vector2(
 			E.loaded_game.player.position.x,
 			E.loaded_game.player.position.y
 		)
-	
+
 	if _use_transition_on_room_change:
 		E.tl.play_transition(E.tl.FADE_OUT)
 		await E.tl.transition_finished
-		
+
 		await E.wait(0.3)
 	else:
 		await get_tree().process_frame
-	
+
 	if not current.hide_gui:
 		G.unblock()
-	
+
 	if E.hovered:
 		G.mouse_entered_clickable.emit(E.hovered)
-	
+
 	E.in_room = true
-	
+
 	if E.loaded_game:
 		E.game_loaded.emit(E.loaded_game)
 		await G.load_feedback_finished
-		
+
 		E.loaded_game = {}
-	
+
 	# This enables the room to listen input events
 	current.is_current = true
 	await current._on_room_transition_finished()
-	
+
 	# Fix #219: Update visited_first_time state once _on_room_transition_finished() finishes
 	current.state.visited_first_time = false
 

@@ -5,31 +5,25 @@ extends PopochiuCharacter
 # the function until the sequence of events finishes.
 
 const Data := preload('character_main_parking_1_state.gd')
-
 var state: Data = load("res://game/characters/main_parking_1/character_main_parking_1.tres")
-
-var timer: Timer
-var last_pos: Vector2
-var is_walking: bool = false
-var angle_rad : float
-var trg_pos: Vector2
+#======
+var cutscene_running := false
 
 #region Virtual ####################################################################################
 # When the room in which this node is located finishes being added to the tree
 func _on_room_set() -> void:
-	$Sprite2D.render_sprites()
+	sprites.render_sprites()
 	last_pos = position
 	
-	#stacked_sprites.use_spritesheet = 0
 	timer = Timer.new()
-	timer.wait_time = 0.2
+	timer.wait_time = 0.3
 	timer.timeout.connect(on_timeout)
 	add_child(timer)
 	timer.start()
 
 
 func set_up_stacked_sprites():
-	$Sprite2D.render_sprites()
+	sprites.render_sprites()
 
 
 # When the node is clicked
@@ -83,7 +77,8 @@ func _play_idle() -> void:
 # target_pos can be used to know the movement direction
 func _play_walk(target_pos: Vector2) -> void:
 	trg_pos = target_pos
-	update_angle(target_pos)
+	angle_rad = (global_position - target_pos).angle() + deg_to_rad(90)
+	sprites.set_sprites_rotation(angle_rad)
 	super(target_pos)
 
 
@@ -106,8 +101,9 @@ func _play_grab() -> void:
 	#pass
 
 func on_timeout():
-	var sprites = $Sprite2D as StackedSprites
-	if position == last_pos:
+	if undressing:
+		sprites.use_spritesheet = 3
+	elif position == last_pos:
 		sprites.use_spritesheet = 0
 	else:
 		if sprites.use_spritesheet == 0 || sprites.use_spritesheet == 1:
@@ -115,20 +111,20 @@ func on_timeout():
 		elif sprites.use_spritesheet == 2:
 			sprites.use_spritesheet = 1
 	
+	#sprites.set_sprites_rotation(angle_rad)
+	sprites.rot_deg = rad_to_deg(angle_rad) + 90
 	sprites.render_sprites()
-	sprites.set_sprites_rotation(angle_rad)
 	last_pos = position
 	
 	walk_on_button_hold()
-
+	
 func walk_on_button_hold():
-	if self.is_talking: return
+	if !can_move || cutscene_running || is_talking || is_walking: return
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		walk(get_global_mouse_position())
 
-func update_angle(trg_pos: Vector2):
-	angle_rad = (global_position - trg_pos).angle() + deg_to_rad(90)
-	$Sprite2D.set_sprites_rotation(angle_rad)
+func undress():
+	undressing = true
 
 #endregion

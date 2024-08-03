@@ -13,6 +13,7 @@ config_version=5
 config/name="quarry_ep_4"
 run/main_scene="res://game/rooms/telephone_booth/room_telephone_booth.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
@@ -61,7 +62,7 @@ popochiu-skip={
 [popochiu]
 
 pixel/pixel_art_textures=true
-dialogs/text_speed=0.03
+dialogs/text_speed=0.05
 
 [rendering]
 

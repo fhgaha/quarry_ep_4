@@ -68,5 +68,4 @@ func _on_linked_item_discarded() -> void:
 #func on_look_at() -> void:
 	#pass
 
-
 #endregion
