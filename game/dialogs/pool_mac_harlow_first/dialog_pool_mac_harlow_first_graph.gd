@@ -83,4 +83,22 @@ func harlow_look_for_sign():
 	harlow.timer.stop()
 	harlow.sprites.use_spritesheet = harlow.SpshEnum.IDLE
 	harlow.sprites.rot_deg = -20
+
+func naked_climb_out_of_the_pool():
+	var naked = C.MainNaked as PopochiuCharacter
+	naked.sprites.use_spritesheet = naked.SpshEnum.ROW_1
+	naked.sprites.rot_deg = -140
+	naked.position += Vector2(15, -5)
+	await E.wait(1)
 	
+	naked.position = R.get_marker_position("NakedOutOfPool")
+	naked.sprites.use_spritesheet = naked.SpshEnum.IDLE
+	naked.sprites.rot_deg = 130
+	await E.wait(1)
+
+func harlow_walk_away():
+	var harlow = C.Harlow as PopochiuCharacter
+	harlow.timer.start()
+	await harlow.walk_to(R.get_marker_position("RoomExit"))
+	harlow.hide()
+	(C.MainNaked as PopochiuCharacter).timer.start()

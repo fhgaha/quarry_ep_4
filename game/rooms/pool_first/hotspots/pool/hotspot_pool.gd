@@ -13,11 +13,13 @@ func _on_click() -> void:
 	
 	first_time = false
 	clickable = false
+	hide()
+	G.block()
 	var character := C.MainParking1 as PopochiuCharacter
 	character.cutscene_running = true
 	await character.stop_walking()
 	await character.face_clicked()
-	#await character.say("...")
+	await character.say("Hm...")
 	await character.walk_to(R.get_prop("PoolLoungeChair").position + Vector2(-10, 10))
 	character.undress()
 	await E.play_transition(PopochiuTransitionLayer.FADE_IN, 1.0)

@@ -15,7 +15,6 @@ voices = [{
 "emotion": "",
 "variations": Array[Resource("res://addons/popochiu/engine/audio_manager/audio_cue_sound.gd")]([ExtResource("2_pnqrc")])
 }]
-walk_speed = 30.0
 popochiu_placeholder = null
 script_name = "MainParking1"
 description = "Main Parking 1"

@@ -66,47 +66,48 @@ func save_children_states() -> void:
 	if R.current and R.current.state == self:
 		for t in PopochiuResources.ROOM_CHILDREN:
 			for node in R.current.call('get_' + t):
-				if node is PopochiuProp and not node.clickable: continue
-				
+				#if node is PopochiuProp and not node.clickable: continue
+
 				_save_object_state(
 					node,
 					PopochiuResources['%s_IGNORE' % (t as String).to_upper()],
 					get(t)
 				)
-		
+				pass
+
 		# Save the state of characters
 		save_characters()
-		
+
 		return
-	
+
 	var base_dir := resource_path.get_base_dir()
-	
+
 	for t in PopochiuResources.ROOM_CHILDREN:
 		if (get(t) as Dictionary).is_empty():
 			var category := (t as String).replace(' ', '')
 			var objs_path := '%s/%s' % [base_dir, category]
-			
+
 			var dir := DirAccess.open(objs_path)
-			
+
 			if not dir: continue
-			
+
 			dir.include_hidden = false
 			dir.include_navigational = false
-			
+
 			dir.list_dir_begin()
-			
+
 			var folder_name := dir.get_next()
-			
+
 			while folder_name != '':
 				if dir.current_is_dir():
-					
+
 					var script_path := '%s/%s/%s_%s.gd' % [
 						objs_path,
 						folder_name,
 						category.trim_suffix('s'),
 						folder_name,
 					]
-					
+
 					if not FileAccess.file_exists(script_path):
 						folder_name = dir.get_next()
 						continue
@@ -138,7 +139,7 @@ func save_children_states() -> void:
 func save_characters() -> void:
 	for c in R.current.get_characters():
 		var pc: PopochiuCharacter = c
-		
+
 		characters[pc.script_name] = {
 			x = pc.position.x,
 			y = pc.position.y,
@@ -158,7 +159,7 @@ func save_characters() -> void:
 func _save_object_state(node: Node2D, ignore: Array, target: Dictionary) -> void:
 	var state := {}
 	PopochiuResources.store_properties(state, node, ignore)
-	
+
 	# Add the PopochiuProp state to the room's props
 	target[node.script_name] = state
 
