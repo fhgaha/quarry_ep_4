@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game/rooms/motel_room/props/bed/prop_bed.gd" id="1_ax83m"]
 [ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="2_1bn3m"]
-[ext_resource type="Texture2D" uid="uid://dm7r2c0m73aws" path="res://assets/img/props/motel_room/motel_room-8.png" id="2_pmqh6"]
+[ext_resource type="Texture2D" uid="uid://d25ww0e256vds" path="res://assets/img/props/motel_room/motel_room-10.png" id="2_7w0pj"]
 
 [node name="Bed" type="Area2D"]
 script = ExtResource("1_ax83m")
@@ -13,17 +13,15 @@ cursor = 1
 interaction_polygon = PackedVector2Array()
 
 [node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
-visible = false
 polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_pmqh6")
+texture = ExtResource("2_7w0pj")
 hframes = 6
-vframes = 10
+vframes = 16
 script = ExtResource("2_1bn3m")
 from_goxel = false
-frames = 10
-sheets = Array[Texture]([ExtResource("2_pmqh6")])
+sheets = Array[Texture]([ExtResource("2_7w0pj")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

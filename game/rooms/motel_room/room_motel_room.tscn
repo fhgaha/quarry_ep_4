@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://crdfoo0f47lld"]
+[gd_scene load_steps=16 format=3 uid="uid://crdfoo0f47lld"]
 
 [ext_resource type="Script" path="res://game/rooms/motel_room/room_motel_room.gd" id="1_k1kh2"]
+[ext_resource type="PackedScene" uid="uid://o12irhxyt0iy" path="res://game/rooms/motel_room/walkable_areas/walk_area/walkable_area_walk_area.tscn" id="2_5l4p8"]
 [ext_resource type="PackedScene" uid="uid://8g2tkewlhsfb" path="res://game/rooms/motel_room/props/inerier/prop_inerier.tscn" id="2_b8q7b"]
 [ext_resource type="PackedScene" uid="uid://w68msgjbnyg5" path="res://game/characters/main_naked/character_main_naked.tscn" id="3_710q7"]
 [ext_resource type="PackedScene" uid="uid://btdpmyb4qn3fu" path="res://game/rooms/motel_room/props/bed/prop_bed.tscn" id="3_k7umc"]
@@ -11,27 +12,43 @@
 [ext_resource type="PackedScene" uid="uid://bhq32a75fjf77" path="res://game/rooms/motel_room/props/tv_off/prop_tv_off.tscn" id="8_7pjju"]
 [ext_resource type="PackedScene" uid="uid://biu8qbw2d5yku" path="res://game/rooms/motel_room/props/tv_on/prop_tv_on.tscn" id="9_714qk"]
 [ext_resource type="PackedScene" uid="uid://bwosx6cnf40b7" path="res://game/rooms/motel_room/props/hanger/prop_hanger.tscn" id="10_fddle"]
+[ext_resource type="PackedScene" uid="uid://b6g2qin3wyvby" path="res://game/rooms/motel_room/props/door_main_closed/prop_door_main_closed.tscn" id="12_jn2qy"]
+[ext_resource type="PackedScene" uid="uid://c3ay7e8yyj2kt" path="res://game/rooms/motel_room/props/porch/prop_porch.tscn" id="13_4v5xd"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_s2r7m"]
+vertices = PackedVector2Array(42, 37, -4, 53, -27, -9, 4, -29, 17, -34)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(3.92131, -28.7888, 16.9165, -33.7369, 42.0574, 36.9087, -3.88451, 52.8739, -26.8884, -9.18346)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
 
 [node name="RoomMotelRoom" type="Node2D"]
-rotation = 0.000209438
+rotation = 0.00167379
 script = ExtResource("1_k1kh2")
 script_name = "MotelRoom"
 popochiu_placeholder = null
 
 [node name="WalkableAreas" type="Node2D" parent="."]
 
+[node name="WalkArea" parent="WalkableAreas" instance=ExtResource("2_5l4p8")]
+position = Vector2(160, 90)
+
+[node name="Perimeter" type="NavigationRegion2D" parent="WalkableAreas/WalkArea"]
+modulate = Color(0, 1, 0, 1)
+navigation_polygon = SubResource("NavigationPolygon_s2r7m")
+
 [node name="Props" type="Node2D" parent="."]
 
 [node name="Inerier" parent="Props" instance=ExtResource("2_b8q7b")]
-position = Vector2(160.077, 73.8598)
+position = Vector2(157.994, 62.0149)
 angle_deg = 71.0
-baseline = -163
+baseline = -53
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Bed" parent="Props" instance=ExtResource("3_k7umc")]
-position = Vector2(151.195, 105.761)
+position = Vector2(151.012, 99.9826)
 angle_deg = 71.0
-baseline = 20
+baseline = 26
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="CabinetFirst" parent="Props" instance=ExtResource("4_81wk8")]
@@ -87,6 +104,25 @@ interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 position = Vector2(123.971, 55.0643)
 angle_deg = 28.0
 baseline = 24
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="DoorMainClosed" parent="Props" instance=ExtResource("12_jn2qy")]
+visible = false
+position = Vector2(170.001, 35.9964)
+angle_deg = 71.0
+baseline = 22
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="DoorMainOpen" parent="Props" instance=ExtResource("12_jn2qy")]
+position = Vector2(171.041, 26.74)
+angle_deg = 145.0
+baseline = -27
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Porch" parent="Props" instance=ExtResource("13_4v5xd")]
+position = Vector2(164.012, 42.9556)
+angle_deg = 71.0
+baseline = -48
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Hotspots" type="Node2D" parent="."]

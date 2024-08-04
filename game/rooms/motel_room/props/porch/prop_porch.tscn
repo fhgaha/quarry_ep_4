@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3ay7e8yyj2kt"]
+
+[ext_resource type="Script" path="res://game/rooms/motel_room/props/porch/prop_porch.gd" id="1_sd2pm"]
+[ext_resource type="Texture2D" uid="uid://bxxocyh5q1yhj" path="res://assets/img/props/motel_room/motel_room-0.png" id="2_otcua"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_3esqp"]
+
+[node name="Porch" type="Area2D"]
+script = ExtResource("1_sd2pm")
+script_name = "Porch"
+description = "Porch"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_otcua")
+vframes = 2
+script = ExtResource("3_3esqp")
+from_goxel = false
+frames = 2
+sheets = Array[Texture]([ExtResource("2_otcua")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

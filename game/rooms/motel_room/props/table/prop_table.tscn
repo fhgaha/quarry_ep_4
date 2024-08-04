@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdkkvcd88d5bi"]
 
 [ext_resource type="Script" path="res://game/rooms/motel_room/props/table/prop_table.gd" id="1_h02py"]
-[ext_resource type="Texture2D" uid="uid://bl6ppe1l8vihx" path="res://assets/img/props/motel_room/motel_room-5.png" id="2_0ybb3"]
+[ext_resource type="Texture2D" uid="uid://dj8nxvarakn5m" path="res://assets/img/props/motel_room/motel_room-7.png" id="2_cpu3t"]
 [ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_bckbe"]
 
 [node name="Table" type="Area2D"]
@@ -17,12 +17,12 @@ polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_0ybb3")
+texture = ExtResource("2_cpu3t")
 hframes = 10
 vframes = 12
 script = ExtResource("3_bckbe")
 from_goxel = false
 frames = 12
-sheets = Array[Texture]([ExtResource("2_0ybb3")])
+sheets = Array[Texture]([ExtResource("2_cpu3t")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
