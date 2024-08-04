@@ -23,7 +23,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomMotelRoom" type="Node2D"]
-rotation = 0.00167379
+rotation = -0.000640537
 script = ExtResource("1_k1kh2")
 script_name = "MotelRoom"
 popochiu_placeholder = null
@@ -39,10 +39,22 @@ navigation_polygon = SubResource("NavigationPolygon_s2r7m")
 
 [node name="Props" type="Node2D" parent="."]
 
+[node name="Porch" parent="Props" instance=ExtResource("13_4v5xd")]
+position = Vector2(164.012, 42.9556)
+angle_deg = 71.0
+baseline = -48
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
 [node name="Inerier" parent="Props" instance=ExtResource("2_b8q7b")]
 position = Vector2(157.994, 62.0149)
 angle_deg = 71.0
 baseline = -53
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="CabinetFirst2" parent="Props" instance=ExtResource("4_81wk8")]
+position = Vector2(130.039, 78.9362)
+angle_deg = 69.0
+baseline = 20
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Bed" parent="Props" instance=ExtResource("3_k7umc")]
@@ -55,12 +67,6 @@ interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 position = Vector2(148.127, 123.864)
 angle_deg = 57.0
 baseline = 18
-interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
-
-[node name="CabinetFirst2" parent="Props" instance=ExtResource("4_81wk8")]
-position = Vector2(130.039, 78.9362)
-angle_deg = 69.0
-baseline = 20
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Table" parent="Props" instance=ExtResource("6_4rybm")]
@@ -90,14 +96,13 @@ interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 [node name="TvOff" parent="Props" instance=ExtResource("8_7pjju")]
 position = Vector2(188.027, 79.937)
 angle_deg = 63.0
-baseline = 4
+baseline = 9
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="TvOn" parent="Props" instance=ExtResource("9_714qk")]
-visible = false
 position = Vector2(188.03, 79.9295)
 angle_deg = 63.0
-baseline = 4
+baseline = 9
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Hanger" parent="Props" instance=ExtResource("10_fddle")]
@@ -107,22 +112,16 @@ baseline = 24
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="DoorMainClosed" parent="Props" instance=ExtResource("12_jn2qy")]
-visible = false
 position = Vector2(170.001, 35.9964)
 angle_deg = 71.0
 baseline = 22
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="DoorMainOpen" parent="Props" instance=ExtResource("12_jn2qy")]
+visible = false
 position = Vector2(171.041, 26.74)
 angle_deg = 145.0
 baseline = -27
-interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
-
-[node name="Porch" parent="Props" instance=ExtResource("13_4v5xd")]
-position = Vector2(164.012, 42.9556)
-angle_deg = 71.0
-baseline = -48
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Hotspots" type="Node2D" parent="."]
