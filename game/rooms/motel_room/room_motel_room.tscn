@@ -1,17 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://crdfoo0f47lld"]
+[gd_scene load_steps=12 format=3 uid="uid://crdfoo0f47lld"]
 
 [ext_resource type="Script" path="res://game/rooms/motel_room/room_motel_room.gd" id="1_k1kh2"]
 [ext_resource type="PackedScene" uid="uid://8g2tkewlhsfb" path="res://game/rooms/motel_room/props/inerier/prop_inerier.tscn" id="2_b8q7b"]
 [ext_resource type="PackedScene" uid="uid://w68msgjbnyg5" path="res://game/characters/main_naked/character_main_naked.tscn" id="3_710q7"]
 [ext_resource type="PackedScene" uid="uid://btdpmyb4qn3fu" path="res://game/rooms/motel_room/props/bed/prop_bed.tscn" id="3_k7umc"]
 [ext_resource type="PackedScene" uid="uid://c1jpfvrrchpsl" path="res://game/rooms/motel_room/props/cabinet_first/prop_cabinet_first.tscn" id="4_81wk8"]
-[ext_resource type="PackedScene" uid="uid://c0ecy57ialmi0" path="res://game/rooms/motel_room/props/cabinet_second/prop_cabinet_second.tscn" id="5_xrtey"]
 [ext_resource type="PackedScene" uid="uid://cdkkvcd88d5bi" path="res://game/rooms/motel_room/props/table/prop_table.tscn" id="6_4rybm"]
-[ext_resource type="PackedScene" uid="uid://7yxgck6vmkjm" path="res://game/rooms/motel_room/props/chair_first/prop_chair_first.tscn" id="7_b2fcw"]
-[ext_resource type="PackedScene" uid="uid://cqdwqrin4luq2" path="res://game/rooms/motel_room/props/chair_second/prop_chair_second.tscn" id="8_8roh1"]
+[ext_resource type="PackedScene" uid="uid://bfsibqgrtxoki" path="res://game/rooms/motel_room/props/chair/prop_chair.tscn" id="6_r0xgd"]
+[ext_resource type="PackedScene" uid="uid://b56t4yg470eg7" path="res://game/rooms/motel_room/props/cabinet_big/prop_cabinet_big.tscn" id="7_ghr0c"]
+[ext_resource type="PackedScene" uid="uid://bhq32a75fjf77" path="res://game/rooms/motel_room/props/tv_off/prop_tv_off.tscn" id="8_7pjju"]
+[ext_resource type="PackedScene" uid="uid://biu8qbw2d5yku" path="res://game/rooms/motel_room/props/tv_on/prop_tv_on.tscn" id="9_714qk"]
+[ext_resource type="PackedScene" uid="uid://bwosx6cnf40b7" path="res://game/rooms/motel_room/props/hanger/prop_hanger.tscn" id="10_fddle"]
 
 [node name="RoomMotelRoom" type="Node2D"]
-rotation = -0.000799367
+rotation = 0.000209438
 script = ExtResource("1_k1kh2")
 script_name = "MotelRoom"
 popochiu_placeholder = null
@@ -21,32 +23,70 @@ popochiu_placeholder = null
 [node name="Props" type="Node2D" parent="."]
 
 [node name="Inerier" parent="Props" instance=ExtResource("2_b8q7b")]
-position = Vector2(160.084, 95.8598)
+position = Vector2(160.077, 73.8598)
+angle_deg = 71.0
 baseline = -163
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Bed" parent="Props" instance=ExtResource("3_k7umc")]
-position = Vector2(160, 90)
+position = Vector2(151.195, 105.761)
+angle_deg = 71.0
+baseline = 20
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="CabinetFirst" parent="Props" instance=ExtResource("4_81wk8")]
-position = Vector2(160, 90)
+position = Vector2(148.127, 123.864)
+angle_deg = 57.0
+baseline = 18
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
-[node name="CabinetSecond" parent="Props" instance=ExtResource("5_xrtey")]
-position = Vector2(160, 90)
+[node name="CabinetFirst2" parent="Props" instance=ExtResource("4_81wk8")]
+position = Vector2(130.039, 78.9362)
+angle_deg = 69.0
+baseline = 20
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Table" parent="Props" instance=ExtResource("6_4rybm")]
-position = Vector2(160, 90)
+position = Vector2(140.91, 65.1951)
+angle_deg = 68.0
+baseline = 10
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
-[node name="ChairFirst" parent="Props" instance=ExtResource("7_b2fcw")]
-position = Vector2(160, 90)
+[node name="Chair" parent="Props" instance=ExtResource("6_r0xgd")]
+position = Vector2(156.982, 59.0219)
+angle_deg = 143.0
+baseline = 10
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
-[node name="ChairSecond" parent="Props" instance=ExtResource("8_8roh1")]
-position = Vector2(160, 90)
+[node name="Chair2" parent="Props" instance=ExtResource("6_r0xgd")]
+position = Vector2(143.074, 74.8807)
+angle_deg = -68.0
+baseline = 7
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="CabinetBig" parent="Props" instance=ExtResource("7_ghr0c")]
+position = Vector2(190.162, 93.6722)
+angle_deg = 251.0
+baseline = -5
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="TvOff" parent="Props" instance=ExtResource("8_7pjju")]
+position = Vector2(188.027, 79.937)
+angle_deg = 63.0
+baseline = 4
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="TvOn" parent="Props" instance=ExtResource("9_714qk")]
+visible = false
+position = Vector2(188.03, 79.9295)
+angle_deg = 63.0
+baseline = 4
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Hanger" parent="Props" instance=ExtResource("10_fddle")]
+position = Vector2(123.971, 55.0643)
+angle_deg = 28.0
+baseline = 24
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Hotspots" type="Node2D" parent="."]
@@ -58,4 +98,4 @@ interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="CharacterMainNaked *" parent="Characters" instance=ExtResource("3_710q7")]
-position = Vector2(160, 90)
+position = Vector2(173.087, 86.8269)

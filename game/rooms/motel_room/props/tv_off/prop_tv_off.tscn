@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhq32a75fjf77"]
+
+[ext_resource type="Script" path="res://game/rooms/motel_room/props/tv_off/prop_tv_off.gd" id="1_3ornc"]
+[ext_resource type="Texture2D" uid="uid://bsph5gvgoi4kb" path="res://assets/img/props/motel_room/motel_room-1.png" id="2_cbm2o"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_ps0wi"]
+
+[node name="TvOff" type="Area2D"]
+script = ExtResource("1_3ornc")
+script_name = "TvOff"
+description = "Tv Off"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_cbm2o")
+vframes = 8
+script = ExtResource("3_ps0wi")
+from_goxel = false
+frames = 8
+sheets = Array[Texture]([ExtResource("2_cbm2o")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
