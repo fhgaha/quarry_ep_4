@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://crdfoo0f47lld"]
+[gd_scene load_steps=18 format=3 uid="uid://crdfoo0f47lld"]
 
 [ext_resource type="Script" path="res://game/rooms/motel_room/room_motel_room.gd" id="1_k1kh2"]
 [ext_resource type="PackedScene" uid="uid://o12irhxyt0iy" path="res://game/rooms/motel_room/walkable_areas/walk_area/walkable_area_walk_area.tscn" id="2_5l4p8"]
 [ext_resource type="PackedScene" uid="uid://8g2tkewlhsfb" path="res://game/rooms/motel_room/props/inerier/prop_inerier.tscn" id="2_b8q7b"]
-[ext_resource type="PackedScene" uid="uid://w68msgjbnyg5" path="res://game/characters/main_naked/character_main_naked.tscn" id="3_710q7"]
 [ext_resource type="PackedScene" uid="uid://btdpmyb4qn3fu" path="res://game/rooms/motel_room/props/bed/prop_bed.tscn" id="3_k7umc"]
 [ext_resource type="PackedScene" uid="uid://c1jpfvrrchpsl" path="res://game/rooms/motel_room/props/cabinet_first/prop_cabinet_first.tscn" id="4_81wk8"]
 [ext_resource type="PackedScene" uid="uid://cdkkvcd88d5bi" path="res://game/rooms/motel_room/props/table/prop_table.tscn" id="6_4rybm"]
@@ -14,16 +13,19 @@
 [ext_resource type="PackedScene" uid="uid://bwosx6cnf40b7" path="res://game/rooms/motel_room/props/hanger/prop_hanger.tscn" id="10_fddle"]
 [ext_resource type="PackedScene" uid="uid://b6g2qin3wyvby" path="res://game/rooms/motel_room/props/door_main_closed/prop_door_main_closed.tscn" id="12_jn2qy"]
 [ext_resource type="PackedScene" uid="uid://c3ay7e8yyj2kt" path="res://game/rooms/motel_room/props/porch/prop_porch.tscn" id="13_4v5xd"]
+[ext_resource type="PackedScene" uid="uid://ougnjwcbxwtb" path="res://game/rooms/motel_room/markers/mac_enter/marker_mac_enter.tscn" id="14_6h8ab"]
+[ext_resource type="PackedScene" uid="uid://dg381wxcot2if" path="res://game/characters/joni/character_joni.tscn" id="15_1ddaf"]
+[ext_resource type="PackedScene" uid="uid://8xdift4uojly" path="res://game/characters/main_hotel_room/character_main_hotel_room.tscn" id="16_nnutn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_s2r7m"]
-vertices = PackedVector2Array(42, 37, -4, 53, -27, -9, 4, -29, 17, -34)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(3.92131, -28.7888, 16.9165, -33.7369, 42.0574, 36.9087, -3.88451, 52.8739, -26.8884, -9.18346)])
+vertices = PackedVector2Array(5, -4, -13, 1, -8, -11, 3, -19, 40, 37, -4, 53, -5, 46, 20, 37, 38, 27, 29, 29, 19, -3, 3, -26, 17, -30, 26, -9)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 4, 7, 9), PackedInt32Array(9, 7, 0, 10), PackedInt32Array(0, 3, 11, 12, 13, 10)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(2.90106, -25.7486, 17.0267, -30.0788, 25.982, -8.95878, 19.0125, -3.02562, 29.1005, 28.8403, 38.0708, 26.8801, 40.1402, 36.779, -3.88451, 52.8739, -4.85693, 45.8368, 20.1112, 36.8422, 4.98154, -3.96458, -13.0381, 1.06157, -8.10381, -10.8006, 2.89276, -18.7543)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomMotelRoom" type="Node2D"]
-rotation = -0.000640537
+rotation = 0.000148355
 script = ExtResource("1_k1kh2")
 script_name = "MotelRoom"
 popochiu_placeholder = null
@@ -48,7 +50,13 @@ interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 [node name="Inerier" parent="Props" instance=ExtResource("2_b8q7b")]
 position = Vector2(157.994, 62.0149)
 angle_deg = 71.0
-baseline = -53
+baseline = -5
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Hanger" parent="Props" instance=ExtResource("10_fddle")]
+position = Vector2(123.971, 55.0643)
+angle_deg = 28.0
+baseline = 24
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="CabinetFirst2" parent="Props" instance=ExtResource("4_81wk8")]
@@ -105,12 +113,6 @@ angle_deg = 63.0
 baseline = 9
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
-[node name="Hanger" parent="Props" instance=ExtResource("10_fddle")]
-position = Vector2(123.971, 55.0643)
-angle_deg = 28.0
-baseline = 24
-interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
-
 [node name="DoorMainClosed" parent="Props" instance=ExtResource("12_jn2qy")]
 position = Vector2(170.001, 35.9964)
 angle_deg = 71.0
@@ -130,7 +132,16 @@ interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Markers" type="Node2D" parent="."]
 
+[node name="MacEnter" parent="Markers" instance=ExtResource("14_6h8ab")]
+position = Vector2(168.92, 49.274)
+
+[node name="MacEnter2" parent="Markers" instance=ExtResource("14_6h8ab")]
+position = Vector2(169.064, 69.8451)
+
 [node name="Characters" type="Node2D" parent="."]
 
-[node name="CharacterMainNaked *" parent="Characters" instance=ExtResource("3_710q7")]
-position = Vector2(173.087, 86.8269)
+[node name="CharacterJoni *" parent="Characters" instance=ExtResource("15_1ddaf")]
+position = Vector2(144.166, 101.765)
+
+[node name="CharacterMainHotelRoom *" parent="Characters" instance=ExtResource("16_nnutn")]
+position = Vector2(159.058, 47.809)

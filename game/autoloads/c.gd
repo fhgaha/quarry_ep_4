@@ -7,6 +7,7 @@ const PCMainParking1 := preload("res://game/characters/main_parking_1/character_
 const PCMainNaked := preload("res://game/characters/main_naked/character_main_naked.gd")
 const PCHarlow := preload("res://game/characters/harlow/character_harlow.gd")
 const PCJoni := preload("res://game/characters/joni/character_joni.gd")
+const PCMainHotelRoom := preload("res://game/characters/main_hotel_room/character_main_hotel_room.gd")
 # ---- classes
 
 # nodes ----
@@ -15,6 +16,7 @@ var MainParking1: PCMainParking1 : get = get_MainParking1
 var MainNaked: PCMainNaked : get = get_MainNaked
 var Harlow: PCHarlow : get = get_Harlow
 var Joni: PCJoni : get = get_Joni
+var MainHotelRoom: PCMainHotelRoom : get = get_MainHotelRoom
 # ---- nodes
 
 # functions ----
@@ -23,5 +25,6 @@ func get_MainParking1() -> PCMainParking1: return get_runtime_character("MainPar
 func get_MainNaked() -> PCMainNaked: return get_runtime_character("MainNaked")
 func get_Harlow() -> PCHarlow: return get_runtime_character("Harlow")
 func get_Joni() -> PCJoni: return get_runtime_character("Joni")
+func get_MainHotelRoom() -> PCMainHotelRoom: return get_runtime_character("MainHotelRoom")
 # ---- functions
 
