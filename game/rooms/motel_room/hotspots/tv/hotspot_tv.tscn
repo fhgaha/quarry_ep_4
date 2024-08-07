@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://brt45333rhsrv"]
+
+[ext_resource type="Script" path="res://game/rooms/motel_room/hotspots/tv/hotspot_tv.gd" id="1_dx3ba"]
+
+[node name="Tv" type="Area2D"]
+script = ExtResource("1_dx3ba")
+script_name = "Tv"
+description = "Tv"
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+modulate = Color(0, 0, 1, 1)
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)

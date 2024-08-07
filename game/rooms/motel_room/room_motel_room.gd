@@ -85,4 +85,4 @@ func play_enter_sequence():
 	
 	await E.wait(1)
 	mac.timer.start()
-	D.MacJoniHotelRoomFirst.start()
+	#D.MacJoniHotelRoomFirst.start()

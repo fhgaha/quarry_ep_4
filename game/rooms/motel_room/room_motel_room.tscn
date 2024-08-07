@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://crdfoo0f47lld"]
+[gd_scene load_steps=23 format=3 uid="uid://crdfoo0f47lld"]
 
 [ext_resource type="Script" path="res://game/rooms/motel_room/room_motel_room.gd" id="1_k1kh2"]
 [ext_resource type="PackedScene" uid="uid://o12irhxyt0iy" path="res://game/rooms/motel_room/walkable_areas/walk_area/walkable_area_walk_area.tscn" id="2_5l4p8"]
@@ -14,9 +14,12 @@
 [ext_resource type="PackedScene" uid="uid://b6g2qin3wyvby" path="res://game/rooms/motel_room/props/door_main_closed/prop_door_main_closed.tscn" id="12_jn2qy"]
 [ext_resource type="PackedScene" uid="uid://c3ay7e8yyj2kt" path="res://game/rooms/motel_room/props/porch/prop_porch.tscn" id="13_4v5xd"]
 [ext_resource type="PackedScene" uid="uid://ougnjwcbxwtb" path="res://game/rooms/motel_room/markers/mac_enter/marker_mac_enter.tscn" id="14_6h8ab"]
+[ext_resource type="PackedScene" uid="uid://vwr2qnd2np1o" path="res://game/rooms/motel_room/hotspots/table/hotspot_table.tscn" id="14_nrlkv"]
 [ext_resource type="PackedScene" uid="uid://dg381wxcot2if" path="res://game/characters/joni/character_joni.tscn" id="15_1ddaf"]
 [ext_resource type="PackedScene" uid="uid://dwumgk43p14c" path="res://game/rooms/motel_room/markers/mac_enter_3/marker_mac_enter_3.tscn" id="15_aovy5"]
+[ext_resource type="PackedScene" uid="uid://brt45333rhsrv" path="res://game/rooms/motel_room/hotspots/tv/hotspot_tv.tscn" id="15_gfcvl"]
 [ext_resource type="PackedScene" uid="uid://8xdift4uojly" path="res://game/characters/main_hotel_room/character_main_hotel_room.tscn" id="16_nnutn"]
+[ext_resource type="PackedScene" uid="uid://bok45hjfegd6m" path="res://game/rooms/motel_room/markers/mac_sit/marker_mac_sit.tscn" id="18_2mbgu"]
 [ext_resource type="PackedScene" uid="uid://bcu2hnktr5tc7" path="res://game/characters/white_text/character_white_text.tscn" id="18_cnokf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_s2r7m"]
@@ -27,7 +30,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomMotelRoom" type="Node2D"]
-rotation = 0.00115891
+rotation = -0.000225148
 script = ExtResource("1_k1kh2")
 script_name = "MotelRoom"
 popochiu_placeholder = null
@@ -130,6 +133,15 @@ interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Hotspots" type="Node2D" parent="."]
 
+[node name="Table" parent="Hotspots" instance=ExtResource("14_nrlkv")]
+position = Vector2(140.906, 69.1909)
+interaction_polygon = PackedVector2Array(-10.9291, -4.14553, 6.04648, -11.0716, 12.0558, -0.107063, -6.90936, 7.81423)
+
+[node name="Tv" parent="Hotspots" instance=ExtResource("15_gfcvl")]
+position = Vector2(184.943, 83.1266)
+walk_to_point = Vector2(-7.37997, 8.96295)
+interaction_polygon = PackedVector2Array(-0.94278, -6.12752, 4.04156, -7.08863, 7.14188, -1.32599, 8.10957, 6.76025, 2.12439, 8.73602, -1.92064, 5.82713, -2.83209, -0.37059)
+
 [node name="Regions" type="Node2D" parent="."]
 
 [node name="Markers" type="Node2D" parent="."]
@@ -143,6 +155,9 @@ position = Vector2(169.064, 69.8451)
 [node name="MacEnter3" parent="Markers" instance=ExtResource("15_aovy5")]
 position = Vector2(164.132, 82.7383)
 
+[node name="MacSit" parent="Markers" instance=ExtResource("18_2mbgu")]
+position = Vector2(171.024, 99.9591)
+
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="CharacterJoni *" parent="Characters" instance=ExtResource("15_1ddaf")]
@@ -152,4 +167,4 @@ position = Vector2(144.166, 101.765)
 position = Vector2(159.058, 47.809)
 
 [node name="CharacterWhiteText *" parent="Characters" instance=ExtResource("18_cnokf")]
-position = Vector2(172, 65.0003)
+position = Vector2(169.991, 44.0365)

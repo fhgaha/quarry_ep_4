@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://8xdift4uojly"]
+[gd_scene load_steps=8 format=3 uid="uid://8xdift4uojly"]
 
 [ext_resource type="Script" path="res://game/characters/main_hotel_room/character_main_hotel_room.gd" id="1_2udq3"]
 [ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="2_bmy2s"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cwod84tudp3wb" path="res://assets/img/characters/main_char_naked_motel_room/main_char_naked_motel_room-0.png" id="2_i36v5"]
 [ext_resource type="Texture2D" uid="uid://7a8xsohdfi8x" path="res://assets/img/characters/main_char_naked_motel_room/main_char_naked_motel_room-1.png" id="4_fm8bl"]
 [ext_resource type="Texture2D" uid="uid://4vjuovbsk4d" path="res://assets/img/characters/main_char_naked_motel_room/main_char_naked_motel_room-2.png" id="5_54jtd"]
+[ext_resource type="Texture2D" uid="uid://dd4rx32yyfe7j" path="res://assets/img/characters/main_char_naked_motel_room/main_char_naked_motel_room-3.png" id="6_qi042"]
 
 [node name="CharacterMainHotelRoom" type="Area2D"]
 script = ExtResource("1_2udq3")
@@ -34,13 +35,13 @@ polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -16)
-texture = ExtResource("2_i36v5")
+texture = ExtResource("4_fm8bl")
 vframes = 17
 script = ExtResource("2_bmy2s")
 from_goxel = false
-rot_deg = 90.0
 frames = 17
-sheets = Array[Texture]([ExtResource("2_i36v5"), ExtResource("4_fm8bl"), ExtResource("5_54jtd")])
+sheets = Array[Texture]([ExtResource("4_fm8bl"), ExtResource("5_54jtd"), ExtResource("6_qi042"), ExtResource("2_i36v5")])
 
 [node name="DialogPos" type="Marker2D" parent="."]
 visible = false
+position = Vector2(0, -23)

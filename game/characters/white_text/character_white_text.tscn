@@ -4,9 +4,11 @@
 
 [node name="CharacterWhiteText" type="Area2D"]
 script = ExtResource("1_wac02")
+can_move = false
 popochiu_placeholder = null
 script_name = "WhiteText"
 description = "White Text"
+clickable = false
 cursor = 8
 interaction_polygon = PackedVector2Array()
 

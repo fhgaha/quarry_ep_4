@@ -4,7 +4,7 @@ class_name CharacterMainNakedHotelRoom extends PopochiuCharacter
 # Use await E.queue([]) if you want to pause the excecution of
 # the function until the sequence of events finishes.
 
-enum SpshEnum {IDLE, WALK_1, WALK_2}
+enum SpshEnum {IDLE, WALK_1, WALK_2, SIT}
 
 const Data := preload('character_main_hotel_room_state.gd')
 var state: Data = load("res://game/characters/main_hotel_room/character_main_hotel_room.tres")

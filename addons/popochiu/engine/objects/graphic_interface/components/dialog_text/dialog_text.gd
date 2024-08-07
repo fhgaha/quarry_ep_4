@@ -197,7 +197,7 @@ func play_text(props: Dictionary) -> void:
 		_tween.tween_method(
 			func(val: float):
 				visible_ratio = val
-				if !props.vo_name.is_empty(): 
+				if !props.vo_name.is_empty() && is_instance_valid(pl):
 					pl.play(),
 			0.0, 1.0,
 			_secs_per_character * get_total_character_count()
@@ -217,6 +217,7 @@ func on_tween_finished():
 	if pl != null:
 		await pl.finished
 		pl.queue_free()
+		await pl.tree_exited
 	_wait_input()
 
 func stop() ->void:
