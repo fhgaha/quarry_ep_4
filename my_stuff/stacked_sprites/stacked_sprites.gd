@@ -26,6 +26,7 @@ class_name StackedSprites extends Sprite2D
 @export var sheets: Array[Texture] = []:
 	set(val):
 		sheets = val
+		texture = null if sheets.size() == 0 else sheets[use_spritesheet]
 		if show_sprites: render_sprites()
 
 @export var use_spritesheet :int = 0:

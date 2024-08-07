@@ -1,0 +1,20 @@
+{
+	"editor.lineHeight": 25,
+	"workbench.colorCustomizations": {
+    "editor.selectionBackground": "default",
+    "symbolIcon.keywordForeground": "#ff0000"
+	},
+  "editor.tokenColorCustomizations": {
+    "[Better Solarized Dark]": {
+      "textMateRules": [
+        {
+          "scope": "support.type.property-name.table.toml",
+          "settings": {
+            "foreground": "#c32828",
+            "fontStyle": "bold",
+            
+          }
+        }
+      ]
+    }
+}

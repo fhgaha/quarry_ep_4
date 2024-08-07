@@ -27,6 +27,8 @@ var _y_limit := 0.0
 @onready var _continue_icon: TextureProgressBar = $ContinueIcon
 @onready var _continue_icon_tween: Tween = null
 
+var pl : AudioStreamPlayer2D
+
 #region Godot ######################################################################################
 func _ready() -> void:
 	set_meta(DFLT_SIZE, size)
@@ -184,7 +186,7 @@ func play_text(props: Dictionary) -> void:
 		
 		_tween = create_tween()
 		
-		var pl : AudioStreamPlayer2D
+		#var pl : AudioStreamPlayer2D
 		if !props.vo_name.is_empty(): 
 			var tres_path := (A[props.vo_name] as AudioCueSound).resource_path.replace('.tres', '.ogg')
 			var voice :AudioStream = load(tres_path)
@@ -195,41 +197,28 @@ func play_text(props: Dictionary) -> void:
 		_tween.tween_method(
 			func(val: float):
 				visible_ratio = val
-				if !props.vo_name.is_empty(): 
+				if !props.vo_name.is_empty() && is_instance_valid(pl):
 					pl.play(),
 			0.0, 1.0,
 			_secs_per_character * get_total_character_count()
 		)
-		_tween.finished.connect(_wait_input)
-		_tween.finished.connect(func():
-			await pl.finished
-			pl.queue_free()
-		)
+		#_tween.finished.connect(func():
+			#await pl.finished
+			#pl.queue_free()
+		#)
+		#_tween.finished.connect(_wait_input)
+		_tween.finished.connect(on_tween_finished)
 	else:
 		_wait_input()
-
-#region New Code Region
-	#pl = AudioStreamPlayer2D.new()
-	#add_child(pl)
-	#if !props.vo_name.is_empty(): 
-		#var tres_path := (A[props.vo_name] as AudioCueSound).resource_path.replace('.tres', '.ogg')
-		#var voice :AudioStream = load(tres_path)
-		#pl.stream = voice
-	#
-	#if _secs_per_character > 0.0:
-		#for i in get_total_character_count():
-			#await get_tree().create_timer(_secs_per_character).timeout
-			#visible_ratio += i
-			#
-			#if pl.playing:
-				#pl.stop()
-			#pl.play()
-	#
-	#pl.queue_free()
-	#_wait_input()
-#endregion
 	
 	modulate.a = 1.0
+
+func on_tween_finished():
+	if pl != null:
+		await pl.finished
+		pl.queue_free()
+		await pl.tree_exited
+	_wait_input()
 
 func stop() ->void:
 	if modulate.a == 0.0:

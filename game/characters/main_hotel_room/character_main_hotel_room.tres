@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cjurdh37wwdom"]
+
+[ext_resource type="Script" path="res://game/characters/main_hotel_room/character_main_hotel_room_state.gd" id="1_gwv2b"]
+
+[resource]
+resource_name = "MainHotelRoom"
+script = ExtResource("1_gwv2b")
+script_name = "MainHotelRoom"
+scene = "res://game/characters/main_hotel_room/character_main_hotel_room.tscn"

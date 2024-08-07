@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dg0xa7njrpsrb"]
+
+[ext_resource type="Script" path="res://game/characters/white_text/character_white_text_state.gd" id="1_fxprj"]
+
+[resource]
+resource_name = "WhiteText"
+script = ExtResource("1_fxprj")
+script_name = "WhiteText"
+scene = "res://game/characters/white_text/character_white_text.tscn"

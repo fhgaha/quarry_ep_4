@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfsibqgrtxoki"]
+
+[ext_resource type="Script" path="res://game/rooms/motel_room/props/chair/prop_chair.gd" id="1_w43v4"]
+[ext_resource type="Texture2D" uid="uid://q2p0lalth0e3" path="res://assets/img/props/motel_room/motel_room-6.png" id="2_pb7ww"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_pouqh"]
+
+[node name="Chair" type="Area2D"]
+script = ExtResource("1_w43v4")
+script_name = "Chair"
+description = "Chair"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_pb7ww")
+vframes = 12
+script = ExtResource("3_pouqh")
+from_goxel = false
+frames = 12
+sheets = Array[Texture]([ExtResource("2_pb7ww")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1jpfvrrchpsl"]
+
+[ext_resource type="Script" path="res://game/rooms/motel_room/props/cabinet_first/prop_cabinet_first.gd" id="1_i5mvx"]
+[ext_resource type="Texture2D" uid="uid://dm7r2c0m73aws" path="res://assets/img/props/motel_room/motel_room-8.png" id="2_js8ln"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_6o4xi"]
+
+[node name="CabinetFirst" type="Area2D"]
+script = ExtResource("1_i5mvx")
+script_name = "CabinetFirst"
+description = "Cabinet First"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_js8ln")
+vframes = 18
+script = ExtResource("3_6o4xi")
+from_goxel = false
+frames = 18
+sheets = Array[Texture]([ExtResource("2_js8ln")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

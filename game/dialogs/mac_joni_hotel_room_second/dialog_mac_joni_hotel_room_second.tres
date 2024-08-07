@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://camcfn5m1wos1"]
+
+[ext_resource type="Script" path="res://game/dialogs/mac_joni_hotel_room_second/dialog_mac_joni_hotel_room_second.gd" id="1_hdmfa"]
+
+[resource]
+resource_name = "MacJoniHotelRoomSecond"
+script = ExtResource("1_hdmfa")
+script_name = "MacJoniHotelRoomSecond"
+options = Array[Resource("res://addons/popochiu/engine/objects/dialog/popochiu_dialog_option.gd")]([])
