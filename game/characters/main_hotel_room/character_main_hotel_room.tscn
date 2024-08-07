@@ -1,35 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://8xdift4uojly"]
+[gd_scene load_steps=7 format=3 uid="uid://8xdift4uojly"]
 
 [ext_resource type="Script" path="res://game/characters/main_hotel_room/character_main_hotel_room.gd" id="1_2udq3"]
-[ext_resource type="Script" path="res://addons/popochiu/engine/audio_manager/audio_cue_sound.gd" id="2_22vaa"]
 [ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="2_bmy2s"]
+[ext_resource type="Resource" uid="uid://clfxtmhefke0m" path="res://game/characters/main_booth/audio/vo_mac.tres" id="2_dvtvp"]
 [ext_resource type="Texture2D" uid="uid://cwod84tudp3wb" path="res://assets/img/characters/main_char_naked_motel_room/main_char_naked_motel_room-0.png" id="2_i36v5"]
 [ext_resource type="Texture2D" uid="uid://7a8xsohdfi8x" path="res://assets/img/characters/main_char_naked_motel_room/main_char_naked_motel_room-1.png" id="4_fm8bl"]
 [ext_resource type="Texture2D" uid="uid://4vjuovbsk4d" path="res://assets/img/characters/main_char_naked_motel_room/main_char_naked_motel_room-2.png" id="5_54jtd"]
-
-[sub_resource type="Resource" id="Resource_yergq"]
-script = ExtResource("2_22vaa")
-loop = false
-is_2d = false
-can_play_simultaneous = true
-pitch = 0.0
-volume = 0.0
-rnd_pitch = Vector2(0, 0)
-rnd_volume = Vector2(0, 0)
-max_distance = 2000
-bus = "Master"
 
 [node name="CharacterMainHotelRoom" type="Area2D"]
 script = ExtResource("1_2udq3")
 text_color = Color(0.909804, 0.788235, 0.572549, 1)
 voices = [{
 "emotion": "",
-"variations": Array[ExtResource("2_22vaa")]([SubResource("Resource_yergq")])
+"variations": Array[Resource("res://addons/popochiu/engine/audio_manager/audio_cue_sound.gd")]([ExtResource("2_dvtvp")])
 }]
 walk_speed = 20.0
 popochiu_placeholder = null
 script_name = "MainHotelRoom"
 description = "Main Hotel Room"
+clickable = false
 cursor = 8
 interaction_polygon = PackedVector2Array()
 

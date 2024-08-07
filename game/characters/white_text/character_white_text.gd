@@ -1,23 +1,18 @@
 @tool
-class_name JoniMotelRoom extends PopochiuCharacter
+extends PopochiuCharacter
 # You can use E.queue([]) to trigger a sequence of events.
 # Use await E.queue([]) if you want to pause the excecution of
 # the function until the sequence of events finishes.
 
-enum SpshEnum {HIDE_GUN, POINT_GUN, IDLE_SIT, WALK_1, WALK_2, IDLE}
+const Data := preload('character_white_text_state.gd')
 
-const Data := preload('character_joni_state.gd')
-var state: Data = load("res://game/characters/joni/character_joni.tres")
+var state: Data = load("res://game/characters/white_text/character_white_text.tres")
+
 
 #region Virtual ####################################################################################
 # When the room in which this node is located finishes being added to the tree
 func _on_room_set() -> void:
-	sprites.render_sprites()
-	
-	timer = Timer.new()
-	timer.wait_time = 0.3
-	timer.timeout.connect(on_timeout)
-	add_child(timer)
+	pass
 
 
 # When the node is clicked
@@ -93,17 +88,3 @@ func _play_grab() -> void:
 
 
 #endregion
-
-func on_timeout():
-	if position == last_pos:
-		sprites.use_spritesheet = SpshEnum.IDLE
-	else:
-		if (sprites.use_spritesheet == SpshEnum.WALK_1 
-		 || sprites.use_spritesheet == SpshEnum.IDLE):
-			sprites.use_spritesheet = SpshEnum.WALK_2
-		elif sprites.use_spritesheet == SpshEnum.WALK_2:
-			sprites.use_spritesheet = SpshEnum.WALK_1
-	
-	sprites.rot_deg = rad_to_deg(angle_rad) + 90
-	sprites.render_sprites()
-	last_pos = position

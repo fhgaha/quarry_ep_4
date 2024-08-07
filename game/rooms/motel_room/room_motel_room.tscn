@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://crdfoo0f47lld"]
+[gd_scene load_steps=20 format=3 uid="uid://crdfoo0f47lld"]
 
 [ext_resource type="Script" path="res://game/rooms/motel_room/room_motel_room.gd" id="1_k1kh2"]
 [ext_resource type="PackedScene" uid="uid://o12irhxyt0iy" path="res://game/rooms/motel_room/walkable_areas/walk_area/walkable_area_walk_area.tscn" id="2_5l4p8"]
@@ -15,7 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://c3ay7e8yyj2kt" path="res://game/rooms/motel_room/props/porch/prop_porch.tscn" id="13_4v5xd"]
 [ext_resource type="PackedScene" uid="uid://ougnjwcbxwtb" path="res://game/rooms/motel_room/markers/mac_enter/marker_mac_enter.tscn" id="14_6h8ab"]
 [ext_resource type="PackedScene" uid="uid://dg381wxcot2if" path="res://game/characters/joni/character_joni.tscn" id="15_1ddaf"]
+[ext_resource type="PackedScene" uid="uid://dwumgk43p14c" path="res://game/rooms/motel_room/markers/mac_enter_3/marker_mac_enter_3.tscn" id="15_aovy5"]
 [ext_resource type="PackedScene" uid="uid://8xdift4uojly" path="res://game/characters/main_hotel_room/character_main_hotel_room.tscn" id="16_nnutn"]
+[ext_resource type="PackedScene" uid="uid://bcu2hnktr5tc7" path="res://game/characters/white_text/character_white_text.tscn" id="18_cnokf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_s2r7m"]
 vertices = PackedVector2Array(5, -4, -13, 1, -8, -11, 3, -19, 40, 37, -4, 53, -5, 46, 20, 37, 38, 27, 29, 29, 19, -3, 3, -26, 17, -30, 26, -9)
@@ -25,7 +27,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomMotelRoom" type="Node2D"]
-rotation = 0.000148355
+rotation = 0.00115891
 script = ExtResource("1_k1kh2")
 script_name = "MotelRoom"
 popochiu_placeholder = null
@@ -138,6 +140,9 @@ position = Vector2(168.92, 49.274)
 [node name="MacEnter2" parent="Markers" instance=ExtResource("14_6h8ab")]
 position = Vector2(169.064, 69.8451)
 
+[node name="MacEnter3" parent="Markers" instance=ExtResource("15_aovy5")]
+position = Vector2(164.132, 82.7383)
+
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="CharacterJoni *" parent="Characters" instance=ExtResource("15_1ddaf")]
@@ -145,3 +150,6 @@ position = Vector2(144.166, 101.765)
 
 [node name="CharacterMainHotelRoom *" parent="Characters" instance=ExtResource("16_nnutn")]
 position = Vector2(159.058, 47.809)
+
+[node name="CharacterWhiteText *" parent="Characters" instance=ExtResource("18_cnokf")]
+position = Vector2(172, 65.0003)
