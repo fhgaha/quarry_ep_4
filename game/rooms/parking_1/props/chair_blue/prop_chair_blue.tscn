@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1r3qxg3eg5bl"]
+
+[ext_resource type="Script" path="res://game/rooms/parking_1/props/chair_blue/prop_chair_blue.gd" id="1_5ymqi"]
+[ext_resource type="Texture2D" uid="uid://dyhx1i0thvsvm" path="res://assets/img/props/chair_blue.png" id="2_21ap5"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_o4ut0"]
+
+[node name="ChairBlue" type="Area2D"]
+script = ExtResource("1_5ymqi")
+script_name = "ChairBlue"
+description = "Chair Blue"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_21ap5")
+vframes = 12
+script = ExtResource("3_o4ut0")
+from_goxel = false
+rot_deg = 90.0
+frames = 12
+sheets = Array[Texture]([ExtResource("2_21ap5")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

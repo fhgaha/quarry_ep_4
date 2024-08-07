@@ -9,6 +9,7 @@ const PCHarlow := preload("res://game/characters/harlow/character_harlow.gd")
 const PCJoni := preload("res://game/characters/joni/character_joni.gd")
 const PCMainHotelRoom := preload("res://game/characters/main_hotel_room/character_main_hotel_room.gd")
 const PCWhiteText := preload("res://game/characters/white_text/character_white_text.gd")
+const PCMainSecond := preload("res://game/characters/main_second/character_main_second.gd")
 # ---- classes
 
 # nodes ----
@@ -19,6 +20,7 @@ var Harlow: PCHarlow : get = get_Harlow
 var Joni: PCJoni : get = get_Joni
 var MainHotelRoom: PCMainHotelRoom : get = get_MainHotelRoom
 var WhiteText: PCWhiteText : get = get_WhiteText
+var MainSecond: PCMainSecond : get = get_MainSecond
 # ---- nodes
 
 # functions ----
@@ -29,5 +31,6 @@ func get_Harlow() -> PCHarlow: return get_runtime_character("Harlow")
 func get_Joni() -> PCJoni: return get_runtime_character("Joni")
 func get_MainHotelRoom() -> PCMainHotelRoom: return get_runtime_character("MainHotelRoom")
 func get_WhiteText() -> PCWhiteText: return get_runtime_character("WhiteText")
+func get_MainSecond() -> PCMainSecond: return get_runtime_character("MainSecond")
 # ---- functions
 

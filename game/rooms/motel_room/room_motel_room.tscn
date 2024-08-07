@@ -30,7 +30,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomMotelRoom" type="Node2D"]
-rotation = -0.000225148
+rotation = 0.00172615
 script = ExtResource("1_k1kh2")
 script_name = "MotelRoom"
 popochiu_placeholder = null
@@ -38,7 +38,7 @@ popochiu_placeholder = null
 [node name="WalkableAreas" type="Node2D" parent="."]
 
 [node name="WalkArea" parent="WalkableAreas" instance=ExtResource("2_5l4p8")]
-position = Vector2(160, 90)
+position = Vector2(192.984, 110.976)
 
 [node name="Perimeter" type="NavigationRegion2D" parent="WalkableAreas/WalkArea"]
 modulate = Color(0, 1, 0, 1)
@@ -47,79 +47,79 @@ navigation_polygon = SubResource("NavigationPolygon_s2r7m")
 [node name="Props" type="Node2D" parent="."]
 
 [node name="Porch" parent="Props" instance=ExtResource("13_4v5xd")]
-position = Vector2(164.012, 42.9556)
+position = Vector2(196.996, 63.9316)
 angle_deg = 71.0
 baseline = -48
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Inerier" parent="Props" instance=ExtResource("2_b8q7b")]
-position = Vector2(157.994, 62.0149)
+position = Vector2(190.978, 82.9909)
 angle_deg = 71.0
 baseline = -5
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Hanger" parent="Props" instance=ExtResource("10_fddle")]
-position = Vector2(123.971, 55.0643)
+position = Vector2(156.955, 76.0403)
 angle_deg = 28.0
 baseline = 24
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="CabinetFirst2" parent="Props" instance=ExtResource("4_81wk8")]
-position = Vector2(130.039, 78.9362)
+position = Vector2(163.023, 99.9122)
 angle_deg = 69.0
 baseline = 20
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Bed" parent="Props" instance=ExtResource("3_k7umc")]
-position = Vector2(151.012, 99.9826)
+position = Vector2(183.996, 120.959)
 angle_deg = 71.0
 baseline = 26
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="CabinetFirst" parent="Props" instance=ExtResource("4_81wk8")]
-position = Vector2(148.127, 123.864)
+position = Vector2(181.111, 144.84)
 angle_deg = 57.0
 baseline = 18
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Table" parent="Props" instance=ExtResource("6_4rybm")]
-position = Vector2(140.91, 65.1951)
+position = Vector2(173.894, 86.1711)
 angle_deg = 68.0
 baseline = 10
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Chair" parent="Props" instance=ExtResource("6_r0xgd")]
-position = Vector2(156.982, 59.0219)
+position = Vector2(189.966, 79.9979)
 angle_deg = 143.0
 baseline = 10
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Chair2" parent="Props" instance=ExtResource("6_r0xgd")]
-position = Vector2(143.074, 74.8807)
+position = Vector2(176.058, 95.8567)
 angle_deg = -68.0
 baseline = 7
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="CabinetBig" parent="Props" instance=ExtResource("7_ghr0c")]
-position = Vector2(190.162, 93.6722)
+position = Vector2(223.146, 114.648)
 angle_deg = 251.0
 baseline = -5
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="TvOff" parent="Props" instance=ExtResource("8_7pjju")]
-position = Vector2(188.027, 79.937)
+position = Vector2(221.011, 100.913)
 angle_deg = 63.0
 baseline = 9
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="TvOn" parent="Props" instance=ExtResource("9_714qk")]
-position = Vector2(188.03, 79.9295)
+position = Vector2(221.014, 100.906)
 angle_deg = 63.0
 baseline = 9
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="DoorMainClosed" parent="Props" instance=ExtResource("12_jn2qy")]
-position = Vector2(170.001, 35.9964)
+position = Vector2(202.985, 56.9724)
 angle_deg = 71.0
 baseline = 22
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
@@ -134,11 +134,11 @@ interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 [node name="Hotspots" type="Node2D" parent="."]
 
 [node name="Table" parent="Hotspots" instance=ExtResource("14_nrlkv")]
-position = Vector2(140.906, 69.1909)
+position = Vector2(173.89, 90.1669)
 interaction_polygon = PackedVector2Array(-10.9291, -4.14553, 6.04648, -11.0716, 12.0558, -0.107063, -6.90936, 7.81423)
 
 [node name="Tv" parent="Hotspots" instance=ExtResource("15_gfcvl")]
-position = Vector2(184.943, 83.1266)
+position = Vector2(217.927, 104.103)
 walk_to_point = Vector2(-7.37997, 8.96295)
 interaction_polygon = PackedVector2Array(-0.94278, -6.12752, 4.04156, -7.08863, 7.14188, -1.32599, 8.10957, 6.76025, 2.12439, 8.73602, -1.92064, 5.82713, -2.83209, -0.37059)
 
@@ -147,24 +147,24 @@ interaction_polygon = PackedVector2Array(-0.94278, -6.12752, 4.04156, -7.08863, 
 [node name="Markers" type="Node2D" parent="."]
 
 [node name="MacEnter" parent="Markers" instance=ExtResource("14_6h8ab")]
-position = Vector2(168.92, 49.274)
+position = Vector2(201.904, 70.25)
 
 [node name="MacEnter2" parent="Markers" instance=ExtResource("14_6h8ab")]
-position = Vector2(169.064, 69.8451)
+position = Vector2(202.048, 90.8211)
 
 [node name="MacEnter3" parent="Markers" instance=ExtResource("15_aovy5")]
-position = Vector2(164.132, 82.7383)
+position = Vector2(197.116, 103.714)
 
 [node name="MacSit" parent="Markers" instance=ExtResource("18_2mbgu")]
-position = Vector2(171.024, 99.9591)
+position = Vector2(204.008, 120.935)
 
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="CharacterJoni *" parent="Characters" instance=ExtResource("15_1ddaf")]
-position = Vector2(144.166, 101.765)
+position = Vector2(177.15, 122.741)
 
 [node name="CharacterMainHotelRoom *" parent="Characters" instance=ExtResource("16_nnutn")]
-position = Vector2(159.058, 47.809)
+position = Vector2(192.042, 68.785)
 
 [node name="CharacterWhiteText *" parent="Characters" instance=ExtResource("18_cnokf")]
-position = Vector2(169.991, 44.0365)
+position = Vector2(202.975, 65.0125)

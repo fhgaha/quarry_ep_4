@@ -4,6 +4,8 @@ extends PopochiuRoom
 const Data := preload('room_motel_room_state.gd')
 var state: Data = load("res://game/rooms/motel_room/room_motel_room.tres")
 
+var def_cam_anchor_mode : Camera2D.AnchorMode 
+
 #region Virtual ####################################################################################
 # What happens when Popochiu loads the room. At this point the room is in the
 # tree but it is not visible
@@ -14,8 +16,11 @@ func _on_room_entered() -> void:
 	E.camera.change_zoom(1.3 * Vector2.ONE, 0.0001)
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	
+	fix_camera_anchor()
+	
 	C.player = C.MainHotelRoom
 	await play_enter_sequence()
+	D.MacJoniHotelRoomFirst.start()
 
 
 # What happens when the room changing transition finishes. At this point the room
@@ -85,4 +90,10 @@ func play_enter_sequence():
 	
 	await E.wait(1)
 	mac.timer.start()
-	#D.MacJoniHotelRoomFirst.start()
+
+func fix_camera_anchor():
+	def_cam_anchor_mode = E.camera.anchor_mode
+	E.camera.anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
+
+func restore_camera_anchor():
+	E.camera.anchor_mode = def_cam_anchor_mode
