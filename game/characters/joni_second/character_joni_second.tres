@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://254ncvxme6cq"]
+
+[ext_resource type="Script" path="res://game/characters/joni_second/character_joni_second_state.gd" id="1_eqdou"]
+
+[resource]
+resource_name = "JoniSecond"
+script = ExtResource("1_eqdou")
+script_name = "JoniSecond"
+scene = "res://game/characters/joni_second/character_joni_second.tscn"

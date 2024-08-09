@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dvgvce8tx6uxh"]
+
+[ext_resource type="Script" path="res://game/dialogs/mac_joni_parking/dialog_mac_joni_parking.gd" id="1_ktsnc"]
+
+[resource]
+resource_name = "MacJoniParking"
+script = ExtResource("1_ktsnc")
+script_name = "MacJoniParking"
+options = Array[Resource("res://addons/popochiu/engine/objects/dialog/popochiu_dialog_option.gd")]([])

@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6ibbavsl4ukx"]
+
+[ext_resource type="Script" path="res://game/characters/joni_second/character_joni_second.gd" id="1_but7q"]
+[ext_resource type="Texture2D" uid="uid://bcjj6uojop01o" path="res://assets/img/characters/joni_second/joni_second-0.png" id="2_blcwo"]
+[ext_resource type="Resource" uid="uid://cpta1x3k0ixq8" path="res://game/characters/joni/audio/vo_joni.tres" id="2_frujf"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_6psig"]
+[ext_resource type="Texture2D" uid="uid://b5vm3qkxjsaqo" path="res://assets/img/characters/joni_second/joni_second-1.png" id="4_hsduh"]
+[ext_resource type="Texture2D" uid="uid://c323ivrtitxhp" path="res://assets/img/characters/joni_second/joni_second-2.png" id="5_ustlb"]
+[ext_resource type="Texture2D" uid="uid://cx833mdpu8hp5" path="res://assets/img/characters/joni_second/joni_second-3.png" id="6_ufrm1"]
+
+[node name="CharacterJoniSecond" type="Area2D"]
+script = ExtResource("1_but7q")
+text_color = Color(0.431373, 0.564706, 0.878431, 1)
+voices = [{
+"emotion": "",
+"variations": Array[Resource("res://addons/popochiu/engine/audio_manager/audio_cue_sound.gd")]([ExtResource("2_frujf")])
+}]
+walk_speed = 15.0
+popochiu_placeholder = null
+script_name = "JoniSecond"
+description = "Joni Second"
+clickable = false
+cursor = 8
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="ScalingPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -18)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("6_ufrm1")
+vframes = 17
+script = ExtResource("3_6psig")
+from_goxel = false
+frames = 17
+sheets = Array[Texture]([ExtResource("2_blcwo"), ExtResource("4_hsduh"), ExtResource("5_ustlb"), ExtResource("6_ufrm1")])
+use_spritesheet = 3
+
+[node name="DialogPos" type="Marker2D" parent="."]
+visible = false
+position = Vector2(0, -20)

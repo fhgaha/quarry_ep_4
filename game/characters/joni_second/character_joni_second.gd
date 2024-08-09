@@ -1,14 +1,13 @@
 @tool
-class_name MainSecond extends PopochiuCharacter
+extends PopochiuCharacter
 # You can use E.queue([]) to trigger a sequence of events.
 # Use await E.queue([]) if you want to pause the excecution of
 # the function until the sequence of events finishes.
 
-const Data := preload('character_main_second_state.gd')
-var state: Data = load("res://game/characters/main_second/character_main_second.tres")
+const Data := preload('character_joni_second_state.gd')
+var state: Data = load("res://game/characters/joni_second/character_joni_second.tres")
 
-enum SpshEnum {SIT, WALK_1, IDLE, WALK_2}
-var cutscene_running := false
+enum SpshEnum{SIT, WALK_1, WALK_2, IDLE}
 
 #region Virtual ####################################################################################
 # When the room in which this node is located finishes being added to the tree
@@ -72,6 +71,9 @@ func _play_idle() -> void:
 # Use it to play the walk animation for the character
 # target_pos can be used to know the movement direction
 func _play_walk(target_pos: Vector2) -> void:
+	trg_pos = target_pos
+	angle_rad = (global_position - target_pos).angle() + deg_to_rad(90)
+	sprites.set_sprites_rotation(angle_rad)
 	super(target_pos)
 
 
@@ -109,11 +111,3 @@ func on_timeout():
 	sprites.rot_deg = rad_to_deg(angle_rad) + 90
 	sprites.render_sprites()
 	last_pos = position
-	
-	walk_on_button_hold()
-
-func walk_on_button_hold():
-	if !can_move || cutscene_running || is_talking || is_walking: return
-	
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		walk(get_global_mouse_position())

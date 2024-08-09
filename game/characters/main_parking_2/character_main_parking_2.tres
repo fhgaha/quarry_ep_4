@@ -1,9 +1,0 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dp5k8fdilj0qa"]
-
-[ext_resource type="Script" path="res://game/characters/main_parking_2/character_main_parking_2_state.gd" id="1_01a1l"]
-
-[resource]
-resource_name = "MainParking2"
-script = ExtResource("1_01a1l")
-script_name = "MainParking2"
-scene = "res://game/characters/main_parking_2/character_main_parking_2.tscn"

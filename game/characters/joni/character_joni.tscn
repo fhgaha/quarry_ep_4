@@ -35,7 +35,7 @@ bus = "Master"
 [node name="CharacterJoni" type="Area2D"]
 z_index = 1
 script = ExtResource("1_urujh")
-text_color = Color(0.642688, 0.703789, 0.843174, 1)
+text_color = Color(0.4312, 0.56584, 0.88, 1)
 voices = [{
 "emotion": "",
 "variations": Array[ExtResource("2_3n6bb")]([SubResource("Resource_6mcb7")])

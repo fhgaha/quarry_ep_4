@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cq2fbkdxkqiah"]
+[gd_scene load_steps=26 format=3 uid="uid://cq2fbkdxkqiah"]
 
 [ext_resource type="Script" path="res://game/rooms/parking_1/room_parking_1.gd" id="1_kg1lh"]
 [ext_resource type="PackedScene" uid="uid://d30p670dok3wg" path="res://game/rooms/parking_1/walkable_areas/area_1/walkable_area_area_1.tscn" id="2_2sixt"]
@@ -19,13 +19,11 @@
 [ext_resource type="PackedScene" uid="uid://b17jaqovdbovk" path="res://game/rooms/parking_1/hotspots/room_5/hotspot_room_5.tscn" id="13_n5h7u"]
 [ext_resource type="PackedScene" uid="uid://cby2y0mc1twbc" path="res://game/rooms/parking_1/props/pool_fence_door/prop_pool_fence_door.tscn" id="14_yfn6b"]
 [ext_resource type="PackedScene" uid="uid://daq5a6armvb6t" path="res://game/rooms/parking_1/props/pool_fence_2/prop_pool_fence_2.tscn" id="15_1avoy"]
-[ext_resource type="PackedScene" uid="uid://c1r3qxg3eg5bl" path="res://game/rooms/parking_1/props/chair_blue/prop_chair_blue.tscn" id="16_pajik"]
 [ext_resource type="PackedScene" uid="uid://b53tmh3ur02ui" path="res://game/rooms/parking_1/hotspots/window_3/hotspot_window_3.tscn" id="19_agq7p"]
 [ext_resource type="PackedScene" uid="uid://baymnn4o6it7u" path="res://game/rooms/parking_1/hotspots/widow_4/hotspot_widow_4.tscn" id="20_2y76g"]
 [ext_resource type="PackedScene" uid="uid://yndxpim2yp6f" path="res://game/rooms/parking_1/hotspots/window_5/hotspot_window_5.tscn" id="21_cl6qr"]
 [ext_resource type="PackedScene" uid="uid://bpormq3hkuxt5" path="res://game/rooms/parking_1/hotspots/pool_enter/hotspot_pool_enter.tscn" id="22_kbdn0"]
 [ext_resource type="PackedScene" uid="uid://mh72jaceidgx" path="res://game/rooms/parking_1/regions/noticed_pool/region_noticed_pool.tscn" id="22_x7f5l"]
-[ext_resource type="PackedScene" uid="uid://c0f6b2kht0syx" path="res://game/characters/main_second/character_main_second.tscn" id="25_2s8ky"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xwofp"]
 vertices = PackedVector2Array(169, 6, 195, -12, 313, -27, 313, 288, 169, 63, 153, 32, 163, 12, 96, -54, 129, -6, 122, -6, 91, -9, 84, -11, 37, -61, 162, 1, 155, 5, 130, -1, -159, 136, -160, 95, -148, 112, 264, 284, 247, 266, 217, 270, 149, 111, 88, 69, 100, 90, 69, 102, -10, 362, -19, 362, -13, 279, -7, 343, 19, 327, -8, -50, -8, -91, 37, -92, 15, -26, 80, -5, 136, 81, 79, 134, 203, 287, 178, 288, 163, 276, 133, 280, 53, 309, 44, 333, 209, -44, 126, 4, 119, 0, 88, -2, 118, 297, 103, 304, 75, 298)
@@ -35,7 +33,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomParking1" type="Node2D"]
-rotation = 0.00113097
+rotation = 0.000375226
 script = ExtResource("1_kg1lh")
 script_name = "Parking1"
 limit_right = 500.0
@@ -189,16 +187,6 @@ position = Vector2(208.138, 406.487)
 angle_deg = -30.0
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
-[node name="ChairBlue" parent="Props" instance=ExtResource("16_pajik")]
-position = Vector2(119.043, 104.951)
-angle_deg = 45.0
-interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
-
-[node name="ChairBlue2" parent="Props" instance=ExtResource("16_pajik")]
-position = Vector2(135.851, 93.2176)
-angle_deg = 54.0
-interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
-
 [node name="Hotspots" type="Node2D" parent="."]
 
 [node name="Room3" parent="Hotspots" instance=ExtResource("11_dv30b")]
@@ -252,6 +240,3 @@ polygon = PackedVector2Array(-80.1327, -30.9104, -109.048, -91.9598, -164.086, -
 
 [node name="CharacterMainParking1 *" parent="Characters" instance=ExtResource("5_hjkfk")]
 position = Vector2(254.226, 339.831)
-
-[node name="CharacterMainSecond *" parent="Characters" instance=ExtResource("25_2s8ky")]
-position = Vector2(123.094, 100.885)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://kumdi2hgii7"]
+
+[ext_resource type="Script" path="res://game/rooms/parking_second/walkable_areas/area_1/walkable_area_area_1.gd" id="1_mu14v"]
+
+[node name="Area1" type="Node2D"]
+script = ExtResource("1_mu14v")
+script_name = "Area1"
+description = "Area 1"
