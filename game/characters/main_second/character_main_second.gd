@@ -7,7 +7,7 @@ class_name MainSecond extends PopochiuCharacter
 const Data := preload('character_main_second_state.gd')
 var state: Data = load("res://game/characters/main_second/character_main_second.tres")
 
-enum SpshEnum {SIT, WALK_1, IDLE, WALK_2}
+enum SpshEnum {SIT, SIT_BACK, WALK_1, IDLE, WALK_2}
 var cutscene_running := false
 
 #region Virtual ####################################################################################

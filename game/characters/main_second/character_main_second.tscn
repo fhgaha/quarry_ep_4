@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0f6b2kht0syx"]
+[gd_scene load_steps=9 format=3 uid="uid://c0f6b2kht0syx"]
 
 [ext_resource type="Script" path="res://game/characters/main_second/character_main_second.gd" id="1_tia1q"]
 [ext_resource type="Texture2D" uid="uid://bbd3ub7spc105" path="res://assets/img/characters/main_second/main_char_second-0.png" id="2_qt5hg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bxbn06ul5nyv" path="res://assets/img/characters/main_second/main_char_second-1.png" id="4_nl6r4"]
 [ext_resource type="Texture2D" uid="uid://bev01pk25xqbx" path="res://assets/img/characters/main_second/main_char_second-2.png" id="5_eh3ss"]
 [ext_resource type="Texture2D" uid="uid://dv41hgp08apvl" path="res://assets/img/characters/main_second/main_char_second-3.png" id="6_umu04"]
+[ext_resource type="Texture2D" uid="uid://drm3xhhgchbv0" path="res://assets/img/characters/main_second/main_char_second-4.png" id="8_lvnp3"]
 
 [node name="CharacterMainSecond" type="Area2D"]
 script = ExtResource("1_tia1q")
@@ -40,7 +41,7 @@ script = ExtResource("3_ajgpj")
 from_goxel = false
 rot_deg = 33.0
 frames = 17
-sheets = Array[Texture]([ExtResource("2_qt5hg"), ExtResource("4_nl6r4"), ExtResource("5_eh3ss"), ExtResource("6_umu04")])
+sheets = Array[Texture]([ExtResource("2_qt5hg"), ExtResource("4_nl6r4"), ExtResource("5_eh3ss"), ExtResource("6_umu04"), ExtResource("8_lvnp3")])
 
 [node name="DialogPos" type="Marker2D" parent="."]
 visible = false

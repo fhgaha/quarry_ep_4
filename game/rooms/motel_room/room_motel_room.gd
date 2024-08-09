@@ -5,6 +5,7 @@ const Data := preload('room_motel_room_state.gd')
 var state: Data = load("res://game/rooms/motel_room/room_motel_room.tres")
 
 var def_cam_anchor_mode : Camera2D.AnchorMode 
+var entered_times := 1
 
 #region Virtual ####################################################################################
 # What happens when Popochiu loads the room. At this point the room is in the
@@ -18,9 +19,16 @@ func _on_room_entered() -> void:
 	
 	fix_camera_anchor()
 	
-	C.player = C.MainHotelRoom
-	await play_enter_sequence()
-	D.MacJoniHotelRoomFirst.start()
+	match entered_times:
+		0:
+			C.player = C.MainHotelRoom
+			await play_enter_sequence()
+			D.MacJoniHotelRoomFirst.start()
+		1:
+			await play_second_enter_sequence()
+		_:
+			pass
+	entered_times += 1
 
 
 # What happens when the room changing transition finishes. At this point the room
@@ -94,6 +102,67 @@ func play_enter_sequence():
 func fix_camera_anchor():
 	def_cam_anchor_mode = E.camera.anchor_mode
 	E.camera.anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
+
+func play_second_enter_sequence():
+	C.MainHotelRoom.hide()
+	C.Joni.hide()
+	C.player = C.MainSecond
+	var mac  := C.player as MainSecond
+	var joni := C.JoniSecond as JoniSecondCharacter
+	mac.position = Vector2(192, 92)
+	mac.show()
+	mac.timer.stop()
+	mac.sprites.use_spritesheet = mac.SpshEnum.SIT
+	
+	R.get_prop("TvOff").hide()
+	R.get_prop("TvOn").show()
+	
+	#tv talking
+	await E.wait(2)
+	#await C.WhiteText.say(use_i("There we have the American team preparing"))
+	#await C.WhiteText.say(use_i("Mike Stamm, Tom Bruce, Jerry Heidenreich and finally, Mark Spitz"))
+	#await C.WhiteText.say(use_i("Phenomenal teammates they have been on this US swim team"))
+	#await C.WhiteText.say(use_i("Spitz has been the athlete to watch out for this race"))
+	#await C.WhiteText.say(use_i("Having taken six gold medals already"))
+	#await C.WhiteText.say(use_i("If the Americans can win this race, it will give Spitz his seventh gold"))
+	#await C.WhiteText.say(use_i("Setting the record for most gold medals achieved by a single athlete"))
+	#await C.WhiteText.say(use_i("And they are off and swimming"))
+	
+	#joni comes
+	R.get_prop("DoorMainClosed").hide()
+	R.get_prop("DoorMainOpen").show()
+	
+	await E.wait(1)
+	joni.timer.start()
+	await joni.walk_to_marker("JoniEnter1")
+	joni.timer.stop()
+	joni.sprites.rot_deg = 10
+	joni.sprites.use_spritesheet = joni.SpshEnum.IDLE
+	await mac.say("What the hell is the matter with you?")
+	joni.timer.start()
+	await joni.walk_to_marker("JoniEnter2")
+	joni.timer.stop()
+	joni.sprites.rot_deg = 25
+	joni.sprites.use_spritesheet = joni.SpshEnum.IDLE
+	await mac.say("You can't just run off like that")
+	joni.timer.start()
+	await joni.walk_to_marker("JoniEnter3")
+	joni.timer.stop()
+	joni.sprites.rot_deg = 10
+	joni.sprites.use_spritesheet = joni.SpshEnum.IDLE
+	
+	await E.wait(2)
+	joni.hide()
+	var joni_sitting := C.Joni as JoniMotelRoom
+	joni_sitting.sprites.use_spritesheet = joni_sitting.SpshEnum.IDLE_SIT
+	joni_sitting.show()
+	await E.wait(2)
+	
+	D.MacJoniHotelRoomThird.start()
+
+
+func use_i(text: String) -> String:
+	return "[i]%s[/i]" % text
 
 func restore_camera_anchor():
 	E.camera.anchor_mode = def_cam_anchor_mode

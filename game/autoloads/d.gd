@@ -7,6 +7,7 @@ const PDPoolMacHarlowFirst := preload("res://game/dialogs/pool_mac_harlow_first/
 const PDMacJoniHotelRoomFirst := preload("res://game/dialogs/mac_joni_hotel_room_first/dialog_mac_joni_hotel_room_first.gd")
 const PDMacJoniHotelRoomSecond := preload("res://game/dialogs/mac_joni_hotel_room_second/dialog_mac_joni_hotel_room_second.gd")
 const PDMacJoniParking := preload("res://game/dialogs/mac_joni_parking/dialog_mac_joni_parking.gd")
+const PDMacJoniHotelRoomThird := preload("res://game/dialogs/mac_joni_hotel_room_third/dialog_mac_joni_hotel_room_third.gd")
 # ---- classes
 
 # nodes ----
@@ -15,6 +16,7 @@ var PoolMacHarlowFirst: PDPoolMacHarlowFirst : get = get_PoolMacHarlowFirst
 var MacJoniHotelRoomFirst: PDMacJoniHotelRoomFirst : get = get_MacJoniHotelRoomFirst
 var MacJoniHotelRoomSecond: PDMacJoniHotelRoomSecond : get = get_MacJoniHotelRoomSecond
 var MacJoniParking: PDMacJoniParking : get = get_MacJoniParking
+var MacJoniHotelRoomThird: PDMacJoniHotelRoomThird : get = get_MacJoniHotelRoomThird
 # ---- nodes
 
 # functions ----
@@ -23,5 +25,6 @@ func get_PoolMacHarlowFirst() -> PDPoolMacHarlowFirst: return get_instance("Pool
 func get_MacJoniHotelRoomFirst() -> PDMacJoniHotelRoomFirst: return get_instance("MacJoniHotelRoomFirst")
 func get_MacJoniHotelRoomSecond() -> PDMacJoniHotelRoomSecond: return get_instance("MacJoniHotelRoomSecond")
 func get_MacJoniParking() -> PDMacJoniParking: return get_instance("MacJoniParking")
+func get_MacJoniHotelRoomThird() -> PDMacJoniHotelRoomThird: return get_instance("MacJoniHotelRoomThird")
 # ---- functions
 
