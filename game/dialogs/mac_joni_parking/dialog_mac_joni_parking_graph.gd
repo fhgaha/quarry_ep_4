@@ -70,7 +70,7 @@ func cleaning_lady_walk_first():
 	await cleaning_lady.walk_to_marker("CleaningLadyWalk1")
 	cleaning_lady.timer.stop()
 	cleaning_lady.sprites.use_spritesheet = cleaning_lady.SpshEnum.IDLE
-	cleaning_lady.sprites.rot_deg = -107
+	cleaning_lady.sprites.rot_deg = -36
 
 func cleaning_lady_walk_second():
 	var cleaning_lady := C.CleaningLady as PopochiuCharacter

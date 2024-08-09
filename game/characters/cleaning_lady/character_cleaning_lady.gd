@@ -7,7 +7,7 @@ class_name CleaningLady extends PopochiuCharacter
 const Data := preload('character_cleaning_lady_state.gd')
 var state: Data = load("res://game/characters/cleaning_lady/character_cleaning_lady.tres")
 
-enum SpshEnum{WALK_1, WALK_2, IDLE}
+enum SpshEnum{IDLE, WALK_1, WALK_2}
 
 #region Virtual ####################################################################################
 # When the room in which this node is located finishes being added to the tree

@@ -35,8 +35,7 @@ vframes = 17
 script = ExtResource("3_jckdy")
 from_goxel = false
 frames = 17
-sheets = Array[Texture]([ExtResource("2_37krg"), ExtResource("4_ayiwy"), ExtResource("5_hcarf")])
-use_spritesheet = 2
+sheets = Array[Texture]([ExtResource("5_hcarf"), ExtResource("2_37krg"), ExtResource("4_ayiwy")])
 
 [node name="DialogPos" type="Marker2D" parent="."]
 visible = false
