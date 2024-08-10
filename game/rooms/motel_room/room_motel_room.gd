@@ -25,7 +25,7 @@ func _on_room_entered() -> void:
 			await play_enter_sequence()
 			D.MacJoniHotelRoomFirst.start()
 		1:
-			await play_second_enter_sequence()
+			play_second_enter_sequence()
 		_:
 			pass
 	entered_times += 1
@@ -103,6 +103,7 @@ func fix_camera_anchor():
 	def_cam_anchor_mode = E.camera.anchor_mode
 	E.camera.anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
 
+
 func play_second_enter_sequence():
 	C.MainHotelRoom.hide()
 	C.Joni.hide()
@@ -112,21 +113,21 @@ func play_second_enter_sequence():
 	mac.position = Vector2(192, 92)
 	mac.show()
 	mac.timer.stop()
-	mac.sprites.use_spritesheet = mac.SpshEnum.SIT
+	mac.set_sprite_and_rot(mac.SpshEnum.SIT, 33)
 	
 	R.get_prop("TvOff").hide()
 	R.get_prop("TvOn").show()
 	
 	#tv talking
 	await E.wait(2)
-	#await C.WhiteText.say(use_i("There we have the American team preparing"))
-	#await C.WhiteText.say(use_i("Mike Stamm, Tom Bruce, Jerry Heidenreich and finally, Mark Spitz"))
-	#await C.WhiteText.say(use_i("Phenomenal teammates they have been on this US swim team"))
-	#await C.WhiteText.say(use_i("Spitz has been the athlete to watch out for this race"))
-	#await C.WhiteText.say(use_i("Having taken six gold medals already"))
-	#await C.WhiteText.say(use_i("If the Americans can win this race, it will give Spitz his seventh gold"))
-	#await C.WhiteText.say(use_i("Setting the record for most gold medals achieved by a single athlete"))
-	#await C.WhiteText.say(use_i("And they are off and swimming"))
+	await C.WhiteText.say(use_i("TV: There we have the American team preparing"))
+	await C.WhiteText.say(use_i("Mike Stamm, Tom Bruce, Jerry Heidenreich and finally, Mark Spitz"))
+	await C.WhiteText.say(use_i("Phenomenal teammates they have been on this US swim team"))
+	await C.WhiteText.say(use_i("Spitz has been the athlete to watch out for this race"))
+	await C.WhiteText.say(use_i("Having taken six gold medals already"))
+	await C.WhiteText.say(use_i("If the Americans can win this race, it will give Spitz his seventh gold"))
+	await C.WhiteText.say(use_i("Setting the record for most gold medals achieved by a single athlete"))
+	await C.WhiteText.say(use_i("And they are off and swimming"))
 	
 	#joni comes
 	R.get_prop("DoorMainClosed").hide()
@@ -138,6 +139,9 @@ func play_second_enter_sequence():
 	joni.timer.stop()
 	joni.sprites.rot_deg = 10
 	joni.sprites.use_spritesheet = joni.SpshEnum.IDLE
+	await E.wait(0.5)
+	mac.sprites.use_spritesheet = mac.SpshEnum.IDLE
+	mac.sprites.rot_deg = -50
 	await mac.say("What the hell is the matter with you?")
 	joni.timer.start()
 	await joni.walk_to_marker("JoniEnter2")

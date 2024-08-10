@@ -61,3 +61,10 @@ func evaluate(command, variable_names = [], variable_values = []) -> void:
 	
 	if expression.has_execute_failed():
 		push_error("Could'nt execute the expression: %s" % result)
+
+func mac_sit():
+	await E.wait(1)
+	var mac = C.MainSecond as MainSecond
+	mac.set_sprite_and_rot(mac.SpshEnum.SIT, 33)
+	await E.wait(1)
+	
