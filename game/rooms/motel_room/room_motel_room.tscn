@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://crdfoo0f47lld"]
+[gd_scene load_steps=28 format=3 uid="uid://crdfoo0f47lld"]
 
 [ext_resource type="Script" path="res://game/rooms/motel_room/room_motel_room.gd" id="1_k1kh2"]
 [ext_resource type="PackedScene" uid="uid://o12irhxyt0iy" path="res://game/rooms/motel_room/walkable_areas/walk_area/walkable_area_walk_area.tscn" id="2_5l4p8"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://bok45hjfegd6m" path="res://game/rooms/motel_room/markers/mac_sit/marker_mac_sit.tscn" id="18_2mbgu"]
 [ext_resource type="PackedScene" uid="uid://bcu2hnktr5tc7" path="res://game/characters/white_text/character_white_text.tscn" id="18_cnokf"]
 [ext_resource type="PackedScene" uid="uid://nl6mhlrpijh2" path="res://game/rooms/motel_room/markers/joni_enter_1/marker_joni_enter_1.tscn" id="19_keabh"]
+[ext_resource type="PackedScene" uid="uid://dcuc3of4klt1u" path="res://game/rooms/motel_room/markers/chair_sit/marker_chair_sit.tscn" id="20_lawbl"]
+[ext_resource type="PackedScene" uid="uid://tkv3jiqe13uk" path="res://game/rooms/motel_room/markers/char_hidden/marker_char_hidden.tscn" id="21_53ggh"]
 [ext_resource type="PackedScene" uid="uid://c0f6b2kht0syx" path="res://game/characters/main_second/character_main_second.tscn" id="22_splin"]
 [ext_resource type="PackedScene" uid="uid://c6ibbavsl4ukx" path="res://game/characters/joni_second/character_joni_second.tscn" id="23_4duu5"]
 
@@ -33,7 +35,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomMotelRoom" type="Node2D"]
-rotation = 0.00134914
+rotation = 0.000811571
 script = ExtResource("1_k1kh2")
 script_name = "MotelRoom"
 popochiu_placeholder = null
@@ -95,6 +97,7 @@ interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 position = Vector2(189.966, 79.9979)
 angle_deg = 143.0
 baseline = 10
+walk_to_point = Vector2(3.07935, 13.6274)
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Chair2" parent="Props" instance=ExtResource("6_r0xgd")]
@@ -113,12 +116,14 @@ interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 position = Vector2(221.011, 100.913)
 angle_deg = 63.0
 baseline = 9
+walk_to_point = Vector2(-9.67087, 9.23755)
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="TvOn" parent="Props" instance=ExtResource("9_714qk")]
 position = Vector2(221.014, 100.906)
 angle_deg = 63.0
 baseline = 9
+walk_to_point = Vector2(-10.0733, 11.442)
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="DoorMainClosed" parent="Props" instance=ExtResource("12_jn2qy")]
@@ -169,6 +174,12 @@ position = Vector2(199.926, 96.1546)
 
 [node name="JoniEnter3" parent="Markers" instance=ExtResource("19_keabh")]
 position = Vector2(181.848, 111.249)
+
+[node name="ChairSit" parent="Markers" instance=ExtResource("20_lawbl")]
+position = Vector2(189.098, 90.7949)
+
+[node name="CharHidden" parent="Markers" instance=ExtResource("21_53ggh")]
+position = Vector2(183.886, 79.2662)
 
 [node name="Characters" type="Node2D" parent="."]
 

@@ -16,6 +16,7 @@ voices = [{
 "emotion": "",
 "variations": Array[Resource("res://addons/popochiu/engine/audio_manager/audio_cue_sound.gd")]([ExtResource("2_wp2wy")])
 }]
+walk_speed = 20.0
 popochiu_placeholder = null
 script_name = "MainSecond"
 description = "Main Second"
@@ -24,7 +25,6 @@ cursor = 8
 interaction_polygon = PackedVector2Array()
 
 [node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
-visible = false
 polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
 [node name="ScalingPolygon" type="CollisionPolygon2D" parent="."]
@@ -35,14 +35,13 @@ polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -16)
-texture = ExtResource("2_qt5hg")
+texture = ExtResource("6_umu04")
 vframes = 17
 script = ExtResource("3_ajgpj")
 from_goxel = false
-rot_deg = 33.0
 frames = 17
 sheets = Array[Texture]([ExtResource("2_qt5hg"), ExtResource("4_nl6r4"), ExtResource("5_eh3ss"), ExtResource("6_umu04"), ExtResource("8_lvnp3")])
+use_spritesheet = 3
 
 [node name="DialogPos" type="Marker2D" parent="."]
-visible = false
 position = Vector2(0, -24)

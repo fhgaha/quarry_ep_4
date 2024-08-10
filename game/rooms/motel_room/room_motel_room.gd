@@ -5,7 +5,7 @@ const Data := preload('room_motel_room_state.gd')
 var state: Data = load("res://game/rooms/motel_room/room_motel_room.tres")
 
 var def_cam_anchor_mode : Camera2D.AnchorMode 
-var entered_times := 1
+var entered_times := 2
 
 #region Virtual ####################################################################################
 # What happens when Popochiu loads the room. At this point the room is in the
@@ -26,6 +26,8 @@ func _on_room_entered() -> void:
 			D.MacJoniHotelRoomFirst.start()
 		1:
 			play_second_enter_sequence()
+		2:
+			play_third_enter_sequence()
 		_:
 			pass
 	entered_times += 1
@@ -163,6 +165,59 @@ func play_second_enter_sequence():
 	await E.wait(2)
 	
 	D.MacJoniHotelRoomThird.start()
+
+func play_third_enter_sequence() -> void:
+	var mac = C.MainSecond as MainSecond
+	C.player = mac
+	C.MainHotelRoom.hide()
+	C.JoniSecond.hide()
+	mac.position = Vector2(191, 75)
+	mac.set_sprite_and_rot(mac.SpshEnum.IDLE)
+	var joni = C.Joni as JoniMotelRoom
+	joni.set_sprite_and_rot(joni.SpshEnum.IDLE_SIT, -113)
+	
+	R.get_prop("TvOff").hide()
+	R.get_prop("TvOn").show()
+	
+	await E.wait(2)
+	#tv talking
+	#await C.WhiteText.say(use_i("TV: It is believed that several have escaped on foot"))
+	#await C.WhiteText.say(use_i("Everyone has been warned not to pick up any hitchhikers"))
+	#await C.WhiteText.say(use_i("Originally, they said that the hostages were safe"))
+	#await C.WhiteText.say(use_i("Now that has been changed"))
+	#await C.WhiteText.say(use_i("And an Olympics spokesman said"))
+	#await C.WhiteText.say(use_i("\"We are afraid the information given so far is too optimistic\""))
+	#await C.WhiteText.say(use_i("When was it agreed, do you know, to allow the guerillas"))
+	#await C.WhiteText.say(use_i("To go from the building to the helicopters..."))
+	
+	R.get_prop("DoorMainClosed").hide()
+	R.get_prop("DoorMainOpen").show()
+	
+	await E.wait(1)
+	mac.timer.start()
+	await mac.walk_to_marker("MacEnter")
+	await mac.walk_to_prop("TvOn")
+	mac.timer.stop()
+	mac.set_sprite_and_rot(mac.SpshEnum.IDLE, -64)
+	await E.wait(1)
+	
+	R.get_prop("TvOn").hide()
+	R.get_prop("TvOff").show()
+	
+	await E.wait(1)
+	mac.timer.start()
+	await mac.walk_to_prop("Chair")
+	mac.timer.stop()
+	mac.set_sprite_and_rot(mac.SpshEnum.IDLE, 174)
+	await E.wait(1)
+	mac.position = R.get_marker_position("ChairSit")
+	mac.set_sprite_and_rot(mac.SpshEnum.SIT, 174)
+	
+	await E.wait(2)
+	await joni.say("I was watching that")
+	await mac.say("Yeah, well, let me tell you how it ends: not well")
+	
+	D.MacJoniHotelRoomForth.start()
 
 
 func use_i(text: String) -> String:

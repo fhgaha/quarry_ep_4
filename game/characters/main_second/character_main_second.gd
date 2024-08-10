@@ -72,6 +72,9 @@ func _play_idle() -> void:
 # Use it to play the walk animation for the character
 # target_pos can be used to know the movement direction
 func _play_walk(target_pos: Vector2) -> void:
+	trg_pos = target_pos
+	angle_rad = (global_position - target_pos).angle() + deg_to_rad(90)
+	sprites.set_sprites_rotation(angle_rad)
 	super(target_pos)
 
 
