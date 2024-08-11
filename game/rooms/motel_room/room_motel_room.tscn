@@ -40,7 +40,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomMotelRoom" type="Node2D"]
-rotation = -0.000486959
+rotation = -0.00128633
 script = ExtResource("1_k1kh2")
 script_name = "MotelRoom"
 popochiu_placeholder = null
@@ -125,6 +125,7 @@ walk_to_point = Vector2(-9.67087, 9.23755)
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="TvOn" parent="Props" instance=ExtResource("9_714qk")]
+visible = false
 position = Vector2(221.014, 100.906)
 angle_deg = 63.0
 baseline = 9
