@@ -30,6 +30,8 @@ func _on_room_entered() -> void:
 			play_second_enter_sequence()
 		2:
 			play_third_enter_sequence()
+		3:
+			play_forth_enter_sequence()
 		_:
 			pass
 	entered_times += 1
@@ -106,7 +108,6 @@ func play_enter_sequence():
 func fix_camera_anchor():
 	def_cam_anchor_mode = E.camera.anchor_mode
 	E.camera.anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
-
 
 func play_second_enter_sequence():
 	C.MainHotelRoom.hide()
@@ -230,6 +231,12 @@ func play_third_enter_sequence() -> void:
 	
 	D.MacJoniHotelRoomForth.start()
 
+func play_forth_enter_sequence() -> void:
+	
+	
+	
+	
+	pass
 
 func use_i(text: String) -> String:
 	return "[i]%s[/i]" % text
