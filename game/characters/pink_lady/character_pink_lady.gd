@@ -90,11 +90,13 @@ func _play_grab() -> void:
 #endregion
 
 #region Public #####################################################################################
-# You can add here functions triggered by the GUI commands. For example, if your GUI has a command
-# for look_at, you could have the function:
-#func on_look_at() -> void:
-	#pass
 
+func set_sprite_and_rot(
+	spritesheet_tp_use: SpshEnum, 
+	angle_deg: float = NAN) -> void:
+		sprites.use_spritesheet = spritesheet_tp_use
+		if !is_nan(angle_deg):
+			sprites.rot_deg = angle_deg
 
 #endregion
 

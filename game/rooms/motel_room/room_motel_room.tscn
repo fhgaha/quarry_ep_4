@@ -36,7 +36,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomMotelRoom" type="Node2D"]
-rotation = 0.000148342
+rotation = 0.000565475
 script = ExtResource("1_k1kh2")
 script_name = "MotelRoom"
 popochiu_placeholder = null
@@ -200,4 +200,4 @@ position = Vector2(190.052, 91.8929)
 position = Vector2(189.064, 70.8291)
 
 [node name="CharacterPinkLady *" parent="Characters" instance=ExtResource("27_eb0g3")]
-position = Vector2(153.035, 68.9231)
+position = Vector2(153.04, 87.9308)

@@ -68,11 +68,16 @@ func mac_stand_shouting():
 
 func do_after_dialogue():
 	var mac = C.MainSecond as MainSecond
+	var pink_lady = C.PinkLady as PinkLadyCharacter
+	var joni = C.Joni as JoniMotelRoom
 	mac.walk_speed = 60
 	mac.timer.start()
 	mac.walk_to_marker("JoniEnter3")
 	mac.timer.stop()
 	mac.set_sprite_and_rot(mac.SpshEnum.IDLE, 10)
+	
+	pink_lady.position = R.get_marker_position("MacEnter")
+	pink_lady.set_sprite_and_rot(pink_lady.SpshEnum.IDLE, 15)
 	
 	C.WhiteText.position = R.get_prop("DoorMainClosed").position
 	C.WhiteText.say("*Knock-knock*")
@@ -83,15 +88,19 @@ func do_after_dialogue():
 	mac.timer.stop()
 	mac.set_sprite_and_rot(mac.SpshEnum.IDLE, 153)
 	
+	
 	R.get_prop("DoorMainClosed").hide()
 	R.get_prop("DoorMainOpen").show()
 	
-	#pink lady
-	#is everything okay?
+	await E.wait(1)
+	await pink_lady.say("Is everything okay?")
 	
 	mac.timer.start()
 	await mac.walk_to_marker("MacEnter")
 	await mac.walk_to_marker("CharHidden")
 	mac.timer.stop()
 	
+	await joni.say("It's fine, uh, sorry")
+	await pink_lady.say("It doesn't sound like it's fine...")
 	
+	#transition
