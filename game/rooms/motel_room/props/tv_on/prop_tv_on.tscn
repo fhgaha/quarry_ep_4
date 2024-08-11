@@ -3,23 +3,7 @@
 [ext_resource type="Script" path="res://game/rooms/motel_room/props/tv_on/prop_tv_on.gd" id="1_xnhga"]
 [ext_resource type="Texture2D" uid="uid://di0a2xcwnh857" path="res://assets/img/props/motel_room/motel_room-2.png" id="2_dunq1"]
 [ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_0cwm5"]
-[ext_resource type="Texture2D" uid="uid://cv12h2on4t3vh" path="res://assets/img/white_radial_2.png" id="4_rqlri"]
-
-[sub_resource type="Animation" id="Animation_ehhjc"]
-resource_name = "flicker"
-length = 5.0
-loop_mode = 1
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WhiteRadial2:modulate:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
-"points": PackedFloat32Array(0.239216, -0.25, 0, 0.25, 0, 0.643137, -0.25, 0, 0.25, 0, 0.239216, -0.25, 0, 0.25, 0, 0.729412, -0.25, 0, 0.25, 0, 0.239216, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 2.3, 2.9, 4.3)
-}
+[ext_resource type="Texture2D" path="res://assets/img/white_radial_2.png" id="4_rqlri"]
 
 [sub_resource type="Animation" id="Animation_1knw2"]
 length = 0.001
@@ -33,6 +17,22 @@ tracks/0/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0.729412, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_ehhjc"]
+resource_name = "flicker"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WhiteRadial2:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.239216, -0.25, 0, 0.25, 0, 0.643137, -0.25, 0, 0.25, 0, 0.239216, -0.25, 0, 0.25, 0, 0.47451, -0.25, 0, 0.25, 0, 0.239216, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2.3, 2.9, 4.3)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h4177"]

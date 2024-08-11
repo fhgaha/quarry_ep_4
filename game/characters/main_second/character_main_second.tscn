@@ -25,6 +25,7 @@ cursor = 8
 interaction_polygon = PackedVector2Array()
 
 [node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
 [node name="ScalingPolygon" type="CollisionPolygon2D" parent="."]
@@ -44,4 +45,5 @@ sheets = Array[Texture]([ExtResource("2_qt5hg"), ExtResource("4_nl6r4"), ExtReso
 use_spritesheet = 3
 
 [node name="DialogPos" type="Marker2D" parent="."]
+visible = false
 position = Vector2(0, -24)

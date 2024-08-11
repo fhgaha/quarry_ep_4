@@ -5,7 +5,7 @@ const Data := preload('room_motel_room_state.gd')
 var state: Data = load("res://game/rooms/motel_room/room_motel_room.tres")
 
 var def_cam_anchor_mode : Camera2D.AnchorMode 
-var entered_times := 2
+var entered_times := 3
 
 #region Virtual ####################################################################################
 # What happens when Popochiu loads the room. At this point the room is in the
@@ -20,6 +20,8 @@ func _on_room_entered() -> void:
 	fix_camera_anchor()
 	
 	C.PinkLady.hide()
+	C.Harlow.hide()
+	R.get_hotspot("Door").hide()
 	
 	match entered_times:
 		0:
@@ -53,7 +55,7 @@ func _on_room_exited() -> void:
 
 #endregion
 
-func play_enter_sequence():
+func play_enter_sequence() -> void:
 	var mac  := C.player as CharacterMainNakedHotelRoom
 	var joni := C.Joni   as JoniMotelRoom
 	
@@ -105,11 +107,11 @@ func play_enter_sequence():
 	await E.wait(1)
 	mac.timer.start()
 
-func fix_camera_anchor():
+func fix_camera_anchor() -> void:
 	def_cam_anchor_mode = E.camera.anchor_mode
 	E.camera.anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
 
-func play_second_enter_sequence():
+func play_second_enter_sequence() -> void:
 	C.MainHotelRoom.hide()
 	C.Joni.hide()
 	C.player = C.MainSecond
@@ -232,6 +234,79 @@ func play_third_enter_sequence() -> void:
 	D.MacJoniHotelRoomForth.start()
 
 func play_forth_enter_sequence() -> void:
+	var mac = C.MainSecond as MainSecond
+	var joni = C.Joni as JoniMotelRoom
+	var harlow = C.Harlow
+	C.player = mac
+	C.MainHotelRoom.hide()
+	C.JoniSecond.hide()
+	mac.set_sprite_and_rot(mac.SpshEnum.SIT_BACK, -39)
+	joni.set_sprite_and_rot(joni.SpshEnum.IDLE_SIT, -113)
+	
+	#tv talking
+	await E.wait(2)
+	#C.WhiteText.say(use_i("TV: ...my father use to say ,\"Our greatest hopes and our worst fears are seldom realized\""))
+	#C.WhiteText.say(use_i("Our worst fears have been realized tonight"))
+	#C.WhiteText.say(use_i("They've now said that there were 11 hostages"))
+	#C.WhiteText.say(use_i("Two were killed in their rooms yestarday morning"))
+	#C.WhiteText.say(use_i("Nine were killed at the airport tonight"))
+	#C.WhiteText.say(use_i("They're all gone"))
+	#C.WhiteText.say(use_i("...the Israeli Olympic team is destroyed, much of it"))
+	#C.WhiteText.say(use_i("The Arabs, three of them, are still alive in a hospital..."))
+	
+	#
+	await E.wait(3)
+	#await mac.say("If they haven't found him by tomorrow, we can go home")
+	#await joni.say("I shouldn't have said that")
+	#await E.wait(2)
+	#await joni.say("About killing children")
+	#await E.wait(2)
+	#await joni.say("So sorry")
+	#await E.wait(2)
+	#await mac.say("It's okay")
+	#await mac.say("I threw some pretty low blows there myself")
+	#await mac.say("How did you and Cliff start?")
+	#await joni.say("We worked together")
+	#await mac.say("Did you love him?")
+	#await joni.say("No")
+	#await joni.say("I was just angry enough at the world")
+	#await joni.say("At you")
+	#await joni.say("To do it")
+	#await joni.say("I needed something")
+	#await joni.say("I needed to feel something other than what I felt")
+	#await mac.say("Which is what?")
+	#await joni.say("Just completely and totally alone")
+	#await E.wait(2)
+	#await joni.say("Mac?")
+	#await E.wait(2)
+	#await mac.say("Yeah?")
+	#await E.wait(2)
+	#await joni.say("Did you...")
+	#await joni.say("Kill him?")
+	
+	C.WhiteText.position = Vector2(200, 67)
+	await C.WhiteText.say("*Knock-knock*")
+	
+	harlow.position = R.get_marker_position("DoorEnter")
+	harlow.show()
+	#await harlow.say("Guys, you are in there?")
+	#await mac.say("Yeah, Harlow?")
+	#await harlow.say("I left my tools in your room, I need them")
+	await harlow.say("Room 6's AC's crapped out and they're bitching like crazy")
+	
+	R.get_hotspot("Door").show()	#read in Door script after this
+	mac.timer.start()
+	
+	mac.say("It's just a little bit late, Harlow")
+	
+	await Globals.mac_opened_door_to_harlow
+	
+	R.get_prop("DoorMainClosed").hide()
+	R.get_prop("DoorMainOpen").show()
+	
+	await harlow.say("Sam, I'm sorry")
+	
+	await E.wait(1)
 	
 	
 	

@@ -7,7 +7,7 @@ extends PopochiuCharacter
 const Data := preload('character_harlow_state.gd')
 var state: Data = load("res://game/characters/harlow/character_harlow.tres")
 
-enum SpshEnum {IDLE, WALK_1, WALK_2}
+enum SpshEnum {IDLE, WALK_1, WALK_2, DEAD}
 
 #region Virtual ####################################################################################
 # When the room in which this node is located finishes being added to the tree

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://crdfoo0f47lld"]
+[gd_scene load_steps=33 format=3 uid="uid://crdfoo0f47lld"]
 
 [ext_resource type="Script" path="res://game/rooms/motel_room/room_motel_room.gd" id="1_k1kh2"]
 [ext_resource type="PackedScene" uid="uid://o12irhxyt0iy" path="res://game/rooms/motel_room/walkable_areas/walk_area/walkable_area_walk_area.tscn" id="2_5l4p8"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dwumgk43p14c" path="res://game/rooms/motel_room/markers/mac_enter_3/marker_mac_enter_3.tscn" id="15_aovy5"]
 [ext_resource type="PackedScene" uid="uid://brt45333rhsrv" path="res://game/rooms/motel_room/hotspots/tv/hotspot_tv.tscn" id="15_gfcvl"]
 [ext_resource type="PackedScene" uid="uid://8xdift4uojly" path="res://game/characters/main_hotel_room/character_main_hotel_room.tscn" id="16_nnutn"]
+[ext_resource type="PackedScene" uid="uid://braik85cgeidx" path="res://game/rooms/motel_room/hotspots/door/hotspot_door.tscn" id="17_ooxq1"]
 [ext_resource type="PackedScene" uid="uid://bok45hjfegd6m" path="res://game/rooms/motel_room/markers/mac_sit/marker_mac_sit.tscn" id="18_2mbgu"]
 [ext_resource type="PackedScene" uid="uid://bcu2hnktr5tc7" path="res://game/characters/white_text/character_white_text.tscn" id="18_cnokf"]
 [ext_resource type="PackedScene" uid="uid://nl6mhlrpijh2" path="res://game/rooms/motel_room/markers/joni_enter_1/marker_joni_enter_1.tscn" id="19_keabh"]
@@ -27,7 +28,9 @@
 [ext_resource type="PackedScene" uid="uid://tkv3jiqe13uk" path="res://game/rooms/motel_room/markers/char_hidden/marker_char_hidden.tscn" id="21_53ggh"]
 [ext_resource type="PackedScene" uid="uid://c0f6b2kht0syx" path="res://game/characters/main_second/character_main_second.tscn" id="22_splin"]
 [ext_resource type="PackedScene" uid="uid://c6ibbavsl4ukx" path="res://game/characters/joni_second/character_joni_second.tscn" id="23_4duu5"]
+[ext_resource type="PackedScene" uid="uid://2vqsluxarq85" path="res://game/rooms/motel_room/markers/door_enter/marker_door_enter.tscn" id="23_er86j"]
 [ext_resource type="PackedScene" uid="uid://e43dhvo3qmew" path="res://game/characters/pink_lady/character_pink_lady.tscn" id="27_eb0g3"]
+[ext_resource type="PackedScene" uid="uid://dsock4fe36lfs" path="res://game/characters/harlow/character_harlow.tscn" id="29_pph57"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_s2r7m"]
 vertices = PackedVector2Array(5, -4, -13, 1, -8, -11, 3, -19, 40, 37, -4, 53, -5, 46, 20, 37, 38, 27, 29, 29, 19, -3, 3, -26, 17, -31, 26, -9)
@@ -37,7 +40,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomMotelRoom" type="Node2D"]
-rotation = 0.000155323
+rotation = -0.000486959
 script = ExtResource("1_k1kh2")
 script_name = "MotelRoom"
 popochiu_placeholder = null
@@ -159,6 +162,10 @@ position = Vector2(217.927, 104.103)
 walk_to_point = Vector2(-7.37997, 8.96295)
 interaction_polygon = PackedVector2Array(-0.94278, -6.12752, 4.04156, -7.08863, 7.14188, -1.32599, 8.10957, 6.76025, 2.12439, 8.73602, -1.92064, 5.82713, -2.83209, -0.37059)
 
+[node name="Door" parent="Hotspots" instance=ExtResource("17_ooxq1")]
+position = Vector2(201.974, 69.0751)
+interaction_polygon = PackedVector2Array(-4.96909, -10.0926, 7.04208, -14.1375, 8.06686, 9.81531, -4.90877, 13.7691)
+
 [node name="Regions" type="Node2D" parent="."]
 
 [node name="Markers" type="Node2D" parent="."]
@@ -190,6 +197,9 @@ position = Vector2(189.098, 90.7949)
 [node name="CharHidden" parent="Markers" instance=ExtResource("21_53ggh")]
 position = Vector2(176.03, 48.8916)
 
+[node name="DoorEnter" parent="Markers" instance=ExtResource("23_er86j")]
+position = Vector2(202.874, 78.3262)
+
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="CharacterJoni *" parent="Characters" instance=ExtResource("15_1ddaf")]
@@ -209,3 +219,6 @@ position = Vector2(189.064, 70.8291)
 
 [node name="CharacterPinkLady *" parent="Characters" instance=ExtResource("27_eb0g3")]
 position = Vector2(153.04, 87.9308)
+
+[node name="CharacterHarlow *" parent="Characters" instance=ExtResource("29_pph57")]
+position = Vector2(136.909, 87.1432)
