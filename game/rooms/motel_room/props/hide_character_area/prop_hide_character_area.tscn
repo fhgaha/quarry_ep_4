@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqkjhhlrpmlxr"]
+
+[ext_resource type="Script" path="res://game/rooms/motel_room/props/hide_character_area/prop_hide_character_area.gd" id="1_ig000"]
+
+[sub_resource type="Gradient" id="Gradient_o5gq3"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r436j"]
+gradient = SubResource("Gradient_o5gq3")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(1, 1)
+
+[node name="HideCharacterArea" type="Area2D"]
+script = ExtResource("1_ig000")
+texture = SubResource("GradientTexture2D_r436j")
+script_name = "HideCharacterArea"
+description = "Hide Character Area"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 0.785398
+texture = SubResource("GradientTexture2D_r436j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

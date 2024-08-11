@@ -19,6 +19,8 @@ func _on_room_entered() -> void:
 	
 	fix_camera_anchor()
 	
+	C.PinkLady.hide()
+	
 	match entered_times:
 		0:
 			C.player = C.MainHotelRoom
@@ -196,6 +198,15 @@ func play_third_enter_sequence() -> void:
 	await E.wait(1)
 	mac.timer.start()
 	await mac.walk_to_marker("MacEnter")
+	
+	R.get_prop("DoorMainOpen").hide()
+	R.get_prop("DoorMainClosed").show()
+	
+	mac.timer.stop()
+	mac.set_sprite_and_rot(mac.SpshEnum.IDLE, 12)
+	
+	await E.wait(2)
+	mac.timer.start()
 	await mac.walk_to_prop("TvOn")
 	mac.timer.stop()
 	mac.set_sprite_and_rot(mac.SpshEnum.IDLE, -64)

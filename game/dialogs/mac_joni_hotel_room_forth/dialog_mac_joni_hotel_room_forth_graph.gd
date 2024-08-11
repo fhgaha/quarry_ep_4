@@ -70,24 +70,28 @@ func do_after_dialogue():
 	var mac = C.MainSecond as MainSecond
 	var pink_lady = C.PinkLady as PinkLadyCharacter
 	var joni = C.Joni as JoniMotelRoom
-	mac.walk_speed = 60
+	mac.walk_speed = 200
+	mac.set_sprite_and_rot(mac.SpshEnum.IDLE, 0)
 	mac.timer.start()
-	mac.walk_to_marker("JoniEnter3")
+	await mac.walk_to_marker("JoniEnter3")
 	mac.timer.stop()
 	mac.set_sprite_and_rot(mac.SpshEnum.IDLE, 10)
 	
+	await E.wait(1)
+	
 	pink_lady.position = R.get_marker_position("MacEnter")
 	pink_lady.set_sprite_and_rot(pink_lady.SpshEnum.IDLE, 15)
+	pink_lady.show()
 	
 	C.WhiteText.position = R.get_prop("DoorMainClosed").position
-	C.WhiteText.say("*Knock-knock*")
+	await C.WhiteText.say("*Knock-knock*")
 	
+	#mac walks away
 	mac.walk_speed = 30
 	mac.timer.start()
 	await mac.walk_to_marker("JoniEnter1")
 	mac.timer.stop()
 	mac.set_sprite_and_rot(mac.SpshEnum.IDLE, 153)
-	
 	
 	R.get_prop("DoorMainClosed").hide()
 	R.get_prop("DoorMainOpen").show()
@@ -95,6 +99,7 @@ func do_after_dialogue():
 	await E.wait(1)
 	await pink_lady.say("Is everything okay?")
 	
+	mac.ignore_walkable_areas = true
 	mac.timer.start()
 	await mac.walk_to_marker("MacEnter")
 	await mac.walk_to_marker("CharHidden")
