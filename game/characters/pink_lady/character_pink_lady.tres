@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://diw2trruits7v"]
+
+[ext_resource type="Script" path="res://game/characters/pink_lady/character_pink_lady_state.gd" id="1_0i3yw"]
+
+[resource]
+resource_name = "PinkLady"
+script = ExtResource("1_0i3yw")
+script_name = "PinkLady"
+scene = "res://game/characters/pink_lady/character_pink_lady.tscn"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://crdfoo0f47lld"]
+[gd_scene load_steps=29 format=3 uid="uid://crdfoo0f47lld"]
 
 [ext_resource type="Script" path="res://game/rooms/motel_room/room_motel_room.gd" id="1_k1kh2"]
 [ext_resource type="PackedScene" uid="uid://o12irhxyt0iy" path="res://game/rooms/motel_room/walkable_areas/walk_area/walkable_area_walk_area.tscn" id="2_5l4p8"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://tkv3jiqe13uk" path="res://game/rooms/motel_room/markers/char_hidden/marker_char_hidden.tscn" id="21_53ggh"]
 [ext_resource type="PackedScene" uid="uid://c0f6b2kht0syx" path="res://game/characters/main_second/character_main_second.tscn" id="22_splin"]
 [ext_resource type="PackedScene" uid="uid://c6ibbavsl4ukx" path="res://game/characters/joni_second/character_joni_second.tscn" id="23_4duu5"]
+[ext_resource type="PackedScene" uid="uid://e43dhvo3qmew" path="res://game/characters/pink_lady/character_pink_lady.tscn" id="27_eb0g3"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_s2r7m"]
 vertices = PackedVector2Array(5, -4, -13, 1, -8, -11, 3, -19, 40, 37, -4, 53, -5, 46, 20, 37, 38, 27, 29, 29, 19, -3, 3, -26, 17, -30, 26, -9)
@@ -35,7 +36,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomMotelRoom" type="Node2D"]
-rotation = 0.000811571
+rotation = 0.000148342
 script = ExtResource("1_k1kh2")
 script_name = "MotelRoom"
 popochiu_placeholder = null
@@ -197,3 +198,6 @@ position = Vector2(190.052, 91.8929)
 
 [node name="CharacterJoniSecond *" parent="Characters" instance=ExtResource("23_4duu5")]
 position = Vector2(189.064, 70.8291)
+
+[node name="CharacterPinkLady *" parent="Characters" instance=ExtResource("27_eb0g3")]
+position = Vector2(153.035, 68.9231)

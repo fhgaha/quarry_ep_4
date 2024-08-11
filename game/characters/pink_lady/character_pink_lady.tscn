@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://e43dhvo3qmew"]
+
+[ext_resource type="Script" path="res://game/characters/pink_lady/character_pink_lady.gd" id="1_3e2xf"]
+[ext_resource type="Texture2D" uid="uid://cepl74os0gqvy" path="res://assets/img/characters/pink_lady/pink_lady-0.png" id="2_6w1tj"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_0em22"]
+[ext_resource type="Texture2D" uid="uid://byyhnu1h73vlr" path="res://assets/img/characters/pink_lady/pink_lady-1.png" id="4_fgp8x"]
+[ext_resource type="Texture2D" uid="uid://pyiftsl07ib8" path="res://assets/img/characters/pink_lady/pink_lady-2.png" id="5_0twv4"]
+[ext_resource type="Texture2D" uid="uid://c2y7iqdx847wx" path="res://assets/img/characters/pink_lady/pink_lady-3.png" id="6_n8nw8"]
+[ext_resource type="Texture2D" uid="uid://h2fm77888ml4" path="res://assets/img/characters/pink_lady/pink_lady-4.png" id="7_ie12g"]
+[ext_resource type="Texture2D" uid="uid://durvmbne4adix" path="res://assets/img/characters/pink_lady/pink_lady-5.png" id="8_c64ai"]
+[ext_resource type="Texture2D" uid="uid://fiuf3pu31xcs" path="res://assets/img/characters/pink_lady/pink_lady-6.png" id="9_lkukt"]
+
+[node name="CharacterPinkLady" type="Area2D"]
+script = ExtResource("1_3e2xf")
+text_color = Color(1, 0.596078, 1, 1)
+walk_speed = 15.0
+popochiu_placeholder = null
+script_name = "PinkLady"
+description = "Pink Lady"
+clickable = false
+cursor = 8
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+scale = Vector2(0.0625, 0.0625)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="ScalingPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -16)
+texture = ExtResource("9_lkukt")
+hframes = 18
+vframes = 18
+script = ExtResource("3_0em22")
+from_goxel = false
+frames = 18
+sheets = Array[Texture]([ExtResource("2_6w1tj"), ExtResource("4_fgp8x"), ExtResource("5_0twv4"), ExtResource("6_n8nw8"), ExtResource("7_ie12g"), ExtResource("8_c64ai"), ExtResource("9_lkukt")])
+use_spritesheet = 6
+
+[node name="DialogPos" type="Marker2D" parent="."]
+visible = false
+position = Vector2(0, -21)
