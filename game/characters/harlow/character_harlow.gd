@@ -1,5 +1,5 @@
 @tool
-extends PopochiuCharacter
+class_name HarlowCharacter extends PopochiuCharacter
 # You can use E.queue([]) to trigger a sequence of events.
 # Use await E.queue([]) if you want to pause the excecution of
 # the function until the sequence of events finishes.

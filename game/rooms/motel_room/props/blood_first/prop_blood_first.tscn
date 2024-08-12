@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://j3poq8bboblw"]
+
+[ext_resource type="Script" path="res://game/rooms/motel_room/props/blood_first/prop_blood_first.gd" id="1_xvv3e"]
+[ext_resource type="Texture2D" uid="uid://hxtuioqwewj" path="res://assets/img/props/blood_1/blood_first-0.png" id="2_k5b14"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_krdfu"]
+
+[node name="BloodFirst" type="Area2D"]
+script = ExtResource("1_xvv3e")
+script_name = "BloodFirst"
+description = "Blood First"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(24, 17)
+texture = ExtResource("2_k5b14")
+vframes = 29
+script = ExtResource("3_krdfu")
+from_goxel = false
+frames = 29
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

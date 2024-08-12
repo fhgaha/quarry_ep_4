@@ -236,7 +236,7 @@ func play_third_enter_sequence() -> void:
 func play_forth_enter_sequence() -> void:
 	var mac = C.MainSecond as MainSecond
 	var joni = C.Joni as JoniMotelRoom
-	var harlow = C.Harlow
+	var harlow = C.Harlow as HarlowCharacter
 	C.player = mac
 	C.MainHotelRoom.hide()
 	C.JoniSecond.hide()
@@ -244,7 +244,7 @@ func play_forth_enter_sequence() -> void:
 	joni.set_sprite_and_rot(joni.SpshEnum.IDLE_SIT, -113)
 	
 	#tv talking
-	await E.wait(2)
+	#await E.wait(2)
 	#C.WhiteText.say(use_i("TV: ...my father use to say ,\"Our greatest hopes and our worst fears are seldom realized\""))
 	#C.WhiteText.say(use_i("Our worst fears have been realized tonight"))
 	#C.WhiteText.say(use_i("They've now said that there were 11 hostages"))
@@ -255,7 +255,7 @@ func play_forth_enter_sequence() -> void:
 	#C.WhiteText.say(use_i("The Arabs, three of them, are still alive in a hospital..."))
 	
 	#
-	await E.wait(3)
+	#await E.wait(3)
 	#await mac.say("If they haven't found him by tomorrow, we can go home")
 	#await joni.say("I shouldn't have said that")
 	#await E.wait(2)
@@ -288,11 +288,12 @@ func play_forth_enter_sequence() -> void:
 	await C.WhiteText.say("*Knock-knock*")
 	
 	harlow.position = R.get_marker_position("DoorEnter")
+	harlow.sprites.rot_deg = -10
 	harlow.show()
 	#await harlow.say("Guys, you are in there?")
 	#await mac.say("Yeah, Harlow?")
 	#await harlow.say("I left my tools in your room, I need them")
-	await harlow.say("Room 6's AC's crapped out and they're bitching like crazy")
+	#await harlow.say("Room 6's AC's crapped out and they're bitching like crazy")
 	
 	R.get_hotspot("Door").show()	#read in Door script after this
 	mac.timer.start()
@@ -304,17 +305,56 @@ func play_forth_enter_sequence() -> void:
 	R.get_prop("DoorMainClosed").hide()
 	R.get_prop("DoorMainOpen").show()
 	
-	await harlow.say("Sam, I'm sorry")
+	await E.wait(1)
+	
+	await harlow.say("Sam...")
+	await harlow.say("I'm sorry")
 	
 	await E.wait(1)
 	
+	#killing harlow
+	harlow.sprites.use_spritesheet = harlow.SpshEnum.DEAD
+	harlow.sprites.rot_deg = -121
+	harlow.position = R.get_marker_position("MacEnter2")
+	R.get_prop("BloodFirst").show()
+	mac.timer.stop()
+	mac.hide()
+	mac.can_move = false
+	R.get_prop("FightMacLayFirst").position = R.get_marker_position("FightMacLayFirst")
+	R.get_prop("FightMacLayFirst").show()
 	
+	await E.wait(1)
 	
+	R.get_prop("FightEvilWalkFirst").position = R.get_marker_position("FightEvilWalkFirst")
+	R.get_prop("FightEvilWalkFirst").show()
+	R.get_prop("FightMacLayFirst").position = R.get_marker_position("FightMacLaySecond")
 	
-	pass
+	await E.wait(1)
+	
+	R.get_prop("FightEvilWalkFirst").hide()
+	R.get_prop("FightEvilWalkSecond").position = R.get_marker_position("FightEvilWalkSecond")
+	R.get_prop("FightEvilWalkSecond").show()
+	
+	await E.wait(1)
+	
+	R.get_prop("FightMacLayFirst").hide()
+	R.get_prop("FightEvilWalkSecond").hide()
+	R.get_prop("FightHitFirst" ).position = R.get_marker_position("Fight")
+	R.get_prop("FightHitSecond").position = R.get_marker_position("Fight")
+	R.get_prop("FightHitSecond").show()
+	
+	for i in 10:
+		R.get_prop("FightHitSecond").hide()
+		R.get_prop("FightHitFirst" ).show()
+		await E.wait(0.2)
+		R.get_prop("FightHitSecond").show()
+		R.get_prop("FightHitFirst" ).hide()
+		await E.wait(1)
+
 
 func use_i(text: String) -> String:
 	return "[i]%s[/i]" % text
+
 
 func restore_camera_anchor():
 	E.camera.anchor_mode = def_cam_anchor_mode
