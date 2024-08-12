@@ -13,6 +13,7 @@ config_version=5
 config/name="quarry_ep_4"
 run/main_scene="res://game/rooms/telephone_booth/room_telephone_booth.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+run/max_fps=60
 boot_splash/show_image=false
 config/icon="res://icon.svg"
 
@@ -35,6 +36,10 @@ window/size/viewport_height=180
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
+
+[editor]
+
+run/main_run_args="--verbose"
 
 [editor_plugins]
 

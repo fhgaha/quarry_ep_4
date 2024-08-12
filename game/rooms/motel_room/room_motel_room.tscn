@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://crdfoo0f47lld"]
+[gd_scene load_steps=38 format=3 uid="uid://crdfoo0f47lld"]
 
 [ext_resource type="Script" path="res://game/rooms/motel_room/room_motel_room.gd" id="1_k1kh2"]
 [ext_resource type="PackedScene" uid="uid://o12irhxyt0iy" path="res://game/rooms/motel_room/walkable_areas/walk_area/walkable_area_walk_area.tscn" id="2_5l4p8"]
@@ -19,10 +19,15 @@
 [ext_resource type="PackedScene" uid="uid://dg381wxcot2if" path="res://game/characters/joni/character_joni.tscn" id="15_1ddaf"]
 [ext_resource type="PackedScene" uid="uid://dwumgk43p14c" path="res://game/rooms/motel_room/markers/mac_enter_3/marker_mac_enter_3.tscn" id="15_aovy5"]
 [ext_resource type="PackedScene" uid="uid://brt45333rhsrv" path="res://game/rooms/motel_room/hotspots/tv/hotspot_tv.tscn" id="15_gfcvl"]
+[ext_resource type="PackedScene" uid="uid://60trf7dsblh7" path="res://game/rooms/motel_room/props/fight_hit_first/prop_fight_hit_first.tscn" id="15_xrwxh"]
+[ext_resource type="PackedScene" uid="uid://btcj8fiam28lh" path="res://game/rooms/motel_room/props/fight_hit_second/prop_fight_hit_second.tscn" id="16_84d6v"]
 [ext_resource type="PackedScene" uid="uid://8xdift4uojly" path="res://game/characters/main_hotel_room/character_main_hotel_room.tscn" id="16_nnutn"]
+[ext_resource type="PackedScene" uid="uid://bt6hsxkk6e3dq" path="res://game/rooms/motel_room/props/fight_evil_walk_first/prop_fight_evil_walk_first.tscn" id="17_ae2j4"]
 [ext_resource type="PackedScene" uid="uid://braik85cgeidx" path="res://game/rooms/motel_room/hotspots/door/hotspot_door.tscn" id="17_ooxq1"]
 [ext_resource type="PackedScene" uid="uid://bok45hjfegd6m" path="res://game/rooms/motel_room/markers/mac_sit/marker_mac_sit.tscn" id="18_2mbgu"]
 [ext_resource type="PackedScene" uid="uid://bcu2hnktr5tc7" path="res://game/characters/white_text/character_white_text.tscn" id="18_cnokf"]
+[ext_resource type="PackedScene" uid="uid://dgkac20dyjs4s" path="res://game/rooms/motel_room/props/fight_evil_walk_second/prop_fight_evil_walk_second.tscn" id="18_o7iiv"]
+[ext_resource type="PackedScene" uid="uid://bwvhkhnyu2x2g" path="res://game/rooms/motel_room/props/fight_mac_lay_first/prop_fight_mac_lay_first.tscn" id="19_5ab8o"]
 [ext_resource type="PackedScene" uid="uid://nl6mhlrpijh2" path="res://game/rooms/motel_room/markers/joni_enter_1/marker_joni_enter_1.tscn" id="19_keabh"]
 [ext_resource type="PackedScene" uid="uid://dcuc3of4klt1u" path="res://game/rooms/motel_room/markers/chair_sit/marker_chair_sit.tscn" id="20_lawbl"]
 [ext_resource type="PackedScene" uid="uid://tkv3jiqe13uk" path="res://game/rooms/motel_room/markers/char_hidden/marker_char_hidden.tscn" id="21_53ggh"]
@@ -40,7 +45,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomMotelRoom" type="Node2D"]
-rotation = -0.00128633
+rotation = 0.000949454
 script = ExtResource("1_k1kh2")
 script_name = "MotelRoom"
 popochiu_placeholder = null
@@ -150,6 +155,35 @@ position = Vector2(132.987, 9.18801)
 rotation = 0.453786
 scale = Vector2(1.29, 1.29)
 baseline = 52
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="FightHitFirst" parent="Props" instance=ExtResource("15_xrwxh")]
+visible = false
+position = Vector2(219.018, 139.972)
+angle_deg = -127.0
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="FightHitSecond" parent="Props" instance=ExtResource("16_84d6v")]
+visible = false
+position = Vector2(219.11, 139.828)
+angle_deg = -127.0
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="FightEvilWalkFirst" parent="Props" instance=ExtResource("17_ae2j4")]
+visible = false
+position = Vector2(202.14, 86.6748)
+angle_deg = -99.0
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="FightEvilWalkSecond" parent="Props" instance=ExtResource("18_o7iiv")]
+visible = false
+position = Vector2(206.017, 109.968)
+angle_deg = -118.0
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="FightMacLayFirst" parent="Props" instance=ExtResource("19_5ab8o")]
+position = Vector2(207.092, 109.828)
+angle_deg = -120.0
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Hotspots" type="Node2D" parent="."]
