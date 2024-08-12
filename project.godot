@@ -13,6 +13,7 @@ config_version=5
 config/name="quarry_ep_4"
 run/main_scene="res://game/rooms/telephone_booth/room_telephone_booth.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+run/max_fps=60
 boot_splash/show_image=false
 config/icon="res://icon.svg"
 
@@ -27,6 +28,10 @@ I="*res://game/autoloads/i.gd"
 D="*res://game/autoloads/d.gd"
 A="*res://game/autoloads/a.gd"
 G="*res://addons/popochiu/engine/interfaces/i_graphic_interface.gd"
+
+[debug]
+
+settings/stdout/verbose_stdout=true
 
 [display]
 

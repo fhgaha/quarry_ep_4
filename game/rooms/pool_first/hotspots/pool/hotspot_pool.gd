@@ -69,6 +69,7 @@ func _on_click() -> void:
 	
 	#Harlow appears
 	var harlow = C.Harlow as PopochiuCharacter
+	harlow.sprites.use_spritesheet = harlow.SpshEnum.IDLE
 	harlow.sprites.rot_deg = -20
 	harlow.show()
 	

@@ -33,7 +33,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomParking1" type="Node2D"]
-rotation = -0.000614371
+rotation = 0.000375226
 script = ExtResource("1_kg1lh")
 script_name = "Parking1"
 limit_right = 500.0
@@ -94,22 +94,22 @@ position = Vector2(175, 251)
 texture = ExtResource("4_duheo")
 baseline = -273
 
-[node name="Car1" parent="Props" instance=ExtResource("4_45ffy")]
-position = Vector2(268, 202)
-angle_deg = -110.0
-walk_to_point = Vector2(-22.5, 13.25)
-interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
-
 [node name="Car2" parent="Props" instance=ExtResource("5_yv32o")]
 position = Vector2(288, 160)
 texture = ExtResource("6_jkot1")
 angle_deg = -120.0
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
-[node name="MotelHouse" parent="Props" instance=ExtResource("8_wbeml")]
-position = Vector2(31, 164)
+[node name="Car1" parent="Props" instance=ExtResource("4_45ffy")]
+position = Vector2(268, 202)
+angle_deg = -110.0
+walk_to_point = Vector2(-22.5, 13.25)
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="MotelHouse3" parent="Props" instance=ExtResource("8_wbeml")]
+position = Vector2(135, 78)
 angle_deg = 141.0
-baseline = -10
+baseline = -12
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="MotelHouse2" parent="Props" instance=ExtResource("8_wbeml")]
@@ -117,10 +117,10 @@ position = Vector2(83, 121)
 angle_deg = 141.0
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
-[node name="MotelHouse3" parent="Props" instance=ExtResource("8_wbeml")]
-position = Vector2(135, 78)
+[node name="MotelHouse" parent="Props" instance=ExtResource("8_wbeml")]
+position = Vector2(31, 164)
 angle_deg = 141.0
-baseline = -12
+baseline = -10
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="MotelHouseB" parent="Props" instance=ExtResource("9_w86en")]

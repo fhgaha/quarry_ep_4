@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1jh1c3gfj7y7"]
+
+[ext_resource type="Script" path="res://game/characters/cleaning_lady/character_cleaning_lady.gd" id="1_bu52f"]
+[ext_resource type="Texture2D" uid="uid://n8ypa7a1nuj0" path="res://assets/img/characters/cleaning_lady/cleaning_lady-0.png" id="2_37krg"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_jckdy"]
+[ext_resource type="Texture2D" uid="uid://pvg16wl0bxiq" path="res://assets/img/characters/cleaning_lady/cleaning_lady-1.png" id="4_ayiwy"]
+[ext_resource type="Texture2D" uid="uid://ceder674rex35" path="res://assets/img/characters/cleaning_lady/cleaning_lady-2.png" id="5_hcarf"]
+
+[node name="CharacterCleaningLady" type="Area2D"]
+script = ExtResource("1_bu52f")
+text_color = Color(0.82, 0.41, 0.41, 1)
+walk_speed = 20.0
+popochiu_placeholder = null
+script_name = "CleaningLady"
+description = "Cleaning Lady"
+clickable = false
+cursor = 8
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="ScalingPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -15)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_hcarf")
+vframes = 17
+script = ExtResource("3_jckdy")
+from_goxel = false
+frames = 17
+sheets = Array[Texture]([ExtResource("5_hcarf"), ExtResource("2_37krg"), ExtResource("4_ayiwy")])
+
+[node name="DialogPos" type="Marker2D" parent="."]
+visible = false
+position = Vector2(0, -22)

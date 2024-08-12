@@ -61,3 +61,8 @@ func evaluate(command, variable_names = [], variable_values = []) -> void:
 	
 	if expression.has_execute_failed():
 		push_error("Could'nt execute the expression: %s" % result)
+
+func transition():
+	await E.wait(2)
+	R.current.restore_camera_anchor()
+	R.goto_room("Parking1")

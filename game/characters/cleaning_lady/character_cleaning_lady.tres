@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cqkcy7pip13q5"]
+
+[ext_resource type="Script" path="res://game/characters/cleaning_lady/character_cleaning_lady_state.gd" id="1_ogyxb"]
+
+[resource]
+resource_name = "CleaningLady"
+script = ExtResource("1_ogyxb")
+script_name = "CleaningLady"
+scene = "res://game/characters/cleaning_lady/character_cleaning_lady.tscn"

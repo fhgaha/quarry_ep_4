@@ -6,7 +6,7 @@ const Data := preload('room_parking_1_state.gd')
 var state: Data = load("res://game/rooms/parking_1/room_parking_1.tres")
 
 var player_enter_room_pos : Vector2
-var debug := true
+var debug := false
 
 #region Virtual ####################################################################################
 # What happens when Popochiu loads the room. At this point the room is in the
@@ -14,8 +14,8 @@ var debug := true
 func _on_room_entered() -> void:
 	if debug:
 		C.player = C.MainParking1
+	
 	E.camera_zoom(1.5 * Vector2.ONE, 0.1)
-	#E.camera_zoom(0.5 * Vector2.ONE, 0.1)
 	RenderingServer.set_default_clear_color(Color.BLACK)
 
 

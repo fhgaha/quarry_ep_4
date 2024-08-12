@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0f6b2kht0syx"]
+
+[ext_resource type="Script" path="res://game/characters/main_second/character_main_second.gd" id="1_tia1q"]
+[ext_resource type="Texture2D" uid="uid://bbd3ub7spc105" path="res://assets/img/characters/main_second/main_char_second-0.png" id="2_qt5hg"]
+[ext_resource type="Resource" uid="uid://clfxtmhefke0m" path="res://game/characters/main_booth/audio/vo_mac.tres" id="2_wp2wy"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_ajgpj"]
+[ext_resource type="Texture2D" uid="uid://bxbn06ul5nyv" path="res://assets/img/characters/main_second/main_char_second-1.png" id="4_nl6r4"]
+[ext_resource type="Texture2D" uid="uid://bev01pk25xqbx" path="res://assets/img/characters/main_second/main_char_second-2.png" id="5_eh3ss"]
+[ext_resource type="Texture2D" uid="uid://dv41hgp08apvl" path="res://assets/img/characters/main_second/main_char_second-3.png" id="6_umu04"]
+[ext_resource type="Texture2D" uid="uid://drm3xhhgchbv0" path="res://assets/img/characters/main_second/main_char_second-4.png" id="8_lvnp3"]
+
+[node name="CharacterMainSecond" type="Area2D"]
+script = ExtResource("1_tia1q")
+text_color = Color(0.909804, 0.788235, 0.572549, 1)
+voices = [{
+"emotion": "",
+"variations": Array[Resource("res://addons/popochiu/engine/audio_manager/audio_cue_sound.gd")]([ExtResource("2_wp2wy")])
+}]
+walk_speed = 20.0
+popochiu_placeholder = null
+script_name = "MainSecond"
+description = "Main Second"
+clickable = false
+cursor = 8
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="ScalingPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -16)
+texture = ExtResource("6_umu04")
+vframes = 17
+script = ExtResource("3_ajgpj")
+from_goxel = false
+frames = 17
+sheets = Array[Texture]([ExtResource("2_qt5hg"), ExtResource("4_nl6r4"), ExtResource("5_eh3ss"), ExtResource("6_umu04"), ExtResource("8_lvnp3")])
+use_spritesheet = 3
+
+[node name="DialogPos" type="Marker2D" parent="."]
+visible = false
+position = Vector2(0, -24)

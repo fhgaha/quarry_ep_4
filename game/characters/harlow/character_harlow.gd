@@ -1,5 +1,5 @@
 @tool
-extends PopochiuCharacter
+class_name HarlowCharacter extends PopochiuCharacter
 # You can use E.queue([]) to trigger a sequence of events.
 # Use await E.queue([]) if you want to pause the excecution of
 # the function until the sequence of events finishes.
@@ -7,7 +7,7 @@ extends PopochiuCharacter
 const Data := preload('character_harlow_state.gd')
 var state: Data = load("res://game/characters/harlow/character_harlow.tres")
 
-enum SpshEnum {IDLE, WALK_1, WALK_2}
+enum SpshEnum {IDLE, WALK_1, WALK_2, DEAD}
 
 #region Virtual ####################################################################################
 # When the room in which this node is located finishes being added to the tree

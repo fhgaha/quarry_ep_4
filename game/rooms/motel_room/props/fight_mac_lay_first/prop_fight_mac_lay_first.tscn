@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwvhkhnyu2x2g"]
+
+[ext_resource type="Script" path="res://game/rooms/motel_room/props/fight_mac_lay_first/prop_fight_mac_lay_first.gd" id="1_cgl7n"]
+[ext_resource type="Texture2D" uid="uid://cdjbdc2o6k0hp" path="res://assets/img/end_fighting/end_fighting-4-1.png" id="2_tswu0"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_miamy"]
+
+[node name="FightMacLayFirst" type="Area2D"]
+script = ExtResource("1_cgl7n")
+script_name = "FightMacLayFirst"
+description = "Fight Mac Lay First"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -12)
+texture = ExtResource("2_tswu0")
+vframes = 16
+script = ExtResource("3_miamy")
+from_goxel = false
+sheets = Array[Texture]([ExtResource("2_tswu0")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

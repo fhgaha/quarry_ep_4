@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddv06asw8hrx0"]
+
+[ext_resource type="Script" path="res://game/rooms/parking_second/props/motel_house_cashier/prop_motel_house_cashier.gd" id="1_2r8aj"]
+[ext_resource type="Texture2D" uid="uid://boent0oxj3xys" path="res://assets/img/props/motel_house_cashier/motel_house_cashier-4.png" id="2_tgs05"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_10jk7"]
+
+[node name="MotelHouseCashier" type="Area2D"]
+script = ExtResource("1_2r8aj")
+script_name = "MotelHouseCashier"
+description = "Motel House Cashier"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_tgs05")
+vframes = 37
+script = ExtResource("3_10jk7")
+from_goxel = false
+frames = 37
+sheets = Array[Texture]([ExtResource("2_tgs05")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

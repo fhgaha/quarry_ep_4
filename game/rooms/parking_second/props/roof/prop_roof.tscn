@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cniwsjwybyfj6"]
+
+[ext_resource type="Script" path="res://game/rooms/parking_second/props/roof/prop_roof.gd" id="1_k7uno"]
+[ext_resource type="Texture2D" uid="uid://c64ndbi0086km" path="res://assets/img/props/motel_house_cashier/motel_house_cashier-1.png" id="2_rsk1a"]
+
+[node name="Roof" type="Area2D"]
+script = ExtResource("1_k7uno")
+script_name = "Roof"
+description = "Roof"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(52.1255, -59.5424)
+rotation = 0.412194
+scale = Vector2(1.65495, 2.90349)
+texture = ExtResource("2_rsk1a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bnsstmwa2l8xc"]
+
+[ext_resource type="Script" path="res://game/rooms/parking_second/room_parking_second_state.gd" id="1_lqfsk"]
+
+[resource]
+resource_name = "ParkingSecond"
+script = ExtResource("1_lqfsk")
+script_name = "ParkingSecond"
+scene = "res://game/rooms/parking_second/room_parking_second.tscn"
+visited = false
+visited_first_time = false
+visited_times = 0
