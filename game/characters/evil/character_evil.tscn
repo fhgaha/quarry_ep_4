@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpttp5no68ya3"]
+
+[ext_resource type="Script" path="res://game/characters/evil/character_evil.gd" id="1_vq16o"]
+
+[node name="CharacterEvil" type="Area2D"]
+script = ExtResource("1_vq16o")
+text_color = Color(0.93, 0.155, 0, 1)
+can_move = false
+popochiu_placeholder = null
+script_name = "Evil"
+description = "Evil"
+clickable = false
+cursor = 8
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="ScalingPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="DialogPos" type="Marker2D" parent="."]

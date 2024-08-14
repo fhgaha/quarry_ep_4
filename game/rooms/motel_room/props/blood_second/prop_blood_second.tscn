@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://vhv2l8nwj141"]
+
+[ext_resource type="Script" path="res://game/rooms/motel_room/props/blood_second/prop_blood_second.gd" id="1_dfm3k"]
+[ext_resource type="Texture2D" uid="uid://diqbr0msnhxd4" path="res://assets/img/props/blood_2/blood_second-0.png" id="2_v4him"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_sfo3c"]
+
+[node name="BloodSecond" type="Area2D"]
+script = ExtResource("1_dfm3k")
+script_name = "BloodSecond"
+description = "Blood Second"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_v4him")
+vframes = 26
+script = ExtResource("3_sfo3c")
+from_goxel = false
+frames = 26
+sheets = Array[Texture]([ExtResource("2_v4him")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

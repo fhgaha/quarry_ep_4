@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://crdfoo0f47lld"]
+[gd_scene load_steps=49 format=3 uid="uid://crdfoo0f47lld"]
 
 [ext_resource type="Script" path="res://game/rooms/motel_room/room_motel_room.gd" id="1_k1kh2"]
 [ext_resource type="PackedScene" uid="uid://o12irhxyt0iy" path="res://game/rooms/motel_room/walkable_areas/walk_area/walkable_area_walk_area.tscn" id="2_5l4p8"]
@@ -32,6 +32,8 @@
 [ext_resource type="PackedScene" uid="uid://j3poq8bboblw" path="res://game/rooms/motel_room/props/blood_first/prop_blood_first.tscn" id="20_jydbg"]
 [ext_resource type="PackedScene" uid="uid://dcuc3of4klt1u" path="res://game/rooms/motel_room/markers/chair_sit/marker_chair_sit.tscn" id="20_lawbl"]
 [ext_resource type="PackedScene" uid="uid://tkv3jiqe13uk" path="res://game/rooms/motel_room/markers/char_hidden/marker_char_hidden.tscn" id="21_53ggh"]
+[ext_resource type="PackedScene" uid="uid://vhv2l8nwj141" path="res://game/rooms/motel_room/props/blood_second/prop_blood_second.tscn" id="21_amhh3"]
+[ext_resource type="PackedScene" uid="uid://d0f6qe6rh4w08" path="res://game/rooms/motel_room/props/fight_evil_point/prop_fight_evil_point.tscn" id="22_lpmlh"]
 [ext_resource type="PackedScene" uid="uid://c0f6b2kht0syx" path="res://game/characters/main_second/character_main_second.tscn" id="22_splin"]
 [ext_resource type="PackedScene" uid="uid://c6ibbavsl4ukx" path="res://game/characters/joni_second/character_joni_second.tscn" id="23_4duu5"]
 [ext_resource type="PackedScene" uid="uid://2vqsluxarq85" path="res://game/rooms/motel_room/markers/door_enter/marker_door_enter.tscn" id="23_er86j"]
@@ -42,6 +44,9 @@
 [ext_resource type="PackedScene" uid="uid://cslpd0fosqljq" path="res://game/rooms/motel_room/markers/fight/marker_fight.tscn" id="33_gsup1"]
 [ext_resource type="PackedScene" uid="uid://c7gny4ed3utex" path="res://game/rooms/motel_room/markers/fight_evil_walk_first/marker_fight_evil_walk_first.tscn" id="34_p1uat"]
 [ext_resource type="PackedScene" uid="uid://5nsl4xeg43su" path="res://game/rooms/motel_room/markers/fight_evil_walk_second/marker_fight_evil_walk_second.tscn" id="35_8chwh"]
+[ext_resource type="PackedScene" uid="uid://cot73mgnrrwmf" path="res://game/rooms/motel_room/markers/fight_joni_place_1/marker_fight_joni_place_1.tscn" id="36_6ky7v"]
+[ext_resource type="PackedScene" uid="uid://ead2jqx4e53u" path="res://game/rooms/motel_room/markers/fight_mac_lay_third/marker_fight_mac_lay_third.tscn" id="39_hgg4w"]
+[ext_resource type="PackedScene" uid="uid://bpttp5no68ya3" path="res://game/characters/evil/character_evil.tscn" id="44_c36i6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_s2r7m"]
 vertices = PackedVector2Array(5, -4, -13, 1, -8, -11, 3, -19, 40, 37, -4, 53, -5, 46, 20, 37, 38, 27, 29, 29, 19, -3, 3, -26, 17, -31, 26, -9)
@@ -51,7 +56,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomMotelRoom" type="Node2D"]
-rotation = 0.000225136
+rotation = 0.000809826
 script = ExtResource("1_k1kh2")
 script_name = "MotelRoom"
 popochiu_placeholder = null
@@ -163,16 +168,10 @@ scale = Vector2(1.29, 1.29)
 baseline = 52
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
-[node name="FightHitFirst" parent="Props" instance=ExtResource("15_xrwxh")]
+[node name="FightMacLayFirst" parent="Props" instance=ExtResource("19_5ab8o")]
 visible = false
-position = Vector2(219.018, 139.972)
-angle_deg = -127.0
-interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
-
-[node name="FightHitSecond" parent="Props" instance=ExtResource("16_84d6v")]
-visible = false
-position = Vector2(219.11, 139.828)
-angle_deg = -127.0
+position = Vector2(207.092, 109.828)
+angle_deg = -120.0
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="FightEvilWalkFirst" parent="Props" instance=ExtResource("17_ae2j4")]
@@ -187,16 +186,35 @@ position = Vector2(206.017, 109.968)
 angle_deg = -118.0
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
-[node name="FightMacLayFirst" parent="Props" instance=ExtResource("19_5ab8o")]
+[node name="FightHitFirst" parent="Props" instance=ExtResource("15_xrwxh")]
 visible = false
-position = Vector2(207.092, 109.828)
-angle_deg = -120.0
+position = Vector2(219.018, 139.972)
+angle_deg = -127.0
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="FightHitSecond" parent="Props" instance=ExtResource("16_84d6v")]
+visible = false
+position = Vector2(219.11, 139.828)
+scale = Vector2(1, 1)
+angle_deg = -127.0
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="FightEvilPoint" parent="Props" instance=ExtResource("22_lpmlh")]
+visible = false
+position = Vector2(216.086, 135.863)
+angle_deg = 41.0
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="BloodFirst" parent="Props" instance=ExtResource("20_jydbg")]
 visible = false
 position = Vector2(181.963, 79.0842)
 angle_deg = 51.0
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="BloodSecond" parent="Props" instance=ExtResource("21_amhh3")]
+visible = false
+position = Vector2(232.838, 117.322)
+angle_deg = 62.0
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Hotspots" type="Node2D" parent="."]
@@ -250,7 +268,7 @@ position = Vector2(176.03, 48.8916)
 position = Vector2(202.874, 78.3262)
 
 [node name="FightMacLayFirst" parent="Markers" instance=ExtResource("31_nk01m")]
-position = Vector2(206.031, 103.938)
+position = Vector2(206.966, 107.065)
 
 [node name="FightMacLaySecond" parent="Markers" instance=ExtResource("32_65y2o")]
 position = Vector2(213.108, 126.819)
@@ -262,7 +280,16 @@ position = Vector2(218.913, 140.136)
 position = Vector2(204.983, 93.0379)
 
 [node name="FightEvilWalkSecond" parent="Markers" instance=ExtResource("35_8chwh")]
-position = Vector2(206.047, 104.908)
+position = Vector2(209.989, 117.02)
+
+[node name="FightJoniPlace1" parent="Markers" instance=ExtResource("36_6ky7v")]
+position = Vector2(173.073, 114.891)
+
+[node name="FightJoniPlace2" parent="Markers" instance=ExtResource("36_6ky7v")]
+position = Vector2(179.961, 107.065)
+
+[node name="FightMacLayThird" parent="Markers" instance=ExtResource("39_hgg4w")]
+position = Vector2(223.09, 145.863)
 
 [node name="Characters" type="Node2D" parent="."]
 
@@ -286,3 +313,6 @@ position = Vector2(153.04, 87.9308)
 
 [node name="CharacterHarlow *" parent="Characters" instance=ExtResource("29_pph57")]
 position = Vector2(136.909, 87.1432)
+
+[node name="CharacterEvil *" parent="Characters" instance=ExtResource("44_c36i6")]
+position = Vector2(219.15, 121.731)

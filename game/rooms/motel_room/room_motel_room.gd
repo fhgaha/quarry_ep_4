@@ -307,35 +307,36 @@ func play_forth_enter_sequence() -> void:
 	
 	await E.wait(1)
 	
-	await harlow.say("Sam...")
-	await harlow.say("I'm sorry")
+	await harlow.say("Sam, I'm sorry")
+	await harlow.say("He said...")
+	
+	#killing harlow
+	R.get_prop("BloodFirst").show()
 	
 	await E.wait(1)
 	
-	#killing harlow
 	harlow.sprites.use_spritesheet = harlow.SpshEnum.DEAD
 	harlow.sprites.rot_deg = -121
 	harlow.position = R.get_marker_position("MacEnter2")
-	R.get_prop("BloodFirst").show()
 	mac.timer.stop()
 	mac.hide()
 	mac.can_move = false
 	R.get_prop("FightMacLayFirst").position = R.get_marker_position("FightMacLayFirst")
 	R.get_prop("FightMacLayFirst").show()
 	
-	await E.wait(1)
+	await E.wait(1.5)
 	
 	R.get_prop("FightEvilWalkFirst").position = R.get_marker_position("FightEvilWalkFirst")
 	R.get_prop("FightEvilWalkFirst").show()
 	R.get_prop("FightMacLayFirst").position = R.get_marker_position("FightMacLaySecond")
 	
-	await E.wait(1)
+	await E.wait(1.5)
 	
 	R.get_prop("FightEvilWalkFirst").hide()
 	R.get_prop("FightEvilWalkSecond").position = R.get_marker_position("FightEvilWalkSecond")
 	R.get_prop("FightEvilWalkSecond").show()
 	
-	await E.wait(1)
+	await E.wait(1.5)
 	
 	R.get_prop("FightMacLayFirst").hide()
 	R.get_prop("FightEvilWalkSecond").hide()
@@ -343,13 +344,84 @@ func play_forth_enter_sequence() -> void:
 	R.get_prop("FightHitSecond").position = R.get_marker_position("Fight")
 	R.get_prop("FightHitSecond").show()
 	
-	for i in 10:
-		R.get_prop("FightHitSecond").hide()
-		R.get_prop("FightHitFirst" ).show()
-		await E.wait(0.2)
-		R.get_prop("FightHitSecond").show()
-		R.get_prop("FightHitFirst" ).hide()
-		await E.wait(1)
+	#evil hit mac
+	await evil_hit_mac()
+	
+	await E.wait(2)
+	
+	await evil_hit_mac()
+	await E.wait(1)
+	joni.position = R.get_marker_position("FightJoniPlace1")
+	joni.sprites.rot_deg = -82
+	
+	await E.wait(2)
+	
+	await evil_hit_mac()
+	await E.wait(1)
+	joni.position = R.get_marker_position("FightJoniPlace2")
+	joni.sprites.rot_deg = -49
+	joni.z_index = 0
+	
+	await E.wait(2)
+	
+	await C.Evil.say("Who fucking sent you?")
+	await evil_hit_mac()
+	await C.Evil.say("[shake]WHO?[/shake]")
+	await evil_hit_mac()
+	await C.Evil.say("Was it him?")
+	
+	await E.wait(2)
+	joni.set_sprite_and_rot(joni.SpshEnum.POINT_GUN)
+	
+	await joni.say("...")
+	await E.wait(2)
+	
+	#joni shoot
+	R.get_prop("BloodSecond").show()
+	await C.Evil.say("[shake]Hargh![/shake]")
+	
+	R.get_prop("FightHitSecond").hide()
+	R.get_prop("FightHitFirst" ).hide()
+	
+	R.get_prop("FightEvilPoint").show()
+	R.get_prop("FightMacLayFirst").position = R.get_marker_position("FightMacLayThird")
+	R.get_prop("FightMacLayFirst").show()
+	
+	await E.wait(1)
+	
+	await C.Evil.say("[shake]YOU FUCKING...[/shake]")
+	
+	#pink lady appears
+	var pink_lady = C.PinkLady as PinkLadyCharacter
+	pink_lady.set_sprite_and_rot(pink_lady.SpshEnum.GUN_POINT, 47)
+	pink_lady.position = R.get_marker_position("JoniEnter1")
+	pink_lady.show()
+	
+	#shoots
+	
+	await E.wait(1)
+	
+	pink_lady.set_sprite_and_rot(pink_lady.SpshEnum.GUN_IDLE, 47)
+	
+	await E.wait(1)
+	
+	await pink_lady.say("Go now")
+	await mac.say("Who the fuck are you?")
+	await pink_lady.say("Who do you think?")
+	await pink_lady.say("You really need to get out of here")
+	
+	await E.wait(1)
+	
+
+
+func evil_hit_mac(action: Callable = func():{}):
+	R.get_prop("FightHitSecond").hide()
+	R.get_prop("FightHitFirst" ).show()
+	await E.wait(0.2)
+	R.get_prop("FightHitSecond").show()
+	R.get_prop("FightHitFirst" ).hide()
+	
+	await action.call()
 
 
 func use_i(text: String) -> String:
