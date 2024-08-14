@@ -9,12 +9,14 @@ extends PopochiuHotspot
 # When the node is clicked
 func _on_click() -> void:
 	# Replace the call to E.command_fallback() with your code.
-	E.command_fallback()
+	#E.command_fallback()
 	# For example, you can make the player character walk to this hotspot, gaze at it, and then say
 	# something:
 #	await C.player.walk_to_clicked()
 #	await C.player.face_clicked()
 #	await C.player.say("What a nice view")
+	await C.player.walk_to_prop(script_name)
+	C.player.say("Curtains are closed")
 
 
 func _on_double_click() -> void:

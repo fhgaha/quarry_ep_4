@@ -27,7 +27,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomPoolFirst" type="Node2D"]
-rotation = 0.00169823
+rotation = -0.00120603
 script = ExtResource("1_ie57w")
 script_name = "PoolFirst"
 popochiu_placeholder = null
@@ -92,6 +92,7 @@ walk_to_point = Vector2(-64.1263, -31.1323)
 interaction_polygon = PackedVector2Array(-36, -43, 77, -10, 90, 13, 64, 32, 15, 46, -99, 11)
 
 [node name="RoomExit" parent="Hotspots" instance=ExtResource("10_rmayd")]
+visible = false
 position = Vector2(65.938, 45.0908)
 description = "Door"
 interaction_polygon = PackedVector2Array(-0.957733, -15.0481, 10.0397, -20.0229, 9.01428, -1.00958, -1.00632, 5.99613)

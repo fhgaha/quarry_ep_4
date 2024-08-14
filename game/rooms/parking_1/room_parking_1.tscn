@@ -33,7 +33,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomParking1" type="Node2D"]
-rotation = 0.000375226
+rotation = 0.00127583
 script = ExtResource("1_kg1lh")
 script_name = "Parking1"
 limit_right = 500.0
@@ -197,11 +197,14 @@ interaction_polygon_position = Vector2(-12, -11)
 
 [node name="Room4" parent="Hotspots" instance=ExtResource("12_7eeg3")]
 position = Vector2(100, 114)
+walk_to_point = Vector2(9.65947, 11.362)
 interaction_polygon = PackedVector2Array(-12, -12, -2, -19, -1, 1, -12, 10)
 interaction_polygon_position = Vector2(6, 0)
 
 [node name="Room5" parent="Hotspots" instance=ExtResource("13_n5h7u")]
 position = Vector2(151, 66)
+baseline = 6
+walk_to_point = Vector2(14.6147, 22.4604)
 interaction_polygon = PackedVector2Array(-5, -6, 6, -15, 6, 6, -5, 15)
 
 [node name="Window3" parent="Hotspots" instance=ExtResource("19_agq7p")]
@@ -216,6 +219,7 @@ interaction_polygon_position = Vector2(-16.1571, 5.11626)
 
 [node name="Window5" parent="Hotspots" instance=ExtResource("21_cl6qr")]
 position = Vector2(134.043, 73.9214)
+walk_to_point = Vector2(10.5165, 22.3501)
 interaction_polygon = PackedVector2Array(-3.96281, -1.06508, 3.04849, -7.10965, 4.07297, 4.87497, -3.90292, 10.8634)
 
 [node name="PoolEnter" parent="Hotspots" instance=ExtResource("22_kbdn0")]
@@ -239,4 +243,4 @@ polygon = PackedVector2Array(-80.1327, -30.9104, -109.048, -91.9598, -164.086, -
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="CharacterMainParking1 *" parent="Characters" instance=ExtResource("5_hjkfk")]
-position = Vector2(254.226, 339.831)
+position = Vector2(399.148, 96.3877)

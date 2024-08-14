@@ -15,8 +15,8 @@ func _on_click() -> void:
 #	await C.player.walk_to_clicked()
 #	await C.player.face_clicked()
 #	await C.player.say("What a nice view")
-	await C.MainParking1.walk_to_clicked()
-	await C.MainParking1.face_clicked()
+	await C.player.walk_to_clicked()
+	await C.player.face_clicked()
 	R.current.player_enter_room_pos = position
 	E.goto_room("PoolFirst")
 

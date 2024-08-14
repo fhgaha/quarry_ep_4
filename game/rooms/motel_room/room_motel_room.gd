@@ -5,7 +5,7 @@ const Data := preload('room_motel_room_state.gd')
 var state: Data = load("res://game/rooms/motel_room/room_motel_room.tres")
 
 var def_cam_anchor_mode : Camera2D.AnchorMode 
-var entered_times := 3
+var entered_times := 0
 
 #region Virtual ####################################################################################
 # What happens when Popochiu loads the room. At this point the room is in the
@@ -17,7 +17,7 @@ func _on_room_entered() -> void:
 	E.camera.change_zoom(1.3 * Vector2.ONE, 0.0001)
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	
-	fix_camera_anchor()
+	#fix_camera_anchor()
 	
 	C.PinkLady.hide()
 	C.Harlow.hide()
@@ -244,45 +244,45 @@ func play_forth_enter_sequence() -> void:
 	joni.set_sprite_and_rot(joni.SpshEnum.IDLE_SIT, -113)
 	
 	#tv talking
-	#await E.wait(2)
-	#C.WhiteText.say(use_i("TV: ...my father use to say ,\"Our greatest hopes and our worst fears are seldom realized\""))
-	#C.WhiteText.say(use_i("Our worst fears have been realized tonight"))
-	#C.WhiteText.say(use_i("They've now said that there were 11 hostages"))
-	#C.WhiteText.say(use_i("Two were killed in their rooms yestarday morning"))
-	#C.WhiteText.say(use_i("Nine were killed at the airport tonight"))
-	#C.WhiteText.say(use_i("They're all gone"))
-	#C.WhiteText.say(use_i("...the Israeli Olympic team is destroyed, much of it"))
-	#C.WhiteText.say(use_i("The Arabs, three of them, are still alive in a hospital..."))
+	await E.wait(2)
+	C.WhiteText.say(use_i("TV: ...my father use to say ,\"Our greatest hopes and our worst fears are seldom realized\""))
+	C.WhiteText.say(use_i("Our worst fears have been realized tonight"))
+	C.WhiteText.say(use_i("They've now said that there were 11 hostages"))
+	C.WhiteText.say(use_i("Two were killed in their rooms yestarday morning"))
+	C.WhiteText.say(use_i("Nine were killed at the airport tonight"))
+	C.WhiteText.say(use_i("They're all gone"))
+	C.WhiteText.say(use_i("...the Israeli Olympic team is destroyed, much of it"))
+	C.WhiteText.say(use_i("The Arabs, three of them, are still alive in a hospital..."))
 	
-	#
-	#await E.wait(3)
-	#await mac.say("If they haven't found him by tomorrow, we can go home")
-	#await joni.say("I shouldn't have said that")
-	#await E.wait(2)
-	#await joni.say("About killing children")
-	#await E.wait(2)
-	#await joni.say("So sorry")
-	#await E.wait(2)
-	#await mac.say("It's okay")
-	#await mac.say("I threw some pretty low blows there myself")
-	#await mac.say("How did you and Cliff start?")
-	#await joni.say("We worked together")
-	#await mac.say("Did you love him?")
-	#await joni.say("No")
-	#await joni.say("I was just angry enough at the world")
-	#await joni.say("At you")
-	#await joni.say("To do it")
-	#await joni.say("I needed something")
-	#await joni.say("I needed to feel something other than what I felt")
-	#await mac.say("Which is what?")
-	#await joni.say("Just completely and totally alone")
-	#await E.wait(2)
-	#await joni.say("Mac?")
-	#await E.wait(2)
-	#await mac.say("Yeah?")
-	#await E.wait(2)
-	#await joni.say("Did you...")
-	#await joni.say("Kill him?")
+	
+	await E.wait(3)
+	await mac.say("If they haven't found him by tomorrow, we can go home")
+	await joni.say("I shouldn't have said that")
+	await E.wait(2)
+	await joni.say("About killing children")
+	await E.wait(2)
+	await joni.say("So sorry")
+	await E.wait(2)
+	await mac.say("It's okay")
+	await mac.say("I threw some pretty low blows there myself")
+	await mac.say("How did you and Cliff start?")
+	await joni.say("We worked together")
+	await mac.say("Did you love him?")
+	await joni.say("No")
+	await joni.say("I was just angry enough at the world")
+	await joni.say("At you")
+	await joni.say("To do it")
+	await joni.say("I needed something")
+	await joni.say("I needed to feel something other than what I felt")
+	await mac.say("Which is what?")
+	await joni.say("Just completely and totally alone")
+	await E.wait(2)
+	await joni.say("Mac?")
+	await E.wait(2)
+	await mac.say("Yeah?")
+	await E.wait(2)
+	await joni.say("Did you...")
+	await joni.say("Kill him?")
 	
 	C.WhiteText.position = Vector2(200, 67)
 	await C.WhiteText.say("*Knock-knock*")
@@ -290,10 +290,10 @@ func play_forth_enter_sequence() -> void:
 	harlow.position = R.get_marker_position("DoorEnter")
 	harlow.sprites.rot_deg = -10
 	harlow.show()
-	#await harlow.say("Guys, you are in there?")
-	#await mac.say("Yeah, Harlow?")
-	#await harlow.say("I left my tools in your room, I need them")
-	#await harlow.say("Room 6's AC's crapped out and they're bitching like crazy")
+	await harlow.say("Guys, you are in there?")
+	await mac.say("Yeah, Harlow?")
+	await harlow.say("I left my tools in your room, I need them")
+	await harlow.say("Room 6's AC's crapped out and they're bitching like crazy")
 	
 	R.get_hotspot("Door").show()	#read in Door script after this
 	mac.timer.start()
@@ -443,8 +443,6 @@ func play_forth_enter_sequence() -> void:
 	await C.MainSecond.say("Baby, we have to go")
 	
 	joni.follow_player = true
-	
-	
 
 
 func evil_hit_mac(action: Callable = func():{}):

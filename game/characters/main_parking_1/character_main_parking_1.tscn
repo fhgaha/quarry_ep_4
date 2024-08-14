@@ -15,6 +15,7 @@ voices = [{
 "emotion": "",
 "variations": Array[Resource("res://addons/popochiu/engine/audio_manager/audio_cue_sound.gd")]([ExtResource("2_pnqrc")])
 }]
+walk_speed = 30.0
 popochiu_placeholder = null
 script_name = "MainParking1"
 description = "Main Parking 1"
@@ -23,7 +24,6 @@ cursor = 8
 interaction_polygon = PackedVector2Array()
 
 [node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
-visible = false
 position = Vector2(0, -14)
 scale = Vector2(0.75, 1)
 polygon = PackedVector2Array(-9.33333, -5, 10.6667, -5, 10.6667, 14, -9.33333, 14)
@@ -47,5 +47,4 @@ frames = 17
 sheets = Array[Texture]([ExtResource("3_ns5jk"), ExtResource("5_hnpyv"), ExtResource("6_8jnbc"), ExtResource("7_snkvp")])
 
 [node name="DialogPos" type="Marker2D" parent="."]
-visible = false
 position = Vector2(0, -25)

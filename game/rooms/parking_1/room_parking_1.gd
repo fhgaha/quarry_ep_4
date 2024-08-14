@@ -6,14 +6,17 @@ const Data := preload('room_parking_1_state.gd')
 var state: Data = load("res://game/rooms/parking_1/room_parking_1.tres")
 
 var player_enter_room_pos : Vector2
-var debug := false
+var first_enter := true
 
 #region Virtual ####################################################################################
 # What happens when Popochiu loads the room. At this point the room is in the
 # tree but it is not visible
 func _on_room_entered() -> void:
-	if debug:
+	if !Globals.visited_pool:
 		C.player = C.MainParking1
+	else:
+		C.player = C.MainNaked
+		C.player.position = R.get_prop("PoolFence2").position
 	
 	E.camera_zoom(1.5 * Vector2.ONE, 0.1)
 	RenderingServer.set_default_clear_color(Color.BLACK)
