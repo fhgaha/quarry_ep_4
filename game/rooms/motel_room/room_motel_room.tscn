@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://crdfoo0f47lld"]
+[gd_scene load_steps=52 format=3 uid="uid://crdfoo0f47lld"]
 
 [ext_resource type="Script" path="res://game/rooms/motel_room/room_motel_room.gd" id="1_k1kh2"]
 [ext_resource type="PackedScene" uid="uid://o12irhxyt0iy" path="res://game/rooms/motel_room/walkable_areas/walk_area/walkable_area_walk_area.tscn" id="2_5l4p8"]
@@ -37,6 +37,8 @@
 [ext_resource type="PackedScene" uid="uid://c0f6b2kht0syx" path="res://game/characters/main_second/character_main_second.tscn" id="22_splin"]
 [ext_resource type="PackedScene" uid="uid://c6ibbavsl4ukx" path="res://game/characters/joni_second/character_joni_second.tscn" id="23_4duu5"]
 [ext_resource type="PackedScene" uid="uid://2vqsluxarq85" path="res://game/rooms/motel_room/markers/door_enter/marker_door_enter.tscn" id="23_er86j"]
+[ext_resource type="PackedScene" uid="uid://isbkn1qmf8a3" path="res://game/rooms/motel_room/props/fight_evil_dead/prop_fight_evil_dead.tscn" id="23_hviuw"]
+[ext_resource type="PackedScene" uid="uid://b23mvml3npoh2" path="res://game/rooms/motel_room/props/blood_third/prop_blood_third.tscn" id="24_em0x1"]
 [ext_resource type="PackedScene" uid="uid://e43dhvo3qmew" path="res://game/characters/pink_lady/character_pink_lady.tscn" id="27_eb0g3"]
 [ext_resource type="PackedScene" uid="uid://dsock4fe36lfs" path="res://game/characters/harlow/character_harlow.tscn" id="29_pph57"]
 [ext_resource type="PackedScene" uid="uid://112mxjr4p2tu" path="res://game/rooms/motel_room/markers/fight_mac_lay_first/marker_fight_mac_lay_first.tscn" id="31_nk01m"]
@@ -46,6 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://5nsl4xeg43su" path="res://game/rooms/motel_room/markers/fight_evil_walk_second/marker_fight_evil_walk_second.tscn" id="35_8chwh"]
 [ext_resource type="PackedScene" uid="uid://cot73mgnrrwmf" path="res://game/rooms/motel_room/markers/fight_joni_place_1/marker_fight_joni_place_1.tscn" id="36_6ky7v"]
 [ext_resource type="PackedScene" uid="uid://ead2jqx4e53u" path="res://game/rooms/motel_room/markers/fight_mac_lay_third/marker_fight_mac_lay_third.tscn" id="39_hgg4w"]
+[ext_resource type="PackedScene" uid="uid://ccgk4b0erp16s" path="res://game/rooms/motel_room/markers/fight_mac_lay_forth/marker_fight_mac_lay_forth.tscn" id="41_an82d"]
 [ext_resource type="PackedScene" uid="uid://bpttp5no68ya3" path="res://game/characters/evil/character_evil.tscn" id="44_c36i6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_s2r7m"]
@@ -56,7 +59,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomMotelRoom" type="Node2D"]
-rotation = 0.000809826
+rotation = 0.000886622
 script = ExtResource("1_k1kh2")
 script_name = "MotelRoom"
 popochiu_placeholder = null
@@ -213,8 +216,22 @@ interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="BloodSecond" parent="Props" instance=ExtResource("21_amhh3")]
 visible = false
+z_index = 1
 position = Vector2(232.838, 117.322)
 angle_deg = 62.0
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="BloodThird" parent="Props" instance=ExtResource("24_em0x1")]
+visible = false
+z_index = 1
+position = Vector2(222.006, 117.99)
+angle_deg = 60.0
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="FightEvilDead" parent="Props" instance=ExtResource("23_hviuw")]
+visible = false
+position = Vector2(221.884, 145.178)
+angle_deg = 36.0
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Hotspots" type="Node2D" parent="."]
@@ -290,6 +307,9 @@ position = Vector2(179.961, 107.065)
 
 [node name="FightMacLayThird" parent="Markers" instance=ExtResource("39_hgg4w")]
 position = Vector2(223.09, 145.863)
+
+[node name="FightMacLayForth" parent="Markers" instance=ExtResource("41_an82d")]
+position = Vector2(205.152, 153.797)
 
 [node name="Characters" type="Node2D" parent="."]
 

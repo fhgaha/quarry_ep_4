@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://b23mvml3npoh2"]
+
+[ext_resource type="Script" path="res://game/rooms/motel_room/props/blood_third/prop_blood_third.gd" id="1_knqsl"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="2_dupv5"]
+[ext_resource type="Texture2D" uid="uid://dfqjo5s7inur0" path="res://assets/img/props/blood_3/blood-0.png" id="2_owe38"]
+
+[node name="BloodThird" type="Area2D"]
+script = ExtResource("1_knqsl")
+script_name = "BloodThird"
+description = "Blood Third"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_owe38")
+vframes = 28
+script = ExtResource("2_dupv5")
+from_goxel = false
+frames = 28
+sheets = Array[Texture]([ExtResource("2_owe38")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

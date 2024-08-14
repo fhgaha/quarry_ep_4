@@ -4,6 +4,8 @@ extends PopochiuHotspot
 # Use await E.queue([]) if you want to pause the excecution of
 # the function until the sequence of events finishes.
 
+var open_harlow := true
+var leave_room := true
 
 #region Virtual ####################################################################################
 # When the node is clicked
@@ -15,12 +17,20 @@ func _on_click() -> void:
 #	await C.player.walk_to_clicked()
 #	await C.player.face_clicked()
 #	await C.player.say("What a nice view")
-	var mac = C.player as MainSecond
-	mac.timer.start()
-	await mac.walk_to_hotspot(script_name)
-	mac.timer.stop()
-	mac.set_sprite_and_rot(mac.SpshEnum.IDLE, 153)
-	Globals.mac_opened_door_to_harlow.emit()
+	
+	if open_harlow:
+		open_harlow = false
+		var mac = C.player as MainSecond
+		mac.timer.start()
+		await mac.walk_to_hotspot(script_name)
+		mac.timer.stop()
+		mac.set_sprite_and_rot(mac.SpshEnum.IDLE, 153)
+		Globals.mac_opened_door_to_harlow.emit()
+	elif leave_room:
+		var mac = C.player as MainSecond
+		mac.timer.start()
+		await mac.walk_to_hotspot(script_name)
+		R.goto_room("Titles", true)
 
 
 func _on_double_click() -> void:

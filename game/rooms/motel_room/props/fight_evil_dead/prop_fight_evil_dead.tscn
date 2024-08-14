@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://isbkn1qmf8a3"]
+
+[ext_resource type="Script" path="res://game/rooms/motel_room/props/fight_evil_dead/prop_fight_evil_dead.gd" id="1_vhfjw"]
+[ext_resource type="Texture2D" uid="uid://t60frmnt4rd8" path="res://assets/img/end_fighting/end_fighting-0.png" id="2_tnlo7"]
+[ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_vsbbx"]
+
+[node name="FightEvilDead" type="Area2D"]
+script = ExtResource("1_vhfjw")
+script_name = "FightEvilDead"
+description = "Fight Evil Dead"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -19)
+texture = ExtResource("2_tnlo7")
+vframes = 20
+script = ExtResource("3_vsbbx")
+from_goxel = false
+frames = 20
+sheets = Array[Texture]([ExtResource("2_tnlo7")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://5cnr3vmvuxvx"]
+
+[ext_resource type="Script" path="res://game/rooms/titles/room_titles.gd" id="1_m4wto"]
+[ext_resource type="PackedScene" uid="uid://bcu2hnktr5tc7" path="res://game/characters/white_text/character_white_text.tscn" id="2_3q704"]
+
+[node name="RoomTitles" type="Node2D"]
+rotation = 0.000916304
+script = ExtResource("1_m4wto")
+script_name = "Titles"
+popochiu_placeholder = null
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="CharacterWhiteText *" parent="Characters" instance=ExtResource("2_3q704")]
+position = Vector2(160.106, 87.8067)

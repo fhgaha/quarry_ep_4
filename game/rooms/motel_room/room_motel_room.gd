@@ -304,6 +304,7 @@ func play_forth_enter_sequence() -> void:
 	
 	R.get_prop("DoorMainClosed").hide()
 	R.get_prop("DoorMainOpen").show()
+	mac.can_move = false
 	
 	await E.wait(1)
 	
@@ -365,19 +366,25 @@ func play_forth_enter_sequence() -> void:
 	await E.wait(2)
 	
 	await C.Evil.say("Who fucking sent you?")
+	await E.wait(1)
 	await evil_hit_mac()
+	await E.wait(1)
 	await C.Evil.say("[shake]WHO?[/shake]")
+	await E.wait(1)
 	await evil_hit_mac()
+	await E.wait(1)
 	await C.Evil.say("Was it him?")
 	
 	await E.wait(2)
 	joni.set_sprite_and_rot(joni.SpshEnum.POINT_GUN)
 	
-	await joni.say("...")
-	await E.wait(2)
+	await E.wait(1)
+	await evil_hit_mac()
+	await E.wait(1)
 	
 	#joni shoot
 	R.get_prop("BloodSecond").show()
+	await E.wait(0.5)
 	await C.Evil.say("[shake]Hargh![/shake]")
 	
 	R.get_prop("FightHitSecond").hide()
@@ -397,7 +404,19 @@ func play_forth_enter_sequence() -> void:
 	pink_lady.position = R.get_marker_position("JoniEnter1")
 	pink_lady.show()
 	
+	await E.wait(1)
+	
 	#shoots
+	
+	R.get_prop("BloodThird").show()
+	
+	await E.wait(1)
+	
+	R.get_prop("FightEvilPoint").hide()
+	R.get_prop("FightEvilDead").show()
+	R.get_prop("FightMacLayFirst").position = R.get_marker_position("FightMacLayForth")
+	R.get_prop("FightMacLayFirst").angle_deg = -24
+	mac.position = R.get_marker_position("FightMacLayForth")
 	
 	await E.wait(1)
 	
@@ -411,6 +430,20 @@ func play_forth_enter_sequence() -> void:
 	await pink_lady.say("You really need to get out of here")
 	
 	await E.wait(1)
+	
+	R.get_prop("FightMacLayFirst").hide()
+	mac.show()
+	mac.can_move = true
+	Globals.is_after_fight = true
+	
+	await Globals.mac_asks_joni_to_leave
+	
+	await C.MainSecond.say("Joni?")
+	await C.MainSecond.say("Baby, come on")
+	await C.MainSecond.say("Baby, we have to go")
+	
+	joni.follow_player = true
+	
 	
 
 

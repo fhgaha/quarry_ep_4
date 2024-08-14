@@ -7,6 +7,7 @@ const PRTelephoneBooth := preload("res://game/rooms/telephone_booth/room_telepho
 const PRPoolFirst := preload("res://game/rooms/pool_first/room_pool_first.gd")
 const PRMotelRoom := preload("res://game/rooms/motel_room/room_motel_room.gd")
 const PRParkingSecond := preload("res://game/rooms/parking_second/room_parking_second.gd")
+const PRTitles := preload("res://game/rooms/titles/room_titles.gd")
 # ---- classes
 
 # nodes ----
@@ -15,6 +16,7 @@ var TelephoneBooth: PRTelephoneBooth : get = get_TelephoneBooth
 var PoolFirst: PRPoolFirst : get = get_PoolFirst
 var MotelRoom: PRMotelRoom : get = get_MotelRoom
 var ParkingSecond: PRParkingSecond : get = get_ParkingSecond
+var Titles: PRTitles : get = get_Titles
 # ---- nodes
 
 # functions ----
@@ -23,5 +25,6 @@ func get_TelephoneBooth() -> PRTelephoneBooth: return get_runtime_room("Telephon
 func get_PoolFirst() -> PRPoolFirst: return get_runtime_room("PoolFirst")
 func get_MotelRoom() -> PRMotelRoom: return get_runtime_room("MotelRoom")
 func get_ParkingSecond() -> PRParkingSecond: return get_runtime_room("ParkingSecond")
+func get_Titles() -> PRTitles: return get_runtime_room("Titles")
 # ---- functions
 

@@ -23,12 +23,16 @@ func _on_room_set() -> void:
 # When the node is clicked
 func _on_click() -> void:
 	# Replace the call to E.command_fallback() to implement your code.
-	E.command_fallback()
+	#E.command_fallback()
 	# For example, you can make the player character walk to this character, gaze at it, and then
 	# say something:
 #	await C.player.walk_to_clicked()
 #	await C.player.face_clicked()
 #	await C.player.say("Hi!")
+	if Globals.is_after_fight:
+		await C.MainSecond.walk_to(position)
+		Globals.mac_asks_joni_to_leave.emit()
+		
 
 
 func _on_double_click() -> void:

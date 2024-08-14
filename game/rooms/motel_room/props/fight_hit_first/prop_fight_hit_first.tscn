@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://60trf7dsblh7"]
 
 [ext_resource type="Script" path="res://game/rooms/motel_room/props/fight_hit_first/prop_fight_hit_first.gd" id="1_0b61x"]
-[ext_resource type="Texture2D" uid="uid://btl7804yk5fqb" path="res://assets/img/end_fighting/end_fighting-4.png" id="2_opawp"]
+[ext_resource type="Texture2D" uid="uid://b28iocbe36161" path="res://assets/img/end_fighting/end_fighting-5.png" id="2_3xvsu"]
 [ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_dcfq5"]
 
 [node name="FightHitFirst" type="Area2D"]
@@ -19,11 +19,11 @@ polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -28)
-texture = ExtResource("2_opawp")
+texture = ExtResource("2_3xvsu")
 vframes = 32
 script = ExtResource("3_dcfq5")
 from_goxel = false
 frames = 32
-sheets = Array[Texture]([ExtResource("2_opawp")])
+sheets = Array[Texture]([ExtResource("2_3xvsu")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

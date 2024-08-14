@@ -26,6 +26,7 @@ func _on_click() -> void:
 	
 	await E.wait(1)
 	D.MacJoniHotelRoomSecond.start()
+	hide()
 
 
 func _on_double_click() -> void:
