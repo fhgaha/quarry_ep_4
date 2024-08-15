@@ -8,4 +8,5 @@ Room #3 at the Sunnyside Motel in Huttsville, Arkansas
 [ ] ambient calm
 [ ] ambient unpleasant
 [ ] tv italic font
-[ ] start screen
+[v] start screen
+[ ] hide ui

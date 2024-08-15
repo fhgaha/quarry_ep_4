@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dk1epik5klynj" path="res://game/characters/main_parking_1/character_main_parking_1.tscn" id="7_ycj0o"]
 
 [node name="RoomTelephoneBooth" type="Node2D"]
-rotation = 0.00153765
+rotation = 0.00132821
 script = ExtResource("1_8f4rb")
 script_name = "TelephoneBooth"
 popochiu_placeholder = null

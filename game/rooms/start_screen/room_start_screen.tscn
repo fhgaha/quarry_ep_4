@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxxyadgfou6m7"]
+
+[ext_resource type="Script" path="res://game/rooms/start_screen/room_start_screen.gd" id="1_2leop"]
+[ext_resource type="PackedScene" uid="uid://dwl24pbx6rid1" path="res://game/rooms/start_screen/props/bg/prop_bg.tscn" id="2_nusb7"]
+[ext_resource type="Texture2D" uid="uid://bcqd0x535dha0" path="res://assets/img/start_screen/start_screen.png" id="3_l14xc"]
+[ext_resource type="PackedScene" uid="uid://dlbj6pq6pqjbw" path="res://game/rooms/start_screen/props/disclaimer/prop_disclaimer.tscn" id="4_a8a70"]
+[ext_resource type="PackedScene" uid="uid://yg443425gawx" path="res://game/characters/white_text_silent/character_white_text_silent.tscn" id="4_gdaqc"]
+[ext_resource type="Texture2D" uid="uid://djop2o1mvhbaw" path="res://assets/img/start_screen/disclaimer.png" id="5_0283i"]
+[ext_resource type="PackedScene" uid="uid://dk1epik5klynj" path="res://game/characters/main_parking_1/character_main_parking_1.tscn" id="7_h76ft"]
+[ext_resource type="PackedScene" uid="uid://ds47lqrmn6fut" path="res://game/characters/main_booth/character_main_booth.tscn" id="7_qrcw6"]
+
+[node name="RoomStartScreen" type="Node2D"]
+rotation = 0.000486946
+script = ExtResource("1_2leop")
+script_name = "StartScreen"
+popochiu_placeholder = null
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Bg" parent="Props" instance=ExtResource("2_nusb7")]
+position = Vector2(160, 90)
+texture = ExtResource("3_l14xc")
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Disclaimer" parent="Props" instance=ExtResource("4_a8a70")]
+visible = false
+position = Vector2(160, 90)
+texture = ExtResource("5_0283i")
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="CharacterWhiteTextSilent *" parent="Characters" instance=ExtResource("4_gdaqc")]
+position = Vector2(51.02, 40.9752)
+
+[node name="CharacterMainBooth *" parent="Characters" instance=ExtResource("7_qrcw6")]
+position = Vector2(-31.0141, -28.9849)
+
+[node name="CharacterMainParking1 *" parent="Characters" instance=ExtResource("7_h76ft")]
+position = Vector2(-57.0112, -22.9722)

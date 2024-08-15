@@ -12,23 +12,6 @@ var first_enter := true
 # What happens when Popochiu loads the room. At this point the room is in the
 # tree but it is not visible
 func _on_room_entered() -> void:
-	#match entered_times:
-		#0:	#before pool
-			#C.MainNaked.hide()
-			#C.MainParking1.show()
-			#C.player = C.MainParking1
-		#1:	#after pool
-			#C.MainParking1.hide()
-			#C.MainNaked.show()
-			#C.player = C.MainNaked
-		#2:	#after motel room
-			#C.player = C.MainSecond
-			#
-			#pass
-		#_:
-			#pass
-	#entered_times += 1
-	
 	if !Globals.visited_pool:
 		C.MainNaked.hide()
 		C.MainParking1.show()
