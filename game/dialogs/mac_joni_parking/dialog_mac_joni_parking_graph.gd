@@ -79,3 +79,6 @@ func cleaning_lady_walk_second():
 	cleaning_lady.timer.stop()
 	cleaning_lady.hide()
 	await E.wait(2)
+
+func transition():
+	R.goto_room("MotelRoom")

@@ -109,3 +109,4 @@ func do_after_dialogue():
 	await pink_lady.say("It doesn't sound like it's fine...")
 	
 	#transition
+	R.goto_room("MotelRoom")

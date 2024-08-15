@@ -2,19 +2,40 @@
 extends PopochiuRoom
 
 const Data := preload('room_parking_1_state.gd')
-
 var state: Data = load("res://game/rooms/parking_1/room_parking_1.tres")
 
 var player_enter_room_pos : Vector2
 var first_enter := true
+#var entered_times := 0
 
 #region Virtual ####################################################################################
 # What happens when Popochiu loads the room. At this point the room is in the
 # tree but it is not visible
 func _on_room_entered() -> void:
+	#match entered_times:
+		#0:	#before pool
+			#C.MainNaked.hide()
+			#C.MainParking1.show()
+			#C.player = C.MainParking1
+		#1:	#after pool
+			#C.MainParking1.hide()
+			#C.MainNaked.show()
+			#C.player = C.MainNaked
+		#2:	#after motel room
+			#C.player = C.MainSecond
+			#
+			#pass
+		#_:
+			#pass
+	#entered_times += 1
+	
 	if !Globals.visited_pool:
+		C.MainNaked.hide()
+		C.MainParking1.show()
 		C.player = C.MainParking1
 	else:
+		C.MainParking1.hide()
+		C.MainNaked.show()
 		C.player = C.MainNaked
 		C.player.position = R.get_prop("PoolFence2").position
 	

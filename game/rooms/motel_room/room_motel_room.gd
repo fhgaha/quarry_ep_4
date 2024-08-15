@@ -5,7 +5,6 @@ const Data := preload('room_motel_room_state.gd')
 var state: Data = load("res://game/rooms/motel_room/room_motel_room.tres")
 
 var def_cam_anchor_mode : Camera2D.AnchorMode 
-var entered_times := 0
 
 #region Virtual ####################################################################################
 # What happens when Popochiu loads the room. At this point the room is in the
@@ -17,17 +16,18 @@ func _on_room_entered() -> void:
 	E.camera.change_zoom(1.3 * Vector2.ONE, 0.0001)
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	
-	#fix_camera_anchor()
+	fix_camera_anchor()
 	
 	C.PinkLady.hide()
 	C.Harlow.hide()
+	C.MainSecond.hide()
 	R.get_hotspot("Door").hide()
 	
-	match entered_times:
+	match Globals.motel_room_entered_times:
 		0:
 			C.player = C.MainHotelRoom
-			await play_enter_sequence()
-			D.MacJoniHotelRoomFirst.start()
+			if C.MainNaked: C.MainNaked.hide()
+			play_enter_sequence()
 		1:
 			play_second_enter_sequence()
 		2:
@@ -36,7 +36,7 @@ func _on_room_entered() -> void:
 			play_forth_enter_sequence()
 		_:
 			pass
-	entered_times += 1
+	Globals.motel_room_entered_times += 1
 
 
 # What happens when the room changing transition finishes. At this point the room
@@ -50,6 +50,7 @@ func _on_room_transition_finished() -> void:
 # At this point, the screen is black, processing is disabled and all characters
 # have been removed from the $Characters node.
 func _on_room_exited() -> void:
+	C.player = null
 	pass
 
 
@@ -59,12 +60,14 @@ func play_enter_sequence() -> void:
 	var mac  := C.player as CharacterMainNakedHotelRoom
 	var joni := C.Joni   as JoniMotelRoom
 	
+	mac.can_move = false
 	joni.timer.stop()
-	joni.sprites.use_spritesheet = joni.SpshEnum.IDLE_SIT
+	joni.set_sprite_and_rot(joni.SpshEnum.IDLE_SIT)
 	
-	await E.wait(2)
-	C.WhiteText.say("*Click - click*")
-	await G.dialog_line_finished
+	await E.wait(4)
+	
+	await C.WhiteText.say("*Click - click*")
+	C.WhiteText.position = R.get_hotspot("Tv").position + Vector2(0, -20)
 	
 	joni.sprites.use_spritesheet = joni.SpshEnum.HIDE_GUN
 	await E.wait(1)
@@ -90,7 +93,6 @@ func play_enter_sequence() -> void:
 	
 	await E.wait(2)
 	await mac.say("Jesus")
-	#await G.dialog_line_finished	#the hell this breaks everything
 	
 	joni.sprites.use_spritesheet = joni.SpshEnum.HIDE_GUN
 	await E.wait(1)
@@ -105,11 +107,11 @@ func play_enter_sequence() -> void:
 	await mac.say("Are you okay?")
 	
 	await E.wait(1)
+	mac.can_move = true
 	mac.timer.start()
+	
+	D.MacJoniHotelRoomFirst.start()
 
-func fix_camera_anchor() -> void:
-	def_cam_anchor_mode = E.camera.anchor_mode
-	E.camera.anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
 
 func play_second_enter_sequence() -> void:
 	C.MainHotelRoom.hide()
@@ -117,6 +119,7 @@ func play_second_enter_sequence() -> void:
 	C.player = C.MainSecond
 	var mac  := C.player as MainSecond
 	var joni := C.JoniSecond as JoniSecondCharacter
+	mac.can_move = false
 	mac.position = Vector2(192, 92)
 	mac.show()
 	mac.timer.stop()
@@ -124,6 +127,7 @@ func play_second_enter_sequence() -> void:
 	
 	R.get_prop("TvOff").hide()
 	R.get_prop("TvOn").show()
+	R.get_hotspot("Tv").hide()
 	
 	#tv talking
 	await E.wait(2)
@@ -141,6 +145,7 @@ func play_second_enter_sequence() -> void:
 	R.get_prop("DoorMainOpen").show()
 	
 	await E.wait(1)
+	joni.sprites.use_spritesheet = joni.SpshEnum.IDLE
 	joni.timer.start()
 	await joni.walk_to_marker("JoniEnter1")
 	joni.timer.stop()
@@ -171,6 +176,7 @@ func play_second_enter_sequence() -> void:
 	
 	D.MacJoniHotelRoomThird.start()
 
+
 func play_third_enter_sequence() -> void:
 	var mac = C.MainSecond as MainSecond
 	C.player = mac
@@ -178,35 +184,41 @@ func play_third_enter_sequence() -> void:
 	C.JoniSecond.hide()
 	mac.position = Vector2(191, 75)
 	mac.set_sprite_and_rot(mac.SpshEnum.IDLE)
+	mac.show()
+	mac.can_move = false
 	var joni = C.Joni as JoniMotelRoom
 	joni.set_sprite_and_rot(joni.SpshEnum.IDLE_SIT, -113)
 	
 	R.get_prop("TvOff").hide()
 	R.get_prop("TvOn").show()
+	R.get_hotspot("Tv").hide()
 	
 	await E.wait(2)
+	
 	#tv talking
-	#await C.WhiteText.say(use_i("TV: It is believed that several have escaped on foot"))
-	#await C.WhiteText.say(use_i("Everyone has been warned not to pick up any hitchhikers"))
-	#await C.WhiteText.say(use_i("Originally, they said that the hostages were safe"))
-	#await C.WhiteText.say(use_i("Now that has been changed"))
-	#await C.WhiteText.say(use_i("And an Olympics spokesman said"))
-	#await C.WhiteText.say(use_i("\"We are afraid the information given so far is too optimistic\""))
-	#await C.WhiteText.say(use_i("When was it agreed, do you know, to allow the guerillas"))
-	#await C.WhiteText.say(use_i("To go from the building to the helicopters..."))
+	await C.WhiteText.say(use_i("TV: It is believed that several have escaped on foot"))
+	await C.WhiteText.say(use_i("Everyone has been warned not to pick up any hitchhikers"))
+	await C.WhiteText.say(use_i("Originally, they said that the hostages were safe"))
+	await C.WhiteText.say(use_i("Now that has been changed"))
+	await C.WhiteText.say(use_i("And an Olympics spokesman said"))
+	await C.WhiteText.say(use_i("\"We are afraid the information given so far is too optimistic\""))
+	await C.WhiteText.say(use_i("When was it agreed, do you know, to allow the guerillas"))
 	
 	R.get_prop("DoorMainClosed").hide()
 	R.get_prop("DoorMainOpen").show()
 	
 	await E.wait(1)
+	
 	mac.timer.start()
 	await mac.walk_to_marker("MacEnter")
-	
+
 	R.get_prop("DoorMainOpen").hide()
 	R.get_prop("DoorMainClosed").show()
 	
 	mac.timer.stop()
 	mac.set_sprite_and_rot(mac.SpshEnum.IDLE, 12)
+	
+	await C.WhiteText.say(use_i("To go from the building to the helicopters..."))
 	
 	await E.wait(2)
 	mac.timer.start()
@@ -233,6 +245,7 @@ func play_third_enter_sequence() -> void:
 	
 	D.MacJoniHotelRoomForth.start()
 
+
 func play_forth_enter_sequence() -> void:
 	var mac = C.MainSecond as MainSecond
 	var joni = C.Joni as JoniMotelRoom
@@ -241,18 +254,24 @@ func play_forth_enter_sequence() -> void:
 	C.MainHotelRoom.hide()
 	C.JoniSecond.hide()
 	mac.set_sprite_and_rot(mac.SpshEnum.SIT_BACK, -39)
+	mac.show()
+	mac.can_move = false
 	joni.set_sprite_and_rot(joni.SpshEnum.IDLE_SIT, -113)
 	
+	R.get_prop("TvOff").hide()
+	R.get_prop("TvOn").show()
+	R.get_hotspot("Tv").hide()
+	
 	#tv talking
-	await E.wait(2)
-	C.WhiteText.say(use_i("TV: ...my father use to say ,\"Our greatest hopes and our worst fears are seldom realized\""))
-	C.WhiteText.say(use_i("Our worst fears have been realized tonight"))
-	C.WhiteText.say(use_i("They've now said that there were 11 hostages"))
-	C.WhiteText.say(use_i("Two were killed in their rooms yestarday morning"))
-	C.WhiteText.say(use_i("Nine were killed at the airport tonight"))
-	C.WhiteText.say(use_i("They're all gone"))
-	C.WhiteText.say(use_i("...the Israeli Olympic team is destroyed, much of it"))
-	C.WhiteText.say(use_i("The Arabs, three of them, are still alive in a hospital..."))
+	await E.wait(4)
+	await C.WhiteText.say(use_i("TV: ...my father use to say ,\"Our greatest hopes and our worst fears are seldom realized\""))
+	await C.WhiteText.say(use_i("Our worst fears have been realized tonight"))
+	await C.WhiteText.say(use_i("They've now said that there were 11 hostages"))
+	await C.WhiteText.say(use_i("Two were killed in their rooms yestarday morning"))
+	await C.WhiteText.say(use_i("Nine were killed at the airport tonight"))
+	await C.WhiteText.say(use_i("They're all gone"))
+	await C.WhiteText.say(use_i("...the Israeli Olympic team is destroyed, much of it"))
+	await C.WhiteText.say(use_i("The Arabs, three of them, are still alive in a hospital..."))
 	
 	
 	await E.wait(3)
@@ -282,7 +301,7 @@ func play_forth_enter_sequence() -> void:
 	await mac.say("Yeah?")
 	await E.wait(2)
 	await joni.say("Did you...")
-	await joni.say("Kill him?")
+	await joni.say("Kill Cliff?")
 	
 	C.WhiteText.position = Vector2(200, 67)
 	await C.WhiteText.say("*Knock-knock*")
@@ -296,9 +315,10 @@ func play_forth_enter_sequence() -> void:
 	await harlow.say("Room 6's AC's crapped out and they're bitching like crazy")
 	
 	R.get_hotspot("Door").show()	#read in Door script after this
-	mac.timer.start()
 	
-	mac.say("It's just a little bit late, Harlow")
+	mac.can_move = true
+	mac.timer.start()
+	mac.say("It's a little bit late, Harlow")
 	
 	await Globals.mac_opened_door_to_harlow
 	
@@ -380,7 +400,7 @@ func play_forth_enter_sequence() -> void:
 	
 	await E.wait(1)
 	await evil_hit_mac()
-	await E.wait(1)
+	await E.wait(3)
 	
 	#joni shoot
 	R.get_prop("BloodSecond").show()
@@ -424,10 +444,16 @@ func play_forth_enter_sequence() -> void:
 	
 	await E.wait(1)
 	
+	joni.sprites.rot_deg = -128
+	
+	await E.wait(1)
+	
 	await pink_lady.say("Go now")
 	await mac.say("Who the fuck are you?")
 	await pink_lady.say("Who do you think?")
 	await pink_lady.say("You really need to get out of here")
+	
+	joni.set_sprite_and_rot(joni.SpshEnum.IDLE_SIT)
 	
 	await E.wait(1)
 	
@@ -438,11 +464,24 @@ func play_forth_enter_sequence() -> void:
 	
 	await Globals.mac_asks_joni_to_leave
 	
-	await C.MainSecond.say("Joni?")
-	await C.MainSecond.say("Baby, come on")
-	await C.MainSecond.say("Baby, we have to go")
+	mac.can_move = false
+	mac.timer.stop()
+	mac.sprites.rot_deg = 77
 	
+	await mac.say("Joni?")
+	await mac.say("Baby, come on")
+	await mac.say("Baby, we have to go")
+	mac.can_move = true
+	mac.timer.start()
+	
+	joni.set_sprite_and_rot(joni.SpshEnum.IDLE)
+	joni.can_move = true
+	joni.timer.start()
 	joni.follow_player = true
+	
+	R.get_hotspot("Door").show()
+	R.get_hotspot("Door").leave_room = true
+	
 
 
 func evil_hit_mac(action: Callable = func():{}):
@@ -457,6 +496,11 @@ func evil_hit_mac(action: Callable = func():{}):
 
 func use_i(text: String) -> String:
 	return "[i]%s[/i]" % text
+
+
+func fix_camera_anchor() -> void:
+	def_cam_anchor_mode = E.camera.anchor_mode
+	E.camera.anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
 
 
 func restore_camera_anchor():

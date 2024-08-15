@@ -19,7 +19,6 @@ func _on_click() -> void:
 	await C.player.walk_to_clicked()
 	
 	if Globals.visited_pool:
-		G.block()
 		await C.player.walk_to_prop(script_name)
 		R.goto_room("MotelRoom", true)
 	else:

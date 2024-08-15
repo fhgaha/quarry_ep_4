@@ -67,4 +67,8 @@ func mac_sit():
 	var mac = C.MainSecond as MainSecond
 	mac.set_sprite_and_rot(mac.SpshEnum.SIT, 33)
 	await E.wait(1)
-	
+
+
+func transition():
+	R.goto_room("MotelRoom")
+	pass
