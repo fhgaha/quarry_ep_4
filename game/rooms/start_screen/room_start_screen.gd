@@ -14,14 +14,22 @@ func _on_room_entered() -> void:
 	rot_step = 0.001
 	rot_lim  = 0.3
 	
-	await E.wait(3)
+	await E.wait(4)
 	
-	C.WhiteTextSilent.text_color = Color.DARK_ORANGE
-	await C.WhiteTextSilent.say("The Sunnyside Motel in Huttsville, Arkansas")
+	A.mx_triller.play()
+	R.get_prop("Title").show()
+	
+	await E.wait(4)
 	
 	R.get_prop("Disclaimer").show()
-	await E.wait(2)
 	
+	await E.wait(4)
+	
+	R.get_prop("BasedOnTvSeries").show()
+	
+	await E.wait(4)
+	
+	C.WhiteTextSilent.text_color = Color.DARK_ORANGE
 	await C.WhiteTextSilent.say("Click to start")
 	
 	E.in_room = true	#weird thing should not use this

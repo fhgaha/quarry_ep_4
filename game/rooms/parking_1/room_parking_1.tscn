@@ -34,7 +34,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomParking1" type="Node2D"]
-rotation = 0.00157428
+rotation = 0.000563718
 script = ExtResource("1_kg1lh")
 script_name = "Parking1"
 limit_right = 500.0
@@ -244,7 +244,7 @@ polygon = PackedVector2Array(-80.1327, -30.9104, -109.048, -91.9598, -164.086, -
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="CharacterMainParking1 *" parent="Characters" instance=ExtResource("5_hjkfk")]
-position = Vector2(152.051, 112.931)
+position = Vector2(425.08, 86.6061)
 
 [node name="CharacterMainNaked *" parent="Characters" instance=ExtResource("25_a4bsk")]
 position = Vector2(74.2772, 164.875)

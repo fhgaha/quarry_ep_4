@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://da0tyfg722r8x"]
+
+[ext_resource type="Script" path="res://game/rooms/start_screen/props/based_on_tv_series/prop_based_on_tv_series.gd" id="1_f3qg2"]
+
+[node name="BasedOnTvSeries" type="Area2D"]
+script = ExtResource("1_f3qg2")
+script_name = "BasedOnTvSeries"
+description = "Based On Tv Series"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

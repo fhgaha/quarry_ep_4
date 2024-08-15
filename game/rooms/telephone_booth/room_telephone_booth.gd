@@ -10,6 +10,8 @@ var state: Data = load("res://game/rooms/telephone_booth/room_telephone_booth.tr
 # What happens when Popochiu loads the room. At this point the room is in the
 # tree but it is not visible
 func _on_room_entered() -> void:
+	if !(A.mx_triller as AudioCueMusic).is_playing():
+		(A.mx_triller as AudioCueMusic).play()
 	
 	await E.wait(2)
 	
@@ -29,6 +31,11 @@ func _on_room_transition_finished() -> void:
 # have been removed from the $Characters node.
 func _on_room_exited() -> void:
 	C.player = C.MainParking1
-
+	
+	#doesnt work
+	#(A.mx_triller as AudioCueMusic).fade()
+	#(A.mx_triller as AudioCueMusic).fade(1.5, false, 
+		#-5, -100, Vector2.ZERO)
+	(A.mx_triller as AudioCueMusic).stop()
 
 #endregion

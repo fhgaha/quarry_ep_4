@@ -14,5 +14,6 @@ var sfx_punch: AudioCueSound = load("res://game/rooms/motel_room/audio/sfx_punch
 var vo_evil: AudioCueSound = load("res://game/characters/evil/audio/vo_evil.tres")
 var vo_pink_lady: AudioCueSound = load("res://game/characters/pink_lady/audio/vo_pink_lady.tres")
 var vo_tv: AudioCueSound = load("res://game/characters/white_text/audio/vo_tv.tres")
+var mx_triller: AudioCueMusic = load("res://game/rooms/start_screen/audio/mx_triller.tres")
 # ---- cues
 
