@@ -98,7 +98,18 @@ func _play_grab() -> void:
 
 #endregion
 
+func set_sprite_and_rot(
+	spritesheet_tp_use: SpshEnum, 
+	angle_deg: float = NAN) -> void:
+		sprites.use_spritesheet = spritesheet_tp_use
+		if !is_nan(angle_deg):
+			sprites.rot_deg = angle_deg
+
+
 func on_timeout():
+	if follow_player && C.player:
+		walk_to(C.player.position)
+	
 	if position == last_pos:
 		sprites.use_spritesheet = SpshEnum.IDLE
 	else:

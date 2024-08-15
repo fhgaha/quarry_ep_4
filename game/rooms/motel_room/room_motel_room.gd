@@ -460,6 +460,7 @@ func play_forth_enter_sequence() -> void:
 	R.get_prop("FightMacLayFirst").hide()
 	mac.show()
 	mac.can_move = true
+	mac.timer.start()
 	Globals.is_after_fight = true
 	
 	await Globals.mac_asks_joni_to_leave
@@ -474,14 +475,18 @@ func play_forth_enter_sequence() -> void:
 	mac.can_move = true
 	mac.timer.start()
 	
+	joni.hide()
+	C.JoniSecond.position = joni.position
+	joni = C.JoniSecond as JoniSecondCharacter
+	
 	joni.set_sprite_and_rot(joni.SpshEnum.IDLE)
 	joni.can_move = true
 	joni.timer.start()
 	joni.follow_player = true
+	joni.show()
 	
 	R.get_hotspot("Door").show()
 	R.get_hotspot("Door").leave_room = true
-	
 
 
 func evil_hit_mac(action: Callable = func():{}):
