@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AudioCueSound" load_steps=3 format=3 uid="uid://foo0sptmk2ul"]
+
+[ext_resource type="AudioStream" uid="uid://cb8gwgpkac7i5" path="res://game/rooms/motel_room/audio/sfx_gun.ogg" id="1_7m2rq"]
+[ext_resource type="Script" path="res://addons/popochiu/engine/audio_manager/audio_cue_sound.gd" id="2_evb6r"]
+
+[resource]
+resource_name = "sfx_gun"
+script = ExtResource("2_evb6r")
+audio = ExtResource("1_7m2rq")
+loop = false
+is_2d = true
+can_play_simultaneous = true
+pitch = 0.0
+volume = 0.0
+rnd_pitch = Vector2(0, 0)
+rnd_volume = Vector2(0, 0)
+max_distance = 2000
+bus = "Master"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AudioCueSound" load_steps=3 format=3 uid="uid://bfkm50tnsu4os"]
+
+[ext_resource type="AudioStream" uid="uid://7m2ytq74488r" path="res://game/characters/pink_lady/audio/vo_pink_lady.ogg" id="1_xxfdx"]
+[ext_resource type="Script" path="res://addons/popochiu/engine/audio_manager/audio_cue_sound.gd" id="2_bwctw"]
+
+[resource]
+resource_name = "vo_pink_lady"
+script = ExtResource("2_bwctw")
+audio = ExtResource("1_xxfdx")
+loop = false
+is_2d = false
+can_play_simultaneous = true
+pitch = 0.0
+volume = 0.0
+rnd_pitch = Vector2(0, 0)
+rnd_volume = Vector2(0, 0)
+max_distance = 2000
+bus = "Master"

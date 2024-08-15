@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://crdfoo0f47lld"]
+[gd_scene load_steps=53 format=3 uid="uid://crdfoo0f47lld"]
 
 [ext_resource type="Script" path="res://game/rooms/motel_room/room_motel_room.gd" id="1_k1kh2"]
 [ext_resource type="PackedScene" uid="uid://o12irhxyt0iy" path="res://game/rooms/motel_room/walkable_areas/walk_area/walkable_area_walk_area.tscn" id="2_5l4p8"]
@@ -50,6 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://ead2jqx4e53u" path="res://game/rooms/motel_room/markers/fight_mac_lay_third/marker_fight_mac_lay_third.tscn" id="39_hgg4w"]
 [ext_resource type="PackedScene" uid="uid://ccgk4b0erp16s" path="res://game/rooms/motel_room/markers/fight_mac_lay_forth/marker_fight_mac_lay_forth.tscn" id="41_an82d"]
 [ext_resource type="PackedScene" uid="uid://bpttp5no68ya3" path="res://game/characters/evil/character_evil.tscn" id="44_c36i6"]
+[ext_resource type="PackedScene" uid="uid://yg443425gawx" path="res://game/characters/white_text_silent/character_white_text_silent.tscn" id="51_tw5dt"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_s2r7m"]
 vertices = PackedVector2Array(5, -4, -13, 1, -8, -11, 3, -19, 40, 37, -4, 53, -5, 46, 20, 37, 38, 27, 29, 29, 19, -3, 3, -26, 17, -31, 26, -9)
@@ -59,7 +60,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomMotelRoom" type="Node2D"]
-rotation = -0.000492197
+rotation = 0.000350796
 script = ExtResource("1_k1kh2")
 script_name = "MotelRoom"
 popochiu_placeholder = null
@@ -318,9 +319,6 @@ position = Vector2(177.15, 122.741)
 [node name="CharacterMainHotelRoom *" parent="Characters" instance=ExtResource("16_nnutn")]
 position = Vector2(192.042, 68.785)
 
-[node name="CharacterWhiteText *" parent="Characters" instance=ExtResource("18_cnokf")]
-position = Vector2(203.115, 68.6619)
-
 [node name="CharacterMainSecond *" parent="Characters" instance=ExtResource("22_splin")]
 position = Vector2(190.052, 91.8929)
 
@@ -335,3 +333,9 @@ position = Vector2(136.909, 87.1432)
 
 [node name="CharacterEvil *" parent="Characters" instance=ExtResource("44_c36i6")]
 position = Vector2(219.15, 121.731)
+
+[node name="CharacterWhiteText *" parent="Characters" instance=ExtResource("18_cnokf")]
+position = Vector2(220.997, 91.0077)
+
+[node name="CharacterWhiteTextSilent *" parent="Characters" instance=ExtResource("51_tw5dt")]
+position = Vector2(202.912, 67.2646)

@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpttp5no68ya3"]
+[gd_scene load_steps=3 format=3 uid="uid://bpttp5no68ya3"]
 
 [ext_resource type="Script" path="res://game/characters/evil/character_evil.gd" id="1_vq16o"]
+[ext_resource type="Resource" uid="uid://c5hs463r7eyvf" path="res://game/characters/evil/audio/vo_evil.tres" id="2_sofgg"]
 
 [node name="CharacterEvil" type="Area2D"]
 script = ExtResource("1_vq16o")
 text_color = Color(0.93, 0.155, 0, 1)
+voices = [{
+"emotion": "",
+"variations": Array[Resource("res://addons/popochiu/engine/audio_manager/audio_cue_sound.gd")]([ExtResource("2_sofgg")])
+}]
 can_move = false
 popochiu_placeholder = null
 script_name = "Evil"

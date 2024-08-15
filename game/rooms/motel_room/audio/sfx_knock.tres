@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AudioCueSound" load_steps=3 format=3 uid="uid://c35csj5wpi75t"]
+
+[ext_resource type="AudioStream" uid="uid://div7yg7ixw1ea" path="res://game/rooms/motel_room/audio/sfx_knock.ogg" id="1_g7td6"]
+[ext_resource type="Script" path="res://addons/popochiu/engine/audio_manager/audio_cue_sound.gd" id="2_wpfu0"]
+
+[resource]
+resource_name = "sfx_knock"
+script = ExtResource("2_wpfu0")
+audio = ExtResource("1_g7td6")
+loop = false
+is_2d = true
+can_play_simultaneous = true
+pitch = 0.0
+volume = 0.0
+rnd_pitch = Vector2(0, 0)
+rnd_volume = Vector2(0, 0)
+max_distance = 2000
+bus = "Master"

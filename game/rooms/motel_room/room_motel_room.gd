@@ -67,7 +67,7 @@ func play_enter_sequence() -> void:
 	await E.wait(4)
 	
 	await C.WhiteText.say("*Click - click*")
-	C.WhiteText.position = R.get_hotspot("Tv").position + Vector2(0, -20)
+	#C.WhiteText.position = R.get_hotspot("Tv").position + Vector2(0, -20)
 	
 	joni.sprites.use_spritesheet = joni.SpshEnum.HIDE_GUN
 	await E.wait(1)
@@ -303,8 +303,9 @@ func play_forth_enter_sequence() -> void:
 	await joni.say("Did you...")
 	await joni.say("Kill Cliff?")
 	
-	C.WhiteText.position = Vector2(200, 67)
-	await C.WhiteText.say("*Knock-knock*")
+	#C.WhiteText.position = Vector2(200, 67)
+	await C.WhiteTextSilent.say("*Knock-knock*")
+	A.sfx_knock.play()
 	
 	harlow.position = R.get_marker_position("DoorEnter")
 	harlow.sprites.rot_deg = -10
@@ -333,6 +334,8 @@ func play_forth_enter_sequence() -> void:
 	
 	#killing harlow
 	R.get_prop("BloodFirst").show()
+	
+	A.sfx_gun.play()
 	
 	await E.wait(1)
 	
@@ -404,6 +407,8 @@ func play_forth_enter_sequence() -> void:
 	
 	#joni shoot
 	R.get_prop("BloodSecond").show()
+	A.sfx_gun.play()
+	
 	await E.wait(0.5)
 	await C.Evil.say("[shake]Hargh![/shake]")
 	
@@ -429,6 +434,11 @@ func play_forth_enter_sequence() -> void:
 	#shoots
 	
 	R.get_prop("BloodThird").show()
+	A.sfx_gun.play()
+	await E.wait(0.2)
+	A.sfx_gun.play()
+	await E.wait(0.4)
+	A.sfx_gun.play()
 	
 	await E.wait(1)
 	
@@ -493,6 +503,7 @@ func evil_hit_mac(action: Callable = func():{}):
 	R.get_prop("FightHitSecond").hide()
 	R.get_prop("FightHitFirst" ).show()
 	await E.wait(0.2)
+	A.sfx_punch.play()
 	R.get_prop("FightHitSecond").show()
 	R.get_prop("FightHitFirst" ).hide()
 	
