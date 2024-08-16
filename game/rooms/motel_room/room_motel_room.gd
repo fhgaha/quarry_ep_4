@@ -21,21 +21,18 @@ func _on_room_entered() -> void:
 	C.PinkLady.hide()
 	C.Harlow.hide()
 	C.MainSecond.hide()
+	if C.MainParking1:
+		C.MainParking1.hide()
+	C.player = null
 	R.get_hotspot("Door").hide()
 	
 	match Globals.motel_room_entered_times:
-		0:
-			C.player = C.MainHotelRoom
-			if C.MainNaked: C.MainNaked.hide()
-			play_enter_sequence()
-		1:
-			play_second_enter_sequence()
-		2:
-			play_third_enter_sequence()
-		3:
-			play_forth_enter_sequence()
-		_:
-			pass
+		0: play_enter_sequence()
+		1: play_second_enter_sequence()
+		2: play_third_enter_sequence()
+		3: play_forth_enter_sequence()
+		_: pass
+	
 	Globals.motel_room_entered_times += 1
 
 
@@ -57,6 +54,8 @@ func _on_room_exited() -> void:
 #endregion
 
 func play_enter_sequence() -> void:
+	R.get_hotspot("Tv").hide()
+	C.player = C.MainHotelRoom
 	var mac  := C.player as CharacterMainNakedHotelRoom
 	var joni := C.Joni   as JoniMotelRoom
 	
@@ -66,8 +65,7 @@ func play_enter_sequence() -> void:
 	
 	await E.wait(4)
 	
-	await C.WhiteText.say("*Click - click*")
-	#C.WhiteText.position = R.get_hotspot("Tv").position + Vector2(0, -20)
+	await C.WhiteTextSilent.say("*Click-click*")
 	
 	joni.sprites.use_spritesheet = joni.SpshEnum.HIDE_GUN
 	await E.wait(1)
@@ -111,6 +109,8 @@ func play_enter_sequence() -> void:
 	mac.timer.start()
 	
 	D.MacJoniHotelRoomFirst.start()
+	
+	R.get_hotspot("Tv").show()
 
 
 func play_second_enter_sequence() -> void:

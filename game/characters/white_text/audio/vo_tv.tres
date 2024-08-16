@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="AudioCueSound" load_steps=3 format=3 uid="uid://brtrcv8lk81c8"]
+[gd_resource type="Resource" script_class="AudioCueSound" load_steps=3 format=3 uid="uid://b4j2jn4r3d00j"]
 
-[ext_resource type="AudioStream" uid="uid://c15b3yfed2w5m" path="res://game/characters/white_text/audio/vo_tv.ogg" id="1_ahj1o"]
+[ext_resource type="AudioStream" uid="uid://bm5jn77tcpfhs" path="res://game/characters/white_text/audio/vo_tv.ogg" id="1_ahj1o"]
 [ext_resource type="Script" path="res://addons/popochiu/engine/audio_manager/audio_cue_sound.gd" id="2_e0a4c"]
 
 [resource]
