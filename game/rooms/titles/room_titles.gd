@@ -14,6 +14,7 @@ func _on_room_entered() -> void:
 	
 	await E.wait(4)
 	C.WhiteText.say("Thanks for playing \nThe Sunnyside Motel in Huttsville, Arkansas")
+	C.WhiteText.say("The End")
 
 
 # What happens when the room changing transition finishes. At this point the room

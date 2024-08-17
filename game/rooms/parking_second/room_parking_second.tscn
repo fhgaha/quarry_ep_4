@@ -24,7 +24,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomParkingSecond" type="Node2D"]
-rotation = 0.000443311
+rotation = 0.000635299
 script = ExtResource("1_smsr8")
 script_name = "ParkingSecond"
 popochiu_placeholder = null

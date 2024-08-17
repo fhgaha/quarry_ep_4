@@ -33,7 +33,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomParking1" type="Node2D"]
-rotation = 0.00104195
+rotation = 0.000570704
 script = ExtResource("1_kg1lh")
 script_name = "Parking1"
 limit_right = 500.0
