@@ -7,7 +7,7 @@ func _on_character_entered(chr: PopochiuCharacter) -> void:
 	# character enters the area.
 	#chr.modulate = tint
 	
-	if !Globals.noticed_pool_there:
+	if !Globals.noticed_pool_there && chr == C.MainParking1:
 		Globals.noticed_pool_there = true
 		chr.stop_walking()
 		chr.say("Wait a minute! Is that a pool there?")
