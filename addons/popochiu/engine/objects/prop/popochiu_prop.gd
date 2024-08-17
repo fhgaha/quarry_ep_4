@@ -39,13 +39,6 @@ signal linked_item_discarded(item: PopochiuInventoryItem)
 @onready var _sprite: Sprite2D = $Sprite2D
 
 @export var angle_deg: float:
-	#get: 
-		#var sprt = find_child("Sprite2D") as StackedSprites
-		#if sprt:
-			#angle_deg = sprt.rot_deg
-			#return sprt.rot_deg
-		#angle_deg = 0
-		#return 0
 	set(val): 
 		var sprt = find_child("Sprite2D") as StackedSprites
 		if sprt:

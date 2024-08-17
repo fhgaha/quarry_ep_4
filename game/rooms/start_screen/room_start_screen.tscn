@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://game/rooms/start_screen/room_start_screen.gd" id="1_2leop"]
 [ext_resource type="PackedScene" uid="uid://dwl24pbx6rid1" path="res://game/rooms/start_screen/props/bg/prop_bg.tscn" id="2_nusb7"]
-[ext_resource type="Texture2D" uid="uid://bcqd0x535dha0" path="res://assets/img/start_screen/start_screen.png" id="3_l14xc"]
 [ext_resource type="PackedScene" uid="uid://dlbj6pq6pqjbw" path="res://game/rooms/start_screen/props/disclaimer/prop_disclaimer.tscn" id="4_a8a70"]
 [ext_resource type="PackedScene" uid="uid://yg443425gawx" path="res://game/characters/white_text_silent/character_white_text_silent.tscn" id="4_gdaqc"]
 [ext_resource type="Texture2D" uid="uid://djop2o1mvhbaw" path="res://assets/img/start_screen/disclaimer.png" id="5_0283i"]
@@ -12,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://65bu0sxsvrwu" path="res://assets/img/start_screen/based_on.png" id="7_vsh27"]
 [ext_resource type="PackedScene" uid="uid://d2ddvka33nj2o" path="res://game/rooms/start_screen/props/title/prop_title.tscn" id="8_4pyhu"]
 [ext_resource type="Texture2D" uid="uid://cu0mndna2oeo1" path="res://assets/img/start_screen/title.png" id="9_kjpdj"]
+[ext_resource type="PackedScene" uid="uid://4n5svlv3ysd1" path="res://game/rooms/start_screen/props/test/prop_test.tscn" id="10_1r0hq"]
 
 [node name="RoomStartScreen" type="Node2D"]
 rotation = 0.000486946
@@ -25,25 +25,33 @@ popochiu_placeholder = null
 
 [node name="Bg" parent="Props" instance=ExtResource("2_nusb7")]
 position = Vector2(160, 90)
-texture = ExtResource("3_l14xc")
+baseline = -151
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Disclaimer" parent="Props" instance=ExtResource("4_a8a70")]
 visible = false
 position = Vector2(160, 90)
 texture = ExtResource("5_0283i")
+baseline = -130
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="BasedOnTvSeries" parent="Props" instance=ExtResource("6_klk0n")]
 visible = false
 position = Vector2(160, 90)
 texture = ExtResource("7_vsh27")
+baseline = -120
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Title" parent="Props" instance=ExtResource("8_4pyhu")]
 visible = false
 position = Vector2(160, 90)
 texture = ExtResource("9_kjpdj")
+baseline = -92
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Test" parent="Props" instance=ExtResource("10_1r0hq")]
+visible = false
+position = Vector2(160, 90)
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Hotspots" type="Node2D" parent="."]

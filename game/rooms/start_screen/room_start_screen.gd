@@ -10,6 +10,7 @@ var sprite : PopochiuProp
 # What happens when Popochiu loads the room. At this point the room is in the
 # tree but it is not visible
 func _on_room_entered() -> void:
+	RenderingServer.set_default_clear_color(Color.BLACK)
 	sprite = R.get_prop("Bg") as PopochiuProp
 	rot_step = 0.001
 	rot_lim  = 0.3
