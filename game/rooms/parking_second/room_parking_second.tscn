@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://d3s3h7yj2k6tw"]
+[gd_scene load_steps=17 format=3 uid="uid://d3s3h7yj2k6tw"]
 
 [ext_resource type="Script" path="res://game/rooms/parking_second/room_parking_second.gd" id="1_smsr8"]
 [ext_resource type="PackedScene" uid="uid://kumdi2hgii7" path="res://game/rooms/parking_second/walkable_areas/area_1/walkable_area_area_1.tscn" id="2_8ot18"]
 [ext_resource type="PackedScene" uid="uid://rgkp4xgms6k3" path="res://game/rooms/parking_second/props/floor/prop_floor.tscn" id="2_n2wc2"]
-[ext_resource type="Texture2D" uid="uid://bygko0inmh2vo" path="res://assets/aseprite/parking/parking2.png" id="3_mmadw"]
 [ext_resource type="PackedScene" uid="uid://cow04g8tbyaih" path="res://game/rooms/parking_second/props/motel_house/prop_motel_house.tscn" id="4_g3f38"]
 [ext_resource type="PackedScene" uid="uid://cniwsjwybyfj6" path="res://game/rooms/parking_second/props/roof/prop_roof.tscn" id="5_6hrs2"]
 [ext_resource type="Texture2D" uid="uid://c64ndbi0086km" path="res://assets/img/props/motel_house_cashier/motel_house_cashier-1.png" id="6_sjxay"]
@@ -25,7 +24,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomParkingSecond" type="Node2D"]
-rotation = 0.00169124
+rotation = 0.000443311
 script = ExtResource("1_smsr8")
 script_name = "ParkingSecond"
 popochiu_placeholder = null
@@ -45,7 +44,6 @@ navigation_polygon = SubResource("NavigationPolygon_of20i")
 
 [node name="Floor" parent="Props" instance=ExtResource("2_n2wc2")]
 position = Vector2(174.146, 250.899)
-texture = ExtResource("3_mmadw")
 baseline = -324
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 

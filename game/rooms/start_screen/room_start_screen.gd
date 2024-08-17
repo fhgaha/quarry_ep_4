@@ -35,6 +35,7 @@ func _on_room_entered() -> void:
 	
 	E.in_room = true	#weird thing should not use this
 	R.goto_room("TelephoneBooth", false)
+	
 	C.WhiteTextSilent.text_color = Color.WHITE
 
 

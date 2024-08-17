@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://c8wgplwxmagnq"]
+[gd_scene load_steps=19 format=3 uid="uid://c8wgplwxmagnq"]
 
 [ext_resource type="Script" path="res://game/rooms/pool_first/room_pool_first.gd" id="1_ie57w"]
 [ext_resource type="PackedScene" uid="uid://cglg0k63dulwj" path="res://game/rooms/pool_first/walkable_areas/area_first/walkable_area_area_first.tscn" id="2_uyq5k"]
 [ext_resource type="PackedScene" uid="uid://d4mdm7eesk0t1" path="res://game/rooms/pool_first/props/floor/prop_floor.tscn" id="2_w6vcp"]
-[ext_resource type="Texture2D" uid="uid://cmvn443w8ev4a" path="res://assets/img/props/pool_room/pool_room.png" id="3_3psk0"]
 [ext_resource type="PackedScene" uid="uid://bf4svft3ko24h" path="res://game/rooms/pool_first/props/fence_first/prop_fence_first.tscn" id="4_2lab0"]
 [ext_resource type="PackedScene" uid="uid://dk1epik5klynj" path="res://game/characters/main_parking_1/character_main_parking_1.tscn" id="4_na186"]
 [ext_resource type="PackedScene" uid="uid://c22uvdi4ufato" path="res://game/rooms/pool_first/props/door/prop_door.tscn" id="5_jnofi"]
@@ -27,7 +26,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [node name="RoomPoolFirst" type="Node2D"]
-rotation = -0.00117462
+rotation = -0.0016162
 script = ExtResource("1_ie57w")
 script_name = "PoolFirst"
 popochiu_placeholder = null
@@ -38,6 +37,7 @@ popochiu_placeholder = null
 position = Vector2(160, 90)
 
 [node name="Perimeter" type="NavigationRegion2D" parent="WalkableAreas/AreaFirst"]
+visible = false
 modulate = Color(0, 1, 0, 1)
 navigation_polygon = SubResource("NavigationPolygon_hvu8b")
 
@@ -46,7 +46,6 @@ navigation_polygon = SubResource("NavigationPolygon_hvu8b")
 [node name="Floor" parent="Props" instance=ExtResource("2_w6vcp")]
 z_index = -1
 position = Vector2(192, 192)
-texture = ExtResource("3_3psk0")
 baseline = -203
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 

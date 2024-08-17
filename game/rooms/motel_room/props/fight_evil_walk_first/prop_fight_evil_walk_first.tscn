@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bt6hsxkk6e3dq"]
 
 [ext_resource type="Script" path="res://game/rooms/motel_room/props/fight_evil_walk_first/prop_fight_evil_walk_first.gd" id="1_6me0f"]
-[ext_resource type="Texture2D" uid="uid://dhq13r5tl6gob" path="res://assets/img/end_fighting/end_fighting-4-0.png" id="2_8npcl"]
+[ext_resource type="Texture2D" uid="uid://cgvaxkwk3ralu" path="res://assets/img/end_fighting/end_fighting-2.png" id="2_2bibv"]
 [ext_resource type="Script" path="res://my_stuff/stacked_sprites/stacked_sprites.gd" id="3_qf56m"]
 
 [node name="FightEvilWalkFirst" type="Area2D"]
@@ -13,16 +13,17 @@ cursor = 1
 interaction_polygon = PackedVector2Array()
 
 [node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -20)
-texture = ExtResource("2_8npcl")
+texture = ExtResource("2_2bibv")
 vframes = 20
 script = ExtResource("3_qf56m")
 from_goxel = false
 frames = 20
-sheets = Array[Texture]([ExtResource("2_8npcl")])
+sheets = Array[Texture]([ExtResource("2_2bibv")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

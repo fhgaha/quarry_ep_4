@@ -21,8 +21,8 @@ func _on_room_entered() -> void:
 	C.PinkLady.hide()
 	C.Harlow.hide()
 	C.MainSecond.hide()
-	if C.MainParking1:
-		C.MainParking1.hide()
+	if C.MainParking1: C.MainParking1.hide()
+	if C.MainNaked:    C.MainNaked.hide()
 	C.player = null
 	R.get_hotspot("Door").hide()
 	
@@ -256,6 +256,7 @@ func play_forth_enter_sequence() -> void:
 	mac.set_sprite_and_rot(mac.SpshEnum.SIT_BACK, -39)
 	mac.show()
 	mac.can_move = false
+	mac.position = R.get_marker_position("ChairSit")
 	joni.set_sprite_and_rot(joni.SpshEnum.IDLE_SIT, -113)
 	
 	R.get_prop("TvOff").hide()

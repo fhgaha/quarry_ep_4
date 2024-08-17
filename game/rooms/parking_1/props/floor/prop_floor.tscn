@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cfokoju42q611"]
 
 [ext_resource type="Script" path="res://game/rooms/parking_1/props/floor/prop_floor.gd" id="1_efx5p"]
-[ext_resource type="Texture2D" uid="uid://b2envhtnklots" path="res://game/rooms/parking_1/props/floor/floor.png" id="2_sy0lp"]
+[ext_resource type="Texture2D" uid="uid://bygko0inmh2vo" path="res://assets/aseprite/parking/parking2.png" id="2_pb52o"]
 
 [sub_resource type="Animation" id="Animation_ps77c"]
 length = 0.1
@@ -76,7 +76,7 @@ polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_sy0lp")
+texture = ExtResource("2_pb52o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
