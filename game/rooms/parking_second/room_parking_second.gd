@@ -16,6 +16,8 @@ func _on_room_entered() -> void:
 	run_start_sequence()
 
 func run_start_sequence():
+	if C.MainParking1:
+		C.MainParking1.hide()
 	var mac = C.MainSecond as MainSecond
 	var joni = C.JoniSecond
 	C.player = mac

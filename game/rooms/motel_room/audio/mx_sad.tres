@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AudioCueMusic" load_steps=3 format=3 uid="uid://k18e2bcbo4q1"]
+
+[ext_resource type="AudioStream" uid="uid://b1g5njksahf0u" path="res://game/rooms/motel_room/audio/mx_sad.ogg" id="1_d6reo"]
+[ext_resource type="Script" path="res://addons/popochiu/engine/audio_manager/audio_cue_music.gd" id="2_kc3yi"]
+
+[resource]
+resource_name = "mx_sad"
+script = ExtResource("2_kc3yi")
+audio = ExtResource("1_d6reo")
+loop = false
+is_2d = true
+can_play_simultaneous = true
+pitch = 0.0
+volume = -10.0
+rnd_pitch = Vector2(0, 0)
+rnd_volume = Vector2(0, 0)
+max_distance = 2000
+bus = "Master"

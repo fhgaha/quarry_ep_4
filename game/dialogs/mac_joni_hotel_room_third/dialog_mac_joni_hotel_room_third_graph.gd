@@ -71,4 +71,7 @@ func mac_sit():
 
 func transition():
 	R.goto_room("MotelRoom")
-	pass
+
+
+func start_sad_music(): (A.mx_sad as AudioCueMusic).fade()
+func stop_sad_music() : (A.mx_sad as AudioCueMusic).stop()

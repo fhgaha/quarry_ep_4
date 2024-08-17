@@ -85,7 +85,7 @@ func do_after_dialogue():
 	
 	#C.WhiteText.position = R.get_prop("DoorMainClosed").position
 	await C.WhiteTextSilent.say("*Knock-knock*")
-	A.sfx_knock.say()
+	A.sfx_knock.play()
 	
 	#mac walks away
 	mac.walk_speed = 30
