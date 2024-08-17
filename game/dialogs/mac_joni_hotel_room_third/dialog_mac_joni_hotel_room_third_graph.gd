@@ -67,4 +67,11 @@ func mac_sit():
 	var mac = C.MainSecond as MainSecond
 	mac.set_sprite_and_rot(mac.SpshEnum.SIT, 33)
 	await E.wait(1)
-	
+
+
+func transition():
+	R.goto_room("MotelRoom")
+
+
+func start_sad_music(): (A.mx_sad as AudioCueMusic).fade()
+func stop_sad_music() : (A.mx_sad as AudioCueMusic).stop()

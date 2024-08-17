@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="quarry_ep_4"
-run/main_scene="res://game/rooms/telephone_booth/room_telephone_booth.tscn"
+run/main_scene="res://game/rooms/start_screen/room_start_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 run/max_fps=60
 boot_splash/show_image=false

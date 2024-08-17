@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcu2hnktr5tc7"]
+[gd_scene load_steps=3 format=3 uid="uid://bcu2hnktr5tc7"]
 
 [ext_resource type="Script" path="res://game/characters/white_text/character_white_text.gd" id="1_wac02"]
+[ext_resource type="Resource" uid="uid://brtrcv8lk81c8" path="res://game/characters/white_text/audio/vo_tv.tres" id="2_02erf"]
 
 [node name="CharacterWhiteText" type="Area2D"]
 script = ExtResource("1_wac02")
+voices = [{
+"emotion": "",
+"variations": Array[Resource("res://addons/popochiu/engine/audio_manager/audio_cue_sound.gd")]([ExtResource("2_02erf")])
+}]
 can_move = false
 popochiu_placeholder = null
 script_name = "WhiteText"

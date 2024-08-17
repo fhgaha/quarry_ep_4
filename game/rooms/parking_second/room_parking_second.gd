@@ -16,19 +16,24 @@ func _on_room_entered() -> void:
 	run_start_sequence()
 
 func run_start_sequence():
+	if C.MainParking1:
+		C.MainParking1.hide()
 	var mac = C.MainSecond as MainSecond
 	var joni = C.JoniSecond
-	
 	C.player = mac
-	mac.timer.stop()
-	mac.can_move = false
-	
-	#joni appears
 	joni.sprites.rot_deg = -17
 	joni.hide()
+	
+	mac.timer.stop()
+	mac.can_move = false
+	mac.set_sprite_and_rot(mac.SpshEnum.SIT_BACK, -50)
+	
+	await E.wait(4)
+	
+	#joni appears
 	await E.wait(1)
 	joni.show()
-	await E.wait(2)
+	await E.wait(3)
 	
 	#joni walks to the chair
 	joni.timer.start()

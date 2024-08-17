@@ -89,6 +89,7 @@ func _on_click() -> void:
 	await harlow.say("What are you doing, son?")
 	await harlow.say("Didn't you see the sign?")
 	D.PoolMacHarlowFirst.start()
+	R.get_hotspot("RoomExit").show()
 
 
 func _on_double_click() -> void:

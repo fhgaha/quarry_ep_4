@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://4n5svlv3ysd1"]
+
+[ext_resource type="Script" path="res://game/rooms/start_screen/props/test/prop_test.gd" id="1_oqsc2"]
+
+[sub_resource type="Gradient" id="Gradient_60j8e"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.717647, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_afh1a"]
+gradient = SubResource("Gradient_60j8e")
+width = 315
+height = 175
+
+[node name="Test" type="Area2D"]
+script = ExtResource("1_oqsc2")
+script_name = "Test"
+description = "Test"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("GradientTexture2D_afh1a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

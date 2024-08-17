@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4mdm7eesk0t1"]
+[gd_scene load_steps=3 format=3 uid="uid://d4mdm7eesk0t1"]
 
 [ext_resource type="Script" path="res://game/rooms/pool_first/props/floor/prop_floor.gd" id="1_a8fnh"]
+[ext_resource type="Texture2D" uid="uid://cmvn443w8ev4a" path="res://assets/img/props/pool_room/pool_room.png" id="2_vedrn"]
 
 [node name="Floor" type="Area2D"]
 script = ExtResource("1_a8fnh")
@@ -11,9 +12,11 @@ cursor = 1
 interaction_polygon = PackedVector2Array()
 
 [node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+texture = ExtResource("2_vedrn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

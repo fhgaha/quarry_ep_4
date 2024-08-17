@@ -14,6 +14,7 @@ const PCJoniSecond := preload("res://game/characters/joni_second/character_joni_
 const PCCleaningLady := preload("res://game/characters/cleaning_lady/character_cleaning_lady.gd")
 const PCPinkLady := preload("res://game/characters/pink_lady/character_pink_lady.gd")
 const PCEvil := preload("res://game/characters/evil/character_evil.gd")
+const PCWhiteTextSilent := preload("res://game/characters/white_text_silent/character_white_text_silent.gd")
 # ---- classes
 
 # nodes ----
@@ -29,6 +30,7 @@ var JoniSecond: PCJoniSecond : get = get_JoniSecond
 var CleaningLady: PCCleaningLady : get = get_CleaningLady
 var PinkLady: PCPinkLady : get = get_PinkLady
 var Evil: PCEvil : get = get_Evil
+var WhiteTextSilent: PCWhiteTextSilent : get = get_WhiteTextSilent
 # ---- nodes
 
 # functions ----
@@ -44,5 +46,6 @@ func get_JoniSecond() -> PCJoniSecond: return get_runtime_character("JoniSecond"
 func get_CleaningLady() -> PCCleaningLady: return get_runtime_character("CleaningLady")
 func get_PinkLady() -> PCPinkLady: return get_runtime_character("PinkLady")
 func get_Evil() -> PCEvil: return get_runtime_character("Evil")
+func get_WhiteTextSilent() -> PCWhiteTextSilent: return get_runtime_character("WhiteTextSilent")
 # ---- functions
 

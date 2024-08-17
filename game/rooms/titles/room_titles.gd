@@ -12,8 +12,9 @@ var state: Data = load("res://game/rooms/titles/room_titles.tres")
 func _on_room_entered() -> void:
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	
-	await E.wait(1)
+	await E.wait(4)
 	C.WhiteText.say("Thanks for playing \nThe Sunnyside Motel in Huttsville, Arkansas")
+	C.WhiteText.say("The End")
 
 
 # What happens when the room changing transition finishes. At this point the room

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwl24pbx6rid1"]
+
+[ext_resource type="Script" path="res://game/rooms/start_screen/props/bg/prop_bg.gd" id="1_23mjb"]
+[ext_resource type="Texture2D" uid="uid://bcqd0x535dha0" path="res://assets/img/start_screen/start_screen.png" id="2_gjsqc"]
+
+[node name="Bg" type="Area2D"]
+z_index = -1
+script = ExtResource("1_23mjb")
+script_name = "Bg"
+description = "Bg"
+clickable = false
+baseline = -90
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_gjsqc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -65,4 +65,4 @@ func evaluate(command, variable_names = [], variable_values = []) -> void:
 func transition():
 	await E.wait(2)
 	R.current.restore_camera_anchor()
-	R.goto_room("Parking1")
+	R.goto_room("ParkingSecond")

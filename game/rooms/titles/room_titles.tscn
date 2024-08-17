@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bcu2hnktr5tc7" path="res://game/characters/white_text/character_white_text.tscn" id="2_3q704"]
 
 [node name="RoomTitles" type="Node2D"]
-rotation = 0.000916304
+rotation = -0.00013788
 script = ExtResource("1_m4wto")
 script_name = "Titles"
 popochiu_placeholder = null

@@ -14,7 +14,7 @@ func _on_click() -> void:
 	mac.sprites.rot_deg = 260
 	R.get_prop("TvOff").hide()
 	R.get_prop("TvOn").show()
-	C.WhiteText.position = Vector2(211, 73)
+	#C.WhiteText.position = Vector2(211, 73)
 	await E.wait(1)
 	mac.walk_to_marker("MacSit")
 	await E.wait(1)

@@ -11,6 +11,7 @@ var player_enter_room_pos : Vector2
 # What happens when Popochiu loads the room. At this point the room is in the
 # tree but it is not visible
 func _on_room_entered() -> void:
+	Globals.visited_pool = true
 	player_enter_room_pos = R.get_hotspot("RoomExit").position
 	C.player = C.MainParking1
 	E.camera_zoom(1.0 * Vector2.ONE, 0.1)

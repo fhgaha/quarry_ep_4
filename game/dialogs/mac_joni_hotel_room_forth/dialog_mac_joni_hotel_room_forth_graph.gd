@@ -83,8 +83,9 @@ func do_after_dialogue():
 	pink_lady.set_sprite_and_rot(pink_lady.SpshEnum.IDLE, 15)
 	pink_lady.show()
 	
-	C.WhiteText.position = R.get_prop("DoorMainClosed").position
-	await C.WhiteText.say("*Knock-knock*")
+	#C.WhiteText.position = R.get_prop("DoorMainClosed").position
+	await C.WhiteTextSilent.say("*Knock-knock*")
+	A.sfx_knock.play()
 	
 	#mac walks away
 	mac.walk_speed = 30
@@ -109,3 +110,4 @@ func do_after_dialogue():
 	await pink_lady.say("It doesn't sound like it's fine...")
 	
 	#transition
+	R.goto_room("MotelRoom")

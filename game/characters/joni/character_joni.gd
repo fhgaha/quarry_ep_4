@@ -30,7 +30,7 @@ func _on_click() -> void:
 #	await C.player.face_clicked()
 #	await C.player.say("Hi!")
 	if Globals.is_after_fight:
-		await C.MainSecond.walk_to(position)
+		await C.MainSecond.walk_to(R.get_marker_position("MacEnter3"))
 		Globals.mac_asks_joni_to_leave.emit()
 		
 

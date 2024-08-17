@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c7yc50wojxowh"]
+
+[ext_resource type="Script" path="res://game/characters/white_text_silent/character_white_text_silent_state.gd" id="1_w0f2h"]
+
+[resource]
+resource_name = "WhiteTextSilent"
+script = ExtResource("1_w0f2h")
+script_name = "WhiteTextSilent"
+scene = "res://game/characters/white_text_silent/character_white_text_silent.tscn"

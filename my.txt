@@ -1,1 +1,13 @@
+Room #3 at the Sunnyside Motel in Huttsville, Arkansas
 The Sunnyside Motel in Huttsville, Arkansas
+
+[v] pink lady voice
+[v] evil guy voice
+[v] tv / white text voice
+[v] smack face sfx
+[v] knock a door sfx
+[ ] ambient calm
+[ ] ambient unpleasant
+[ ] tv italic font
+[v] start screen
+[ ] hide ui
